@@ -1,0 +1,57 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_Layers":"/rst_ps7_0_100M_peripheral_aresetn:true|/processing_system7_0_FCLK_CLK0:true|/processing_system7_0_FCLK_RESET0_N:true|",
+   "Default View_ScaleFactor":"0.796771",
+   "Default View_TopLeft":"261,439",
+   "Display-PortTypeClock":"true",
+   "Display-PortTypeReset":"true",
+   "ExpandedHierarchyInLayout":"",
+   "Interfaces View_Layers":"/rst_ps7_0_100M_peripheral_aresetn:false|/processing_system7_0_FCLK_RESET0_N:false|/processing_system7_0_FCLK_CLK0:false|",
+   "Interfaces View_ScaleFactor":"0.685125",
+   "Interfaces View_TopLeft":"10,-199",
+   "guistr":"# # String gsaved with Nlview 7.5.8 2022-09-21 7111 VDI=41 GEI=38 GUI=JA:10.0
+#  -string -flagsOSRD
+preplace port DDR_0 -pg 1 -lvl 4 -x 1290 -y 60 -defaultsOSRD
+preplace port FIXED_IO_0 -pg 1 -lvl 4 -x 1290 -y 80 -defaultsOSRD
+preplace port port-id_VSYNC_outp -pg 1 -lvl 4 -x 1290 -y 600 -defaultsOSRD
+preplace port port-id_HSYNC_outp -pg 1 -lvl 4 -x 1290 -y 620 -defaultsOSRD
+preplace portBus data_R_outp -pg 1 -lvl 4 -x 1290 -y 640 -defaultsOSRD
+preplace portBus data_R_outp1 -pg 1 -lvl 4 -x 1290 -y 20 -defaultsOSRD
+preplace portBus data_R_outp2 -pg 1 -lvl 4 -x 1290 -y 40 -defaultsOSRD
+preplace portBus data_G_outp -pg 1 -lvl 4 -x 1290 -y 660 -defaultsOSRD
+preplace portBus data_B_outp -pg 1 -lvl 4 -x 1290 -y 680 -defaultsOSRD
+preplace portBus R_side_s -pg 1 -lvl 4 -x 1290 -y 700 -defaultsOSRD
+preplace portBus L_side_s -pg 1 -lvl 4 -x 1290 -y 720 -defaultsOSRD
+preplace portBus Left_pad_control -pg 1 -lvl 0 -x 0 -y 490 -defaultsOSRD
+preplace portBus Right_pad_control -pg 1 -lvl 0 -x 0 -y 770 -defaultsOSRD
+preplace inst processing_system7_0 -pg 1 -lvl 1 -x 240 -y 140 -defaultsOSRD
+preplace inst rst_ps7_0_100M -pg 1 -lvl 1 -x 240 -y 390 -defaultsOSRD
+preplace inst axi_timer_0 -pg 1 -lvl 3 -x 1050 -y 450 -defaultsOSRD
+preplace inst axi_interconnect_0 -pg 1 -lvl 2 -x 660 -y 1010 -defaultsOSRD
+preplace inst plane_ctrl_0 -pg 1 -lvl 3 -x 1050 -y 830 -defaultsOSRD
+preplace netloc processing_system7_0_FCLK_CLK0 1 0 3 20 280 460 1540 880
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 2 30 290 450
+preplace netloc rst_ps7_0_100M_peripheral_aresetn 1 1 2 470 480 870
+preplace netloc plane_ctrl_0_VSYNC_outp 1 3 1 1210J 600n
+preplace netloc plane_ctrl_0_HSYNC_outp 1 3 1 1220J 620n
+preplace netloc plane_ctrl_0_data_R_outp 1 3 1 1230J 640n
+preplace netloc plane_ctrl_0_data_G_outp 1 3 1 1240J 660n
+preplace netloc plane_ctrl_0_data_B_outp 1 3 1 1250J 680n
+preplace netloc plane_ctrl_0_R_side_s 1 3 1 1260J 700n
+preplace netloc plane_ctrl_0_L_side_s 1 3 1 1270J 720n
+preplace netloc Left_pad_control_1 1 0 3 NJ 490 NJ 490 860J
+preplace netloc Right_pad_control_1 1 0 3 NJ 770 450J 1530 890J
+preplace netloc processing_system7_0_DDR 1 1 3 NJ 60 NJ 60 NJ
+preplace netloc processing_system7_0_FIXED_IO 1 1 3 NJ 80 NJ 80 NJ
+preplace netloc processing_system7_0_M_AXI_GP0 1 1 1 480 120n
+preplace netloc axi_interconnect_0_M00_AXI 1 2 1 850 600n
+preplace netloc axi_interconnect_0_M01_AXI 1 2 1 840 400n
+levelinfo -pg 1 0 240 660 1050 1290
+pagesize -pg 1 -db -bbox -sgen -200 0 1460 1550
+"
+}
+{
+   "da_axi4_cnt":"3",
+   "da_clkrst_cnt":"5",
+   "da_ps7_cnt":"2"
+}

@@ -1,0 +1,290 @@
+#-----------------------------------------------------------
+# Vivado v2023.1 (64-bit)
+# SW Build 3865809 on Sun May  7 15:05:29 MDT 2023
+# IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+# SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+# Start of session at: Mon May 13 22:43:36 2024
+# Process ID: 11052
+# Current directory: C:/Users/Student/Documents/Rocky/proj/AirFighter/AirFighter.runs/synth_1
+# Command line: vivado.exe -log AirFighter.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source AirFighter.tcl
+# Log file: C:/Users/Student/Documents/Rocky/proj/AirFighter/AirFighter.runs/synth_1/AirFighter.vds
+# Journal file: C:/Users/Student/Documents/Rocky/proj/AirFighter/AirFighter.runs/synth_1\vivado.jou
+# Running On: 102-019, OS: Windows, CPU Frequency: 2112 MHz, CPU Physical cores: 16, Host memory: 16833 MB
+#-----------------------------------------------------------
+source AirFighter.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/Student/Documents/Rocky/proj/ip_repo/AirFighterGame_1_0'.
+WARNING: [IP_Flow 19-2248] Failed to load user IP repository 'c:/Users/Student/Documents/Rocky/proj/ip_repo/plane_ctrl_1_0'; Can't find the specified path.
+If this directory should no longer be in your list of user repositories, go to the IP Settings dialog and remove it.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2023.1/data/ip'.
+Command: read_checkpoint -auto_incremental -incremental C:/Users/Student/Documents/Rocky/proj/AirFighter/AirFighter.srcs/utils_1/imports/synth_1/AirFighter.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/Student/Documents/Rocky/proj/AirFighter/AirFighter.srcs/utils_1/imports/synth_1/AirFighter.dcp for incremental synthesis
+INFO: [Vivado 12-7989] Please ensure there are no constraint changes
+Command: synth_design -top AirFighter -part xc7z020clg484-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Device 21-403] Loading part xc7z020clg484-1
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 2740
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1314.652 ; gain = 411.277
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'AirFighter' [C:/Users/Student/Documents/Rocky/proj/AirFighter/AirFighter.srcs/sources_1/new/AirFighter.vhd:42]
+INFO: [Synth 8-3491] module 'player_ctrl' declared at 'C:/Users/Student/Documents/Rocky/proj/AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:34' bound to instance 'control' of component 'player_ctrl' [C:/Users/Student/Documents/Rocky/proj/AirFighter/AirFighter.srcs/sources_1/new/AirFighter.vhd:87]
+INFO: [Synth 8-638] synthesizing module 'player_ctrl' [C:/Users/Student/Documents/Rocky/proj/AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:42]
+	Parameter N bound to: 1 - type: integer 
+INFO: [Synth 8-3491] module 'clock_divider' declared at 'C:/Users/Student/Documents/Rocky/lab05/clock_divider.vhd:34' bound to instance 'comp_clk50MHz' of component 'clock_divider' [C:/Users/Student/Documents/Rocky/proj/AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:81]
+INFO: [Synth 8-638] synthesizing module 'clock_divider' [C:/Users/Student/Documents/Rocky/lab05/clock_divider.vhd:42]
+	Parameter N bound to: 1 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'clock_divider' (0#1) [C:/Users/Student/Documents/Rocky/lab05/clock_divider.vhd:42]
+	Parameter N bound to: 5000000 - type: integer 
+INFO: [Synth 8-3491] module 'clock_divider' declared at 'C:/Users/Student/Documents/Rocky/lab05/clock_divider.vhd:34' bound to instance 'comp_clk10Hz' of component 'clock_divider' [C:/Users/Student/Documents/Rocky/proj/AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:82]
+INFO: [Synth 8-638] synthesizing module 'clock_divider__parameterized1' [C:/Users/Student/Documents/Rocky/lab05/clock_divider.vhd:42]
+	Parameter N bound to: 5000000 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'clock_divider__parameterized1' (0#1) [C:/Users/Student/Documents/Rocky/lab05/clock_divider.vhd:42]
+	Parameter N bound to: 1000000 - type: integer 
+INFO: [Synth 8-3491] module 'clock_divider' declared at 'C:/Users/Student/Documents/Rocky/lab05/clock_divider.vhd:34' bound to instance 'comp_clk50Hz' of component 'clock_divider' [C:/Users/Student/Documents/Rocky/proj/AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:83]
+INFO: [Synth 8-638] synthesizing module 'clock_divider__parameterized3' [C:/Users/Student/Documents/Rocky/lab05/clock_divider.vhd:42]
+	Parameter N bound to: 1000000 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'clock_divider__parameterized3' (0#1) [C:/Users/Student/Documents/Rocky/lab05/clock_divider.vhd:42]
+WARNING: [Synth 8-614] signal 'clk10Hz' is read in the process but is not in the sensitivity list [C:/Users/Student/Documents/Rocky/proj/AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:95]
+INFO: [Synth 8-256] done synthesizing module 'player_ctrl' (0#1) [C:/Users/Student/Documents/Rocky/proj/AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:42]
+INFO: [Synth 8-3491] module 'player_display' declared at 'C:/Users/Student/Documents/Rocky/proj/AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:34' bound to instance 'display' of component 'player_display' [C:/Users/Student/Documents/Rocky/proj/AirFighter/AirFighter.srcs/sources_1/new/AirFighter.vhd:93]
+INFO: [Synth 8-638] synthesizing module 'player_display' [C:/Users/Student/Documents/Rocky/proj/AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:44]
+	Parameter N bound to: 1 - type: integer 
+INFO: [Synth 8-3491] module 'clock_divider' declared at 'C:/Users/Student/Documents/Rocky/lab05/clock_divider.vhd:34' bound to instance 'comp_clk50MHz' of component 'clock_divider' [C:/Users/Student/Documents/Rocky/proj/AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:103]
+	Parameter N bound to: 5000000 - type: integer 
+INFO: [Synth 8-3491] module 'clock_divider' declared at 'C:/Users/Student/Documents/Rocky/lab05/clock_divider.vhd:34' bound to instance 'comp_clk10Hz' of component 'clock_divider' [C:/Users/Student/Documents/Rocky/proj/AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:104]
+WARNING: [Synth 8-614] signal 'p1_H_TOP_LEFT' is read in the process but is not in the sensitivity list [C:/Users/Student/Documents/Rocky/proj/AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:154]
+WARNING: [Synth 8-614] signal 'p1_V_TOP_LEFT' is read in the process but is not in the sensitivity list [C:/Users/Student/Documents/Rocky/proj/AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:154]
+WARNING: [Synth 8-614] signal 'p2_H_TOP_LEFT' is read in the process but is not in the sensitivity list [C:/Users/Student/Documents/Rocky/proj/AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:154]
+WARNING: [Synth 8-614] signal 'p2_V_TOP_LEFT' is read in the process but is not in the sensitivity list [C:/Users/Student/Documents/Rocky/proj/AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:154]
+WARNING: [Synth 8-614] signal 'p1_bullet_x' is read in the process but is not in the sensitivity list [C:/Users/Student/Documents/Rocky/proj/AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:154]
+WARNING: [Synth 8-614] signal 'p1_bullet_y' is read in the process but is not in the sensitivity list [C:/Users/Student/Documents/Rocky/proj/AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:154]
+WARNING: [Synth 8-614] signal 'p2_bullet_x' is read in the process but is not in the sensitivity list [C:/Users/Student/Documents/Rocky/proj/AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:154]
+WARNING: [Synth 8-614] signal 'p2_bullet_y' is read in the process but is not in the sensitivity list [C:/Users/Student/Documents/Rocky/proj/AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:154]
+INFO: [Synth 8-256] done synthesizing module 'player_display' (0#1) [C:/Users/Student/Documents/Rocky/proj/AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:44]
+INFO: [Synth 8-256] done synthesizing module 'AirFighter' (0#1) [C:/Users/Student/Documents/Rocky/proj/AirFighter/AirFighter.srcs/sources_1/new/AirFighter.vhd:42]
+WARNING: [Synth 8-6014] Unused sequential element p2_is_hit_reg was removed.  [C:/Users/Student/Documents/Rocky/proj/AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:155]
+WARNING: [Synth 8-6014] Unused sequential element p1_is_hit_reg was removed.  [C:/Users/Student/Documents/Rocky/proj/AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:158]
+WARNING: [Synth 8-7129] Port btnL in module player_display is either unconnected or has no load
+WARNING: [Synth 8-7129] Port btnR in module player_display is either unconnected or has no load
+WARNING: [Synth 8-7129] Port btnU in module player_display is either unconnected or has no load
+WARNING: [Synth 8-7129] Port btnD in module player_display is either unconnected or has no load
+WARNING: [Synth 8-7129] Port reset in module AirFighter is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1408.633 ; gain = 505.258
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1408.633 ; gain = 505.258
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1408.633 ; gain = 505.258
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.012 . Memory (MB): peak = 1408.633 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/Users/Student/Documents/Rocky/proj/zedboard_master.xdc]
+WARNING: [Vivado 12-584] No ports matched '[get_ports -of_objects [get_iobanks 33]]'. [C:/Users/Student/Documents/Rocky/proj/zedboard_master.xdc:22]
+WARNING: [Vivado 12-584] No ports matched '[get_ports -of_objects [get_iobanks 13]]'. [C:/Users/Student/Documents/Rocky/proj/zedboard_master.xdc:25]
+Finished Parsing XDC File [C:/Users/Student/Documents/Rocky/proj/zedboard_master.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/Student/Documents/Rocky/proj/zedboard_master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/AirFighter_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/AirFighter_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1434.098 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1434.098 ; gain = 0.000
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1434.098 ; gain = 530.723
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z020clg484-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1434.098 ; gain = 530.723
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1434.098 ; gain = 530.723
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1434.098 ; gain = 530.723
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input   33 Bit       Adders := 8     
+	   2 Input   32 Bit       Adders := 31    
++---Registers : 
+	               32 Bit    Registers := 11    
+	                1 Bit    Registers := 5     
++---Muxes : 
+	   4 Input   32 Bit        Muxes := 2     
+	   2 Input   32 Bit        Muxes := 3     
+	   2 Input   13 Bit        Muxes := 2     
+	   2 Input   12 Bit        Muxes := 2     
+	   2 Input   11 Bit        Muxes := 2     
+	   6 Input    4 Bit        Muxes := 1     
+	   4 Input    4 Bit        Muxes := 1     
+	   5 Input    4 Bit        Muxes := 1     
+	   2 Input    1 Bit        Muxes := 2     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 220 (col length:60)
+BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-7129] Port btnL in module player_display is either unconnected or has no load
+WARNING: [Synth 8-7129] Port btnR in module player_display is either unconnected or has no load
+WARNING: [Synth 8-7129] Port btnU in module player_display is either unconnected or has no load
+WARNING: [Synth 8-7129] Port btnD in module player_display is either unconnected or has no load
+WARNING: [Synth 8-7129] Port reset in module AirFighter is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1434.098 ; gain = 530.723
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1434.098 ; gain = 530.723
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1434.098 ; gain = 530.723
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1438.902 ; gain = 535.527
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 1440.801 ; gain = 537.426
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 1440.801 ; gain = 537.426
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 1440.801 ; gain = 537.426
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 1440.801 ; gain = 537.426
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 1440.801 ; gain = 537.426
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 1440.801 ; gain = 537.426
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     4|
+|2     |CARRY4 |   346|
+|3     |LUT1   |   290|
+|4     |LUT2   |   453|
+|5     |LUT3   |    64|
+|6     |LUT4   |   196|
+|7     |LUT5   |    18|
+|8     |LUT6   |    38|
+|9     |FDRE   |   331|
+|10    |FDSE   |    18|
+|11    |IBUF   |     5|
+|12    |OBUF   |    14|
++------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 1440.801 ; gain = 537.426
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 6 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:11 ; elapsed = 00:00:15 . Memory (MB): peak = 1440.801 ; gain = 511.961
+Synthesis Optimization Complete : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 1440.801 ; gain = 537.426
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.016 . Memory (MB): peak = 1452.855 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 346 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1456.531 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete | Checksum: ca1562f7
+INFO: [Common 17-83] Releasing license: Synthesis
+43 Infos, 25 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1456.531 ; gain = 966.086
+INFO: [Common 17-1381] The checkpoint 'C:/Users/Student/Documents/Rocky/proj/AirFighter/AirFighter.runs/synth_1/AirFighter.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file AirFighter_utilization_synth.rpt -pb AirFighter_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Mon May 13 22:44:01 2024...
