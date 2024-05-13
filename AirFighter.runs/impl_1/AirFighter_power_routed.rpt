@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-| Date             : Mon May 13 22:44:58 2024
+| Date             : Mon May 13 23:43:52 2024
 | Host             : 102-019 running 64-bit major release  (build 9200)
 | Command          : report_power -file AirFighter_power_routed.rpt -pb AirFighter_power_summary_routed.pb -rpx AirFighter_power_routed.rpx
 | Design           : AirFighter
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 1.080        |
+| Total On-Chip Power (W)  | 1.056        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.961        |
+| Dynamic (W)              | 0.937        |
 | Device Static (W)        | 0.119        |
 | Effective TJA (C/W)      | 11.5         |
-| Max Ambient (C)          | 72.5         |
-| Junction Temperature (C) | 37.5         |
+| Max Ambient (C)          | 72.8         |
+| Junction Temperature (C) | 37.2         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,16 +52,16 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Slice Logic    |     0.426 |     1768 |       --- |             --- |
-|   LUT as Logic |     0.310 |      841 |     53200 |            1.58 |
-|   CARRY4       |     0.063 |      346 |     13300 |            2.60 |
-|   Register     |     0.047 |      349 |    106400 |            0.33 |
+| Slice Logic    |     0.431 |     2547 |       --- |             --- |
+|   LUT as Logic |     0.315 |     1204 |     53200 |            2.26 |
+|   CARRY4       |     0.063 |      496 |     13300 |            3.73 |
+|   Register     |     0.047 |      477 |    106400 |            0.45 |
 |   BUFG         |     0.006 |        4 |        32 |           12.50 |
 |   Others       |     0.000 |       10 |       --- |             --- |
-| Signals        |     0.515 |     1331 |       --- |             --- |
+| Signals        |     0.486 |     1901 |       --- |             --- |
 | I/O            |     0.020 |       19 |       200 |            9.50 |
 | Static Power   |     0.119 |          |           |                 |
-| Total          |     1.080 |          |           |                 |
+| Total          |     1.056 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -71,7 +71,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.972 |       0.961 |      0.011 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.949 |       0.937 |      0.011 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.013 |       0.000 |      0.013 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -145,12 +145,12 @@ Table of Contents
 +-------------------+-----------+
 | Name              | Power (W) |
 +-------------------+-----------+
-| AirFighter        |     0.961 |
-|   control         |     0.435 |
-|     comp_clk10Hz  |     0.191 |
-|     comp_clk50Hz  |     0.168 |
-|   display         |     0.438 |
-|     comp_clk50MHz |     0.212 |
+| AirFighter        |     0.937 |
+|   control         |     0.409 |
+|     comp_clk10Hz  |     0.165 |
+|     comp_clk50Hz  |     0.166 |
+|   display         |     0.452 |
+|     comp_clk50MHz |     0.201 |
 +-------------------+-----------+
 
 

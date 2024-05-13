@@ -51,6 +51,8 @@ architecture Behavioral of player_ctrl is
     
     signal p1_is_hit: boolean := false;
     signal p2_is_hit: boolean := true;
+    signal p1_eff_count: integer := 0;
+    signal p2_eff_count: integer := 0;
     
     signal clk50MHz: std_logic;
     signal clk50Hz: std_logic;
@@ -82,14 +84,7 @@ begin
     comp_clk10Hz: clock_divider generic map(N => 5000000) port map(clk, clk10Hz);
     comp_clk50Hz: clock_divider generic map(N => 1000000) port map(clk, clk50Hz);
     
-    p1_x <= sig_p1_x;
-    p1_y <= sig_p1_y;
-    p2_x <= sig_p2_x;
-    p2_y <= sig_p2_y;
-    p1b_x <= sig_p1b_x;
-    p1b_y <= sig_p1b_y;
-    p2b_x <= sig_p2b_x;
-    p2b_y <= sig_p2b_y;
+    
     
 -- Task: BTN Controller
     btn_proc: process(btnL, btnR, btnU, btnD)
@@ -151,13 +146,42 @@ begin
             end if;
             
             -- Check hit
-            if sig_p1b_x >= p2_baseline and (sig_p1b_y >= sig_p2_y + p_length/2 and sig_p1b_y <= sig_p2_y + p_length/2) then
-                p2_is_hit <= true;
+            if sig_p1b_x >= p2_baseline and (sig_p1b_y >= sig_p2_y - p_length/2 and sig_p1b_y <= sig_p2_y + p_length/2) then
+                if p2_eff_count mod 2 = 0 then
+                    sig_p2_x <= sig_p2_x - 10;
+                else
+                    sig_p2_x <= sig_p2_x + 10;
+                end if;
+                p2_eff_count <= p2_eff_count + 1;
+                if p2_eff_count >= 10 then
+                    sig_p2_x <= 924;
+                    p2_eff_count <= 0;
+                end if;
             end if;
-            if sig_p2b_x <= p1_baseline and (sig_p2b_y >= sig_p1_y + p_length/2 and sig_p2b_y <= sig_p1_y + p_length/2) then
-                p1_is_hit <= true;
+            if sig_p2b_x <= p1_baseline and (sig_p2b_y >= sig_p1_y - p_length/2 and sig_p2b_y <= sig_p1_y + p_length/2) then
+                if p1_eff_count mod 2 = 0 then
+                    sig_p1_x <= sig_p1_x + 10;
+                else
+                    sig_p1_x <= sig_p1_x - 10;
+                end if;
+                p1_eff_count <= p1_eff_count + 1;
+                if p1_eff_count >= 10 then
+                    sig_p1_x <= 100;
+                    p1_eff_count <= 0;
+                end if;
             end if;  
         end if;
     end process bullet_proc;
+    
+    
+    p1_x <= sig_p1_x;
+    p1_y <= sig_p1_y;
+    p2_x <= sig_p2_x;
+    p2_y <= sig_p2_y;
+    p1b_x <= sig_p1b_x;
+    p1b_y <= sig_p1b_y;
+    p2b_x <= sig_p2b_x;
+    p2b_y <= sig_p2b_y;
+
 
 end Behavioral;

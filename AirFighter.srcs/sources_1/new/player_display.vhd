@@ -95,6 +95,7 @@ architecture Behavioral of player_display is
     
     -- Signals for hit checking
     signal p1_is_hit, p2_is_hit: integer := 0;
+    signal p1_flash_count, p2_flash_count : integer := 0;
     signal p1_baseline: integer := p1_H_TOP_LEFT + WIDTH;
     signal p2_baseline: integer := p2_H_TOP_LEFT - WIDTH;
 

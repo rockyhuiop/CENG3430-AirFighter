@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-| Date         : Mon May 13 22:44:42 2024
+| Date         : Mon May 13 23:43:36 2024
 | Host         : 102-019 running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file AirFighter_control_sets_placed.rpt
 | Design       : AirFighter
@@ -23,8 +23,8 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Total control sets                                       |    15 |
-|    Minimum number of control sets                        |    15 |
+| Total control sets                                       |    16 |
+|    Minimum number of control sets                        |    16 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
 | Unused register locations in slices containing registers |    35 |
@@ -39,7 +39,7 @@ Table of Contents
 +--------------------+-------+
 |       Fanout       | Count |
 +--------------------+-------+
-| Total control sets |    15 |
+| Total control sets |    16 |
 | >= 0 to < 4        |     2 |
 | >= 4 to < 6        |     2 |
 | >= 6 to < 8        |     0 |
@@ -47,7 +47,7 @@ Table of Contents
 | >= 10 to < 12      |     0 |
 | >= 12 to < 14      |     0 |
 | >= 14 to < 16      |     0 |
-| >= 16              |    11 |
+| >= 16              |    12 |
 +--------------------+-------+
 * Control sets can be remapped at either synth_design or opt_design
 
@@ -58,36 +58,37 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |               4 |            4 |
+| No           | No                    | No                     |              67 |           19 |
 | No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |             190 |           52 |
-| Yes          | No                    | No                     |              62 |           25 |
+| No           | Yes                   | No                     |             128 |           36 |
+| Yes          | No                    | No                     |              63 |           23 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |              93 |           22 |
+| Yes          | Yes                   | No                     |             219 |           53 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
 4. Detailed Control Set Information
 -----------------------------------
 
-+----------------------------+------------------------------+-------------------------------------------+------------------+----------------+--------------+
-|        Clock Signal        |         Enable Signal        |              Set/Reset Signal             | Slice Load Count | Bel Load Count | Bels / Slice |
-+----------------------------+------------------------------+-------------------------------------------+------------------+----------------+--------------+
-|  clk50MHz                  |                              |                                           |                1 |              1 |         1.00 |
-|  clk_IBUF_BUFG             |                              |                                           |                3 |              3 |         1.00 |
-|  clk10Hz_BUFG              | control/sig_p2_y[9]_i_2_n_0  | control/sig_p2_y[9]_i_1_n_0               |                2 |              4 |         2.00 |
-|  clk10Hz_BUFG              | control/sig_p1_y[9]_i_2_n_0  | control/sig_p1_y[9]_i_1_n_0               |                1 |              4 |         4.00 |
-|  clk10Hz_BUFG              | control/sig_p2_y[31]_i_2_n_0 | control/sig_p2_y[6]                       |                4 |             27 |         6.75 |
-|  clk10Hz_BUFG              | control/sig_p1_y[31]_i_2_n_0 | control/sig_p1_y[6]                       |                7 |             27 |         3.86 |
-|  clk50MHz                  | display/hcount[31]_i_1_n_0   | display/vcount[31]_i_1_n_0                |                8 |             31 |         3.88 |
-|  sig_p1b_y_reg[31]_i_2_n_0 |                              | control/sig_p2b_x0[31]                    |                8 |             31 |         3.88 |
-|  sig_p1b_y_reg[31]_i_2_n_0 |                              | control/clear                             |                8 |             31 |         3.88 |
-|  sig_p1b_y_reg[31]_i_2_n_0 | control/sig_p1b_y            |                                           |               11 |             31 |         2.82 |
-|  sig_p1b_y_reg[31]_i_2_n_0 | control/sig_p2b_y            |                                           |               14 |             31 |         2.21 |
-|  clk50MHz                  |                              | display/hcount[31]_i_1_n_0                |                9 |             32 |         3.56 |
-|  clk_IBUF_BUFG             |                              | display/comp_clk50MHz/pulse               |                9 |             32 |         3.56 |
-|  clk_IBUF_BUFG             |                              | control/comp_clk50Hz/count[31]_i_1__1_n_0 |                9 |             32 |         3.56 |
-|  clk_IBUF_BUFG             |                              | control/comp_clk10Hz/count[31]_i_1__0_n_0 |                9 |             32 |         3.56 |
-+----------------------------+------------------------------+-------------------------------------------+------------------+----------------+--------------+
++----------------------------+---------------------------------+-------------------------------------------+------------------+----------------+--------------+
+|        Clock Signal        |          Enable Signal          |              Set/Reset Signal             | Slice Load Count | Bel Load Count | Bels / Slice |
++----------------------------+---------------------------------+-------------------------------------------+------------------+----------------+--------------+
+|  clk50MHz                  | display/vcount                  |                                           |                1 |              1 |         1.00 |
+|  clk_IBUF_BUFG             |                                 |                                           |                3 |              3 |         1.00 |
+|  clk10Hz_BUFG              | control/sig_p2_y[9]_i_2_n_0     | control/sig_p2_y[2]                       |                1 |              4 |         4.00 |
+|  clk10Hz_BUFG              | control/sig_p1_y[9]_i_2_n_0     | control/sig_p1_y[2]                       |                1 |              4 |         4.00 |
+|  clk10Hz_BUFG              | control/sig_p2_y[31]_i_2_n_0    | control/sig_p2_y[6]                       |                5 |             27 |         5.40 |
+|  clk10Hz_BUFG              | control/sig_p1_y[31]_i_2_n_0    | control/sig_p1_y[6]                       |                6 |             27 |         4.50 |
+|  clk50MHz                  | display/vcount                  | display/vcount[31]_i_1_n_0                |                8 |             31 |         3.88 |
+|  sig_p1b_y_reg[31]_i_1_n_0 | control/sig_p2b_y0_carry__1_n_1 |                                           |               13 |             31 |         2.38 |
+|  sig_p1b_y_reg[31]_i_1_n_0 | control/sig_p1b_y0_carry__1_n_1 |                                           |                9 |             31 |         3.44 |
+|  clk50MHz                  |                                 | display/hcount[31]_i_1_n_0                |                9 |             32 |         3.56 |
+|  clk_IBUF_BUFG             |                                 | control/comp_clk50Hz/count[31]_i_1__1_n_0 |                9 |             32 |         3.56 |
+|  clk_IBUF_BUFG             |                                 | control/comp_clk10Hz/count[31]_i_1__0_n_0 |                9 |             32 |         3.56 |
+|  clk_IBUF_BUFG             |                                 | display/comp_clk50MHz/pulse               |                9 |             32 |         3.56 |
+|  sig_p1b_y_reg[31]_i_1_n_0 | control/sig_p1_x0               | control/sig_p1_x                          |               16 |             63 |         3.94 |
+|  sig_p1b_y_reg[31]_i_1_n_0 | control/sig_p2_x0               | control/sig_p2_x                          |               16 |             63 |         3.94 |
+|  sig_p1b_y_reg[31]_i_1_n_0 |                                 |                                           |               16 |             64 |         4.00 |
++----------------------------+---------------------------------+-------------------------------------------+------------------+----------------+--------------+
 
 

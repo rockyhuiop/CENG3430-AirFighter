@@ -17,7 +17,7 @@ proc create_report { reportName command } {
   }
 }
 namespace eval ::optrace {
-  variable script "C:/Users/Student/Documents/Rocky/proj/AirFighter/AirFighter.runs/impl_1/AirFighter.tcl"
+  variable script "C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.runs/impl_1/AirFighter.tcl"
   variable category "vivado_impl"
 }
 
@@ -127,7 +127,7 @@ set rc [catch {
   set_param xicom.use_bs_reader 1
   set_param runs.launchOptions { -jobs 12  }
   open_checkpoint AirFighter_routed.dcp
-  set_property webtalk.parent_dir C:/Users/Student/Documents/Rocky/proj/AirFighter/AirFighter.cache/wt [current_project]
+  set_property webtalk.parent_dir C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.cache/wt [current_project]
 set_property TOP AirFighter [current_fileset]
 OPTRACE "read constraints: write_bitstream" START { }
 OPTRACE "read constraints: write_bitstream" END { }
