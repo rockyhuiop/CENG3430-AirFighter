@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7z020clg484-1" LaunchTime="1715614991">
+<GenRun Id="impl_1" LaunchPart="xc7z020clg484-1" LaunchTime="1715697224">
   <File Type="ROUTE-PWR" Name="AirFighter_power_routed.rpt"/>
   <File Type="PA-TCL" Name="AirFighter.tcl"/>
   <File Type="ROUTE-PWR-SUM" Name="AirFighter_power_summary_routed.pb"/>
@@ -86,7 +86,7 @@
   <File Type="POSTROUTE-PHYSOPT-RQS-RPT" Name="postroute_physopt_report_qor_suggestions_0.rpt"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
-    <File Path="$PPRDIR/../../../lab05/clock_divider.vhd">
+    <File Path="$PSRCDIR/sources_1/new/clock_divider.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -118,7 +118,7 @@
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1" RelGenDir="$PGENDIR/constrs_1">
     <Filter Type="Constrs"/>
-    <File Path="$PPRDIR/../../zedboard_master.xdc">
+    <File Path="$PSRCDIR/constrs_1/new/AirFighterConst.xdc">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>

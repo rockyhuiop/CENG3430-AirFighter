@@ -51,6 +51,8 @@ architecture airfighter_arch of AirFighter is
     signal sig_p1b_y: integer := 0;
     signal sig_p2b_x: integer := 0;
     signal sig_p2b_y: integer := 0;
+    signal sig_m1_x: integer := 0;
+    signal sig_m1_y: integer := 0;
     
     component clock_divider is
     generic (N: integer);
@@ -64,17 +66,19 @@ architecture airfighter_arch of AirFighter is
     port(
         clk, btnL, btnR, btnU, btnD: in std_logic;
         p1_x, p1_y, p2_x, p2_y: out integer;
-        p1b_x, p1b_y, p2b_x, p2b_y: out integer
+        p1b_x, p1b_y, p2b_x, p2b_y: out integer;
+        m1_x, m1_y: out integer
     );
     end component;
     
     component player_display is
     port(
-        clk, btnL, btnR, btnU, btnD: in std_logic;
+        clk: in std_logic;
         hsync, vsync: out std_logic;
         red, green, blue: out std_logic_vector(3 downto 0);
         p1_x, p1_y, p2_x, p2_y: in integer;
-        p1b_x, p1b_y, p2b_x, p2b_y: in integer
+        p1b_x, p1b_y, p2b_x, p2b_y: in integer;
+        m1_x, m1_y: in integer
     );
     end component;
     
@@ -87,15 +91,17 @@ begin
     control: player_ctrl port map (
         clk, btnL, btnR, btnU, btnD,
         sig_p1_x, sig_p1_y, sig_p2_x, sig_p2_y,
-        sig_p1b_x, sig_p1b_y, sig_p2b_x, sig_p2b_y
+        sig_p1b_x, sig_p1b_y, sig_p2b_x, sig_p2b_y,
+        sig_m1_x, sig_m1_y
     );
     -- Task: BTN Controller
     display: player_display port map (
-        clk, btnL, btnR, btnU, btnD,
+        clk,
         hsync, vsync,
         red, green, blue,
         sig_p1_x, sig_p1_y, sig_p2_x, sig_p2_y,
-        sig_p1b_x, sig_p1b_y, sig_p2b_x, sig_p2b_y
+        sig_p1b_x, sig_p1b_y, sig_p2b_x, sig_p2b_y,
+        sig_m1_x, sig_m1_y
     );
    
             

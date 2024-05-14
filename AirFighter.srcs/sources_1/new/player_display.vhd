@@ -33,11 +33,12 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity player_display is
     Port ( 
-        clk, btnL, btnR, btnU, btnD: in std_logic;
+        clk: in std_logic;
         hsync, vsync: out std_logic;
         red, green, blue: out std_logic_vector(3 downto 0);
         p1_x, p1_y, p2_x, p2_y: in integer;
-        p1b_x, p1b_y, p2b_x, p2b_y: in integer
+        p1b_x, p1b_y, p2b_x, p2b_y: in integer;
+        m1_x, m1_y: in integer
     );
 end player_display;
 
@@ -86,11 +87,18 @@ architecture Behavioral of player_display is
     constant BULLET_LENGTH: integer := 28;
     constant BULLET_WIDTH: integer := 12;
     
+    constant m_SPEED: integer := 10; -- 10 pixels per second
+    constant m_LENGTH: integer := 128;
+    constant m_WIDTH: integer := 128;
+    
     -- Signals for the bullet
     signal p1_bullet_x: integer := H_START + p1b_x - BULLET_LENGTH/2;
-    signal p2_bullet_x: integer := H_START + p2b_x - BULLET_LENGTH/2 ;
+    signal p2_bullet_x: integer := H_START + p2b_x - BULLET_LENGTH/2;
     signal p1_bullet_y: integer := V_START + p1b_y - BULLET_WIDTH/2;
     signal p2_bullet_y: integer := V_START + p2b_y - BULLET_WIDTH/2; 
+    
+    signal sig_m1_x: integer := H_START + m1_x - m_WIDTH/2;
+    signal sig_m1_y: integer := V_START + m1_y - m_LENGTH/2;
     
     
     -- Signals for hit checking
@@ -178,6 +186,11 @@ begin
                 red   <= "0000";
                 green <= "1111";
                 blue  <= "1111";
+            elsif((hcount >= sig_m1_x and hcount < sig_m1_x + m_WIDTH) and
+                 (vcount >= sig_m1_y and vcount < sig_m1_y + m_LENGTH)) then
+                red   <= "1111";
+                green <= "0000";
+                blue  <= "0000";
             else
                 red   <= "1111";
                 green <= "1111";

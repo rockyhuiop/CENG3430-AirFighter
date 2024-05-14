@@ -94,7 +94,7 @@ set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_vhdl -library xil_defaultlib {
-  C:/Users/Student/Documents/Rocky/lab05/clock_divider.vhd
+  C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/clock_divider.vhd
   C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd
   C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd
   C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/AirFighter.vhd
@@ -108,8 +108,8 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc C:/Users/Student/Documents/Rocky/proj/zedboard_master.xdc
-set_property used_in_implementation false [get_files C:/Users/Student/Documents/Rocky/proj/zedboard_master.xdc]
+read_xdc C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/constrs_1/new/AirFighterConst.xdc
+set_property used_in_implementation false [get_files C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/constrs_1/new/AirFighterConst.xdc]
 
 set_param ips.enableIPCacheLiteLoad 1
 

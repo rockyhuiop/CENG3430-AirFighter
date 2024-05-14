@@ -3,8 +3,8 @@
 # SW Build 3865809 on Sun May  7 15:05:29 MDT 2023
 # IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
 # SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
-# Start of session at: Mon May 13 23:42:38 2024
-# Process ID: 2368
+# Start of session at: Tue May 14 22:33:09 2024
+# Process ID: 17416
 # Current directory: C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.runs/synth_1
 # Command line: vivado.exe -log AirFighter.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source AirFighter.tcl
 # Log file: C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.runs/synth_1/AirFighter.vds
@@ -31,122 +31,121 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 10436
+INFO: [Synth 8-7075] Helper process launched with PID 17160
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1315.176 ; gain = 413.723
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1315.422 ; gain = 414.465
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'AirFighter' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/AirFighter.vhd:42]
-INFO: [Synth 8-3491] module 'player_ctrl' declared at 'C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:34' bound to instance 'control' of component 'player_ctrl' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/AirFighter.vhd:87]
-INFO: [Synth 8-638] synthesizing module 'player_ctrl' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:42]
+INFO: [Synth 8-3491] module 'player_ctrl' declared at 'C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:34' bound to instance 'control' of component 'player_ctrl' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/AirFighter.vhd:91]
+INFO: [Synth 8-638] synthesizing module 'player_ctrl' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:43]
 	Parameter N bound to: 1 - type: integer 
-INFO: [Synth 8-3491] module 'clock_divider' declared at 'C:/Users/Student/Documents/Rocky/lab05/clock_divider.vhd:34' bound to instance 'comp_clk50MHz' of component 'clock_divider' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:83]
-INFO: [Synth 8-638] synthesizing module 'clock_divider' [C:/Users/Student/Documents/Rocky/lab05/clock_divider.vhd:42]
+INFO: [Synth 8-3491] module 'clock_divider' declared at 'C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/clock_divider.vhd:34' bound to instance 'comp_clk50MHz' of component 'clock_divider' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:92]
+INFO: [Synth 8-638] synthesizing module 'clock_divider' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/clock_divider.vhd:42]
 	Parameter N bound to: 1 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'clock_divider' (0#1) [C:/Users/Student/Documents/Rocky/lab05/clock_divider.vhd:42]
+INFO: [Synth 8-256] done synthesizing module 'clock_divider' (0#1) [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/clock_divider.vhd:42]
 	Parameter N bound to: 5000000 - type: integer 
-INFO: [Synth 8-3491] module 'clock_divider' declared at 'C:/Users/Student/Documents/Rocky/lab05/clock_divider.vhd:34' bound to instance 'comp_clk10Hz' of component 'clock_divider' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:84]
-INFO: [Synth 8-638] synthesizing module 'clock_divider__parameterized1' [C:/Users/Student/Documents/Rocky/lab05/clock_divider.vhd:42]
+INFO: [Synth 8-3491] module 'clock_divider' declared at 'C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/clock_divider.vhd:34' bound to instance 'comp_clk10Hz' of component 'clock_divider' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:93]
+INFO: [Synth 8-638] synthesizing module 'clock_divider__parameterized1' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/clock_divider.vhd:42]
 	Parameter N bound to: 5000000 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'clock_divider__parameterized1' (0#1) [C:/Users/Student/Documents/Rocky/lab05/clock_divider.vhd:42]
+INFO: [Synth 8-256] done synthesizing module 'clock_divider__parameterized1' (0#1) [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/clock_divider.vhd:42]
 	Parameter N bound to: 1000000 - type: integer 
-INFO: [Synth 8-3491] module 'clock_divider' declared at 'C:/Users/Student/Documents/Rocky/lab05/clock_divider.vhd:34' bound to instance 'comp_clk50Hz' of component 'clock_divider' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:85]
-INFO: [Synth 8-638] synthesizing module 'clock_divider__parameterized3' [C:/Users/Student/Documents/Rocky/lab05/clock_divider.vhd:42]
+INFO: [Synth 8-3491] module 'clock_divider' declared at 'C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/clock_divider.vhd:34' bound to instance 'comp_clk50Hz' of component 'clock_divider' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:94]
+INFO: [Synth 8-638] synthesizing module 'clock_divider__parameterized3' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/clock_divider.vhd:42]
 	Parameter N bound to: 1000000 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'clock_divider__parameterized3' (0#1) [C:/Users/Student/Documents/Rocky/lab05/clock_divider.vhd:42]
-WARNING: [Synth 8-614] signal 'clk10Hz' is read in the process but is not in the sensitivity list [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:90]
-INFO: [Synth 8-256] done synthesizing module 'player_ctrl' (0#1) [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:42]
-INFO: [Synth 8-3491] module 'player_display' declared at 'C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:34' bound to instance 'display' of component 'player_display' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/AirFighter.vhd:93]
-INFO: [Synth 8-638] synthesizing module 'player_display' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:44]
+INFO: [Synth 8-256] done synthesizing module 'clock_divider__parameterized3' (0#1) [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/clock_divider.vhd:42]
+WARNING: [Synth 8-614] signal 'clk10Hz' is read in the process but is not in the sensitivity list [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:99]
+INFO: [Synth 8-256] done synthesizing module 'player_ctrl' (0#1) [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:43]
+INFO: [Synth 8-3491] module 'player_display' declared at 'C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:34' bound to instance 'display' of component 'player_display' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/AirFighter.vhd:98]
+INFO: [Synth 8-638] synthesizing module 'player_display' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:45]
 	Parameter N bound to: 1 - type: integer 
-INFO: [Synth 8-3491] module 'clock_divider' declared at 'C:/Users/Student/Documents/Rocky/lab05/clock_divider.vhd:34' bound to instance 'comp_clk50MHz' of component 'clock_divider' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:104]
+INFO: [Synth 8-3491] module 'clock_divider' declared at 'C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/clock_divider.vhd:34' bound to instance 'comp_clk50MHz' of component 'clock_divider' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:112]
 	Parameter N bound to: 5000000 - type: integer 
-INFO: [Synth 8-3491] module 'clock_divider' declared at 'C:/Users/Student/Documents/Rocky/lab05/clock_divider.vhd:34' bound to instance 'comp_clk10Hz' of component 'clock_divider' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:105]
-WARNING: [Synth 8-614] signal 'p1_H_TOP_LEFT' is read in the process but is not in the sensitivity list [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:155]
-WARNING: [Synth 8-614] signal 'p1_V_TOP_LEFT' is read in the process but is not in the sensitivity list [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:155]
-WARNING: [Synth 8-614] signal 'p2_H_TOP_LEFT' is read in the process but is not in the sensitivity list [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:155]
-WARNING: [Synth 8-614] signal 'p2_V_TOP_LEFT' is read in the process but is not in the sensitivity list [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:155]
-WARNING: [Synth 8-614] signal 'p1_bullet_x' is read in the process but is not in the sensitivity list [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:155]
-WARNING: [Synth 8-614] signal 'p1_bullet_y' is read in the process but is not in the sensitivity list [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:155]
-WARNING: [Synth 8-614] signal 'p2_bullet_x' is read in the process but is not in the sensitivity list [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:155]
-WARNING: [Synth 8-614] signal 'p2_bullet_y' is read in the process but is not in the sensitivity list [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:155]
-INFO: [Synth 8-256] done synthesizing module 'player_display' (0#1) [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:44]
+INFO: [Synth 8-3491] module 'clock_divider' declared at 'C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/clock_divider.vhd:34' bound to instance 'comp_clk10Hz' of component 'clock_divider' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:113]
+WARNING: [Synth 8-614] signal 'p1_H_TOP_LEFT' is read in the process but is not in the sensitivity list [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:163]
+WARNING: [Synth 8-614] signal 'p1_V_TOP_LEFT' is read in the process but is not in the sensitivity list [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:163]
+WARNING: [Synth 8-614] signal 'p2_H_TOP_LEFT' is read in the process but is not in the sensitivity list [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:163]
+WARNING: [Synth 8-614] signal 'p2_V_TOP_LEFT' is read in the process but is not in the sensitivity list [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:163]
+WARNING: [Synth 8-614] signal 'p1_bullet_x' is read in the process but is not in the sensitivity list [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:163]
+WARNING: [Synth 8-614] signal 'p1_bullet_y' is read in the process but is not in the sensitivity list [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:163]
+WARNING: [Synth 8-614] signal 'p2_bullet_x' is read in the process but is not in the sensitivity list [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:163]
+WARNING: [Synth 8-614] signal 'p2_bullet_y' is read in the process but is not in the sensitivity list [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:163]
+WARNING: [Synth 8-614] signal 'sig_m1_x' is read in the process but is not in the sensitivity list [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:163]
+WARNING: [Synth 8-614] signal 'sig_m1_y' is read in the process but is not in the sensitivity list [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:163]
+INFO: [Synth 8-256] done synthesizing module 'player_display' (0#1) [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:45]
 INFO: [Synth 8-256] done synthesizing module 'AirFighter' (0#1) [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/AirFighter.vhd:42]
-WARNING: [Synth 8-7129] Port btnL in module player_display is either unconnected or has no load
-WARNING: [Synth 8-7129] Port btnR in module player_display is either unconnected or has no load
-WARNING: [Synth 8-7129] Port btnU in module player_display is either unconnected or has no load
-WARNING: [Synth 8-7129] Port btnD in module player_display is either unconnected or has no load
 WARNING: [Synth 8-7129] Port reset in module AirFighter is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1407.938 ; gain = 506.484
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1409.754 ; gain = 508.797
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1407.938 ; gain = 506.484
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1409.754 ; gain = 508.797
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1407.938 ; gain = 506.484
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1409.754 ; gain = 508.797
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.014 . Memory (MB): peak = 1407.938 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.015 . Memory (MB): peak = 1409.754 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [C:/Users/Student/Documents/Rocky/proj/zedboard_master.xdc]
-WARNING: [Vivado 12-584] No ports matched '[get_ports -of_objects [get_iobanks 33]]'. [C:/Users/Student/Documents/Rocky/proj/zedboard_master.xdc:22]
-WARNING: [Vivado 12-584] No ports matched '[get_ports -of_objects [get_iobanks 13]]'. [C:/Users/Student/Documents/Rocky/proj/zedboard_master.xdc:25]
-Finished Parsing XDC File [C:/Users/Student/Documents/Rocky/proj/zedboard_master.xdc]
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/Student/Documents/Rocky/proj/zedboard_master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/AirFighter_propImpl.xdc].
+Parsing XDC File [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/constrs_1/new/AirFighterConst.xdc]
+WARNING: [Vivado 12-584] No ports matched '[get_ports -of_objects [get_iobanks 33]]'. [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/constrs_1/new/AirFighterConst.xdc:22]
+WARNING: [Vivado 12-584] No ports matched '[get_ports -of_objects [get_iobanks 13]]'. [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/constrs_1/new/AirFighterConst.xdc:25]
+Finished Parsing XDC File [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/constrs_1/new/AirFighterConst.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/constrs_1/new/AirFighterConst.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/AirFighter_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/AirFighter_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1519.500 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1458.828 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1519.500 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1458.828 ; gain = 0.000
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1519.500 ; gain = 618.047
+Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1458.828 ; gain = 557.871
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1519.500 ; gain = 618.047
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1458.828 ; gain = 557.871
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1519.500 ; gain = 618.047
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1458.828 ; gain = 557.871
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1519.500 ; gain = 618.047
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1458.828 ; gain = 557.871
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   3 Input   33 Bit       Adders := 8     
-	   2 Input   32 Bit       Adders := 37    
+	   3 Input   33 Bit       Adders := 10    
+	   2 Input   32 Bit       Adders := 45    
 +---Registers : 
-	               32 Bit    Registers := 11    
+	               32 Bit    Registers := 12    
 	                1 Bit    Registers := 5     
 +---Muxes : 
 	   4 Input   32 Bit        Muxes := 2     
-	   2 Input   32 Bit        Muxes := 3     
+	   2 Input   32 Bit        Muxes := 5     
 	   2 Input   13 Bit        Muxes := 2     
 	   2 Input   12 Bit        Muxes := 2     
 	   2 Input   11 Bit        Muxes := 2     
-	   2 Input    5 Bit        Muxes := 2     
+	   2 Input    5 Bit        Muxes := 3     
 	   6 Input    4 Bit        Muxes := 1     
-	   4 Input    4 Bit        Muxes := 1     
-	   5 Input    4 Bit        Muxes := 1     
+	   3 Input    4 Bit        Muxes := 1     
+	   2 Input    4 Bit        Muxes := 2     
+	   4 Input    4 Bit        Muxes := 2     
 	   2 Input    1 Bit        Muxes := 2     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
@@ -164,31 +163,123 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
-WARNING: [Synth 8-7129] Port btnL in module player_display is either unconnected or has no load
-WARNING: [Synth 8-7129] Port btnR in module player_display is either unconnected or has no load
-WARNING: [Synth 8-7129] Port btnU in module player_display is either unconnected or has no load
-WARNING: [Synth 8-7129] Port btnD in module player_display is either unconnected or has no load
 WARNING: [Synth 8-7129] Port reset in module AirFighter is either unconnected or has no load
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'control/sig_m1_y_reg[30]/Q' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'control/sig_m1_y_reg[29]/Q' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'control/sig_m1_y_reg[28]/Q' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'control/sig_m1_y_reg[27]/Q' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'control/sig_m1_y_reg[26]/Q' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'control/sig_m1_y_reg[25]/Q' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'control/sig_m1_y_reg[24]/Q' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'control/sig_m1_y_reg[23]/Q' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'control/sig_m1_y_reg[22]/Q' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'control/sig_m1_y_reg[21]/Q' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'control/sig_m1_y_reg[20]/Q' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'control/sig_m1_y_reg[19]/Q' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'control/sig_m1_y_reg[18]/Q' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'control/sig_m1_y_reg[17]/Q' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'control/sig_m1_y_reg[16]/Q' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'control/sig_m1_y_reg[15]/Q' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'control/sig_m1_y_reg[14]/Q' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'control/sig_m1_y_reg[13]/Q' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'control/sig_m1_y_reg[12]/Q' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'control/sig_m1_y_reg[11]/Q' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'control/sig_m1_y_reg[10]/Q' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'control/sig_m1_y_reg[9]/Q' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'control/sig_m1_y_reg[8]/Q' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'control/sig_m1_y_reg[7]/Q' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'control/sig_m1_y_reg[6]/Q' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'control/sig_m1_y_reg[5]/Q' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'control/sig_m1_y_reg[4]/Q' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'control/sig_m1_y_reg[2]/Q' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'control/sig_m1_y_reg[0]/Q' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:202]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'control/sig_m1_y_reg[31]__0/Q' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:182]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:182]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:182]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'control/sig_m1_y_reg[3]__0/Q' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:182]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:182]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:182]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'control/sig_m1_y_reg[1]__0/Q' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:182]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:182]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:182]
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1519.500 ; gain = 618.047
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1458.828 ; gain = 557.871
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 1519.500 ; gain = 618.047
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1458.828 ; gain = 557.871
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 1519.500 ; gain = 618.047
+Finished Timing Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1458.828 ; gain = 557.871
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 1519.500 ; gain = 618.047
+Finished Technology Mapping : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 1458.828 ; gain = 557.871
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -206,37 +297,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1519.500 ; gain = 618.047
+Finished IO Insertion : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 1458.828 ; gain = 557.871
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1519.500 ; gain = 618.047
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 1458.828 ; gain = 557.871
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1519.500 ; gain = 618.047
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 1458.828 ; gain = 557.871
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1519.500 ; gain = 618.047
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 1458.828 ; gain = 557.871
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1519.500 ; gain = 618.047
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 1458.828 ; gain = 557.871
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1519.500 ; gain = 618.047
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 1458.828 ; gain = 557.871
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -253,39 +344,40 @@ Report Cell Usage:
 |      |Cell   |Count |
 +------+-------+------+
 |1     |BUFG   |     4|
-|2     |CARRY4 |   496|
-|3     |LUT1   |   309|
-|4     |LUT2   |   636|
-|5     |LUT3   |   157|
-|6     |LUT4   |   383|
+|2     |CARRY4 |   553|
+|3     |LUT1   |   376|
+|4     |LUT2   |   749|
+|5     |LUT3   |   133|
+|6     |LUT4   |   446|
 |7     |LUT5   |    20|
-|8     |LUT6   |    55|
-|9     |FDRE   |   460|
-|10    |FDSE   |    17|
+|8     |LUT6   |    78|
+|9     |FDRE   |   484|
+|10    |FDSE   |    25|
 |11    |IBUF   |     5|
 |12    |OBUF   |    14|
 +------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1519.500 ; gain = 618.047
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 1458.828 ; gain = 557.871
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 6 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:12 ; elapsed = 00:00:17 . Memory (MB): peak = 1519.500 ; gain = 506.484
-Synthesis Optimization Complete : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1519.500 ; gain = 618.047
+Synthesis finished with 0 errors, 96 critical warnings and 2 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:12 ; elapsed = 00:00:16 . Memory (MB): peak = 1458.828 ; gain = 508.797
+Synthesis Optimization Complete : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 1458.828 ; gain = 557.871
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.023 . Memory (MB): peak = 1519.500 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 496 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.025 . Memory (MB): peak = 1458.828 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 553 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1519.500 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1458.828 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Synth Design complete | Checksum: 6c5e6515
+Synth Design complete | Checksum: a4153789
 INFO: [Common 17-83] Releasing license: Synthesis
-43 Infos, 24 Warnings, 0 Critical Warnings and 0 Errors encountered.
+43 Infos, 18 Warnings, 96 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1519.500 ; gain = 1032.766
+synth_design: Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1458.828 ; gain = 970.309
+INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
 INFO: [Common 17-1381] The checkpoint 'C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.runs/synth_1/AirFighter.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file AirFighter_utilization_synth.rpt -pb AirFighter_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Mon May 13 23:43:04 2024...
+INFO: [Common 17-206] Exiting Vivado at Tue May 14 22:33:35 2024...
