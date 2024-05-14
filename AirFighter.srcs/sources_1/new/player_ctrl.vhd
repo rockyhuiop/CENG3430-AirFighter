@@ -83,7 +83,7 @@ architecture Behavioral of player_ctrl is
     constant b_SPEED: integer := 10; -- 50 pixels per second
     constant b_LENGTH: integer := 28;
     constant b_WIDTH: integer := 12;
-    constant m_SPEED: integer := 10; -- 10 pixels per second
+    constant m_SPEED: integer := 2; -- 10 pixels per second
     constant m_LENGTH: integer := 128;
     constant m_WIDTH: integer := 128;
     
@@ -154,8 +154,20 @@ begin
                 sig_p2b_x <= sig_p2_x - 14; -- Reset the bullet position when it hits the start
             end if;
             
+            -- Update monster 1's position
+            if sig_m1_y + m_speed - m_LENGTH/2 < BOTTOM then
+                sig_m1_y <= sig_m1_y + m_speed;
+            else
+                sig_m1_y <= 0 - m_LENGTH/2;
+            end if;
+            
             -- Check hit
-            if sig_p1b_x >= p2_baseline and (sig_p1b_y >= sig_p2_y - p_length/2 and sig_p1b_y <= sig_p2_y + p_length/2) then
+            if p2_eff_count < 1 then
+                if sig_p1b_x >= p2_baseline and (sig_p1b_y >= sig_p2_y - p_length/2 and sig_p1b_y <= sig_p2_y + p_length/2) then
+                    sig_p1b_x <= sig_p1_x + 14;
+                    p2_eff_count <= p2_eff_count + 1;
+                end if;
+            else
                 if p2_eff_count mod 2 = 0 then
                     sig_p2_x <= sig_p2_x - 10;
                 else
@@ -167,7 +179,13 @@ begin
                     p2_eff_count <= 0;
                 end if;
             end if;
-            if sig_p2b_x <= p1_baseline and (sig_p2b_y >= sig_p1_y - p_length/2 and sig_p2b_y <= sig_p1_y + p_length/2) then
+            
+            if p1_eff_count < 1 then
+                if sig_p2b_x <= p1_baseline and (sig_p2b_y >= sig_p1_y - p_length/2 and sig_p2b_y <= sig_p1_y + p_length/2) then
+                    sig_p2b_x <= sig_p2_x - 14;
+                    p1_eff_count <= p1_eff_count + 1;
+                end if;  
+            else
                 if p1_eff_count mod 2 = 0 then
                     sig_p1_x <= sig_p1_x + 10;
                 else
@@ -178,33 +196,36 @@ begin
                     sig_p1_x <= 100;
                     p1_eff_count <= 0;
                 end if;
-            end if;  
-            if sig_p1b_x >= sig_m1_x - m_WIDTH/2 and (sig_p1b_y >= sig_m1_y - m_length/2 and sig_p1b_y <= sig_m1_y + m_length/2) then
-                sig_p1b_x <= sig_p1_x + 14;
+            end if;
+            
+            if m1_eff_count < 1 then
+                if sig_p1b_x >= sig_m1_x - m_WIDTH/2 and (sig_p1b_y >= sig_m1_y - m_length/2 and sig_p1b_y <= sig_m1_y + m_length/2) then
+                    sig_p1b_x <= sig_p1_x + 14;
+                    m1_eff_count <= m1_eff_count + 1;
+                end if;
+                
+                if sig_p2b_x <= sig_m1_x + m_WIDTH/2 and (sig_p2b_y >= sig_m1_y - m_length/2 and sig_p2b_y <= sig_m1_y + m_length/2) then
+                    sig_p2b_x <= sig_p2_x - 14;
+                    m1_eff_count <= m1_eff_count + 1;
+                end if;
+            else
                 if m1_eff_count mod 2 = 0 then
                     sig_m1_x <= sig_m1_x - 10;
                 else
                     sig_m1_x <= sig_m1_x + 10;
                 end if;
                 m1_eff_count <= m1_eff_count + 1;
-                if p2_eff_count >= 10 then
+                if m1_eff_count >= 10 then
                     sig_m1_x <= 511;
                     sig_m1_y <= 0;
                     m1_eff_count <= 0;
                 end if;
             end if;
+            
+            
         end if;
     end process bullet_proc;
     
-    monster_proc: process(clk10Hz)
-    begin
-        if rising_edge(clk10Hz) then
-            sig_m1_y <= sig_m1_y + m_speed;
-            if sig_m1_y + m_LENGTH/2 >= BOTTOM then
-                sig_m1_y <= 0;
-            end if;
-        end if;
-    end process monster_proc;
     
     
     p1_x <= sig_p1_x;

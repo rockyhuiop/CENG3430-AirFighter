@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-| Date         : Tue May 14 22:34:26 2024
+| Date         : Wed May 15 00:03:04 2024
 | Host         : 102-019 running 64-bit major release  (build 9200)
 | Command      : report_clock_utilization -file AirFighter_clock_utilization_routed.rpt
 | Design       : AirFighter
@@ -48,7 +48,7 @@ Table of Contents
 +-----------+-----------+-----------------+------------+---------------+--------------+-------------------+-------------+-----------------+--------------+-------+-------------------------+---------------+
 | Global Id | Source Id | Driver Type/Pin | Constraint | Site          | Clock Region | Load Clock Region | Clock Loads | Non-Clock Loads | Clock Period | Clock | Driver Pin              | Net           |
 +-----------+-----------+-----------------+------------+---------------+--------------+-------------------+-------------+-----------------+--------------+-------+-------------------------+---------------+
-| g0        | src0      | BUFG/O          | None       | BUFGCTRL_X0Y0 | n/a          |                 1 |         284 |               0 |              |       | sig_p1b_x_reg[31]_i_2/O | clk50Hz       |
+| g0        | src0      | BUFG/O          | None       | BUFGCTRL_X0Y0 | n/a          |                 1 |         347 |               0 |              |       | sig_p1b_x_reg[31]_i_2/O | clk50Hz       |
 | g1        | src1      | BUFG/O          | None       | BUFGCTRL_X0Y1 | n/a          |                 2 |          99 |               0 |              |       | clk_IBUF_BUFG_inst/O    | clk_IBUF_BUFG |
 | g2        | src2      | BUFG/O          | None       | BUFGCTRL_X0Y2 | n/a          |                 1 |          64 |               0 |              |       | hcount_reg[31]_i_3/O    | clk50MHz      |
 | g3        | src3      | BUFG/O          | None       | BUFGCTRL_X0Y3 | n/a          |                 1 |          62 |               0 |              |       | sig_p1_y_reg[31]_i_4/O  | clk10Hz       |
@@ -63,10 +63,10 @@ Table of Contents
 +-----------+-----------+-----------------+------------+--------------+--------------+-------------+-----------------+---------------------+--------------+-----------------------------------+-----------------------------------+
 | Source Id | Global Id | Driver Type/Pin | Constraint | Site         | Clock Region | Clock Loads | Non-Clock Loads | Source Clock Period | Source Clock | Driver Pin                        | Net                               |
 +-----------+-----------+-----------------+------------+--------------+--------------+-------------+-----------------+---------------------+--------------+-----------------------------------+-----------------------------------+
-| src0      | g0        | FDRE/Q          | None       | SLICE_X50Y46 | X1Y0         |           1 |               1 |                     |              | control/comp_clk50Hz/pulse_reg/Q  | control/comp_clk50Hz/pulse_reg_0  |
+| src0      | g0        | FDRE/Q          | None       | SLICE_X50Y45 | X1Y0         |           1 |               1 |                     |              | control/comp_clk50Hz/pulse_reg/Q  | control/comp_clk50Hz/pulse_reg_0  |
 | src1      | g1        | IBUF/O          | IOB_X0Y26  | IOB_X0Y26    | X0Y0         |           1 |               0 |                     |              | clk_IBUF_inst/O                   | clk_IBUF                          |
-| src2      | g2        | FDRE/Q          | None       | SLICE_X44Y46 | X0Y0         |           1 |               1 |                     |              | display/comp_clk50MHz/pulse_reg/Q | display/comp_clk50MHz/pulse_reg_0 |
-| src3      | g3        | FDRE/Q          | None       | SLICE_X49Y45 | X0Y0         |           1 |               1 |                     |              | control/comp_clk10Hz/pulse_reg/Q  | control/comp_clk10Hz/pulse_reg_0  |
+| src2      | g2        | FDRE/Q          | None       | SLICE_X45Y46 | X0Y0         |           1 |               1 |                     |              | display/comp_clk50MHz/pulse_reg/Q | display/comp_clk50MHz/pulse_reg_0 |
+| src3      | g3        | FDRE/Q          | None       | SLICE_X46Y44 | X0Y0         |           1 |               1 |                     |              | control/comp_clk10Hz/pulse_reg/Q  | control/comp_clk10Hz/pulse_reg_0  |
 +-----------+-----------+-----------------+------------+--------------+--------------+-------------+-----------------+---------------------+--------------+-----------------------------------+-----------------------------------+
 * Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
 ** Non-Clock Loads column represents cell count of non-clock pin loads
@@ -80,8 +80,8 @@ Table of Contents
 +-------------------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+
 | Clock Region Name | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail |
 +-------------------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+
-| X0Y0              |    1 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |   66 |  2500 |    0 |  1000 |    0 |    60 |    0 |    30 |    0 |    60 |
-| X1Y0              |    4 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |  443 |  3200 |  117 |   850 |    0 |    60 |    0 |    30 |    0 |    40 |
+| X0Y0              |    1 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |   66 |  2500 |    2 |  1000 |    0 |    60 |    0 |    30 |    0 |    60 |
+| X1Y0              |    4 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |  506 |  3200 |  183 |   850 |    0 |    60 |    0 |    30 |    0 |    40 |
 | X0Y1              |    0 |    12 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |  1200 |    0 |   400 |    0 |    20 |    0 |    10 |    0 |    20 |
 | X1Y1              |    0 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    0 |  2600 |    0 |   850 |    0 |    60 |    0 |    30 |    0 |    40 |
 | X0Y2              |    0 |    12 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |  1200 |    0 |   400 |    0 |    20 |    0 |    10 |    0 |    20 |
@@ -109,7 +109,7 @@ All Modules
 +-----------+-----------------+-------------------+-------+-------------+---------------+-------------+----------+----------------+----------+---------+
 | Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net     |
 +-----------+-----------------+-------------------+-------+-------------+---------------+-------------+----------+----------------+----------+---------+
-| g0        | BUFG/O          | n/a               |       |             |               |         284 |        0 |              0 |        0 | clk50Hz |
+| g0        | BUFG/O          | n/a               |       |             |               |         347 |        0 |              0 |        0 | clk50Hz |
 +-----------+-----------------+-------------------+-------+-------------+---------------+-------------+----------+----------------+----------+---------+
 * Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
 ** IO Loads column represents load cell count of IO types
@@ -122,7 +122,7 @@ All Modules
 +----+----+------+-----------------------+
 | Y2 |  0 |    0 |                     - |
 | Y1 |  0 |    0 |                     - |
-| Y0 |  0 |  284 |                     0 |
+| Y0 |  0 |  347 |                     0 |
 +----+----+------+-----------------------+
 
 
@@ -214,7 +214,7 @@ All Modules
 +-----------+-------+-----------------+------------+-------------+-----------------+-----+-------------+------+-----+----+------+-----+---------+---------------+
 | Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF  | Memory LUTs | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net           |
 +-----------+-------+-----------------+------------+-------------+-----------------+-----+-------------+------+-----+----+------+-----+---------+---------------+
-| g0        | n/a   | BUFG/O          | None       |         284 |               0 | 284 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | clk50Hz       |
+| g0        | n/a   | BUFG/O          | None       |         347 |               0 | 347 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | clk50Hz       |
 | g1        | n/a   | BUFG/O          | None       |          33 |               0 |  33 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | clk_IBUF_BUFG |
 | g2        | n/a   | BUFG/O          | None       |          64 |               0 |  64 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | clk50MHz      |
 | g3        | n/a   | BUFG/O          | None       |          62 |               0 |  62 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | clk10Hz       |

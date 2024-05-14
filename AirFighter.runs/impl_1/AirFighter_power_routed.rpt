@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-| Date             : Tue May 14 22:34:26 2024
+| Date             : Wed May 15 00:03:04 2024
 | Host             : 102-019 running 64-bit major release  (build 9200)
 | Command          : report_power -file AirFighter_power_routed.rpt -pb AirFighter_power_summary_routed.pb -rpx AirFighter_power_routed.rpx
 | Design           : AirFighter
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 1.152        |
+| Total On-Chip Power (W)  | 1.103        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 1.031        |
-| Device Static (W)        | 0.121        |
+| Dynamic (W)              | 0.983        |
+| Device Static (W)        | 0.120        |
 | Effective TJA (C/W)      | 11.5         |
-| Max Ambient (C)          | 71.7         |
-| Junction Temperature (C) | 38.3         |
+| Max Ambient (C)          | 72.3         |
+| Junction Temperature (C) | 37.7         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,16 +52,16 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Slice Logic    |     0.494 |     2878 |       --- |             --- |
-|   LUT as Logic |     0.314 |     1404 |     53200 |            2.64 |
-|   CARRY4       |     0.131 |      553 |     13300 |            4.16 |
-|   Register     |     0.043 |      509 |    106400 |            0.48 |
+| Slice Logic    |     0.438 |     3364 |       --- |             --- |
+|   LUT as Logic |     0.322 |     1648 |     53200 |            3.10 |
+|   CARRY4       |     0.063 |      638 |     13300 |            4.80 |
+|   Register     |     0.047 |      572 |    106400 |            0.54 |
 |   BUFG         |     0.006 |        4 |        32 |           12.50 |
 |   Others       |     0.000 |       10 |       --- |             --- |
-| Signals        |     0.517 |     2067 |       --- |             --- |
+| Signals        |     0.525 |     2445 |       --- |             --- |
 | I/O            |     0.020 |       19 |       200 |            9.50 |
-| Static Power   |     0.121 |          |           |                 |
-| Total          |     1.152 |          |           |                 |
+| Static Power   |     0.120 |          |           |                 |
+| Total          |     1.103 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -71,7 +71,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     1.043 |       1.031 |      0.012 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.995 |       0.983 |      0.011 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.013 |       0.000 |      0.013 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -84,7 +84,7 @@ Table of Contents
 | MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | MGTVccaux |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
-| Vccpint   |       1.000 |     0.025 |       0.000 |      0.025 |       NA    | Unspecified | NA         |
+| Vccpint   |       1.000 |     0.024 |       0.000 |      0.024 |       NA    | Unspecified | NA         |
 | Vccpaux   |       1.800 |     0.010 |       0.000 |      0.010 |       NA    | Unspecified | NA         |
 | Vccpll    |       1.800 |     0.003 |       0.000 |      0.003 |       NA    | Unspecified | NA         |
 | Vcco_ddr  |       1.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -145,12 +145,12 @@ Table of Contents
 +-------------------+-----------+
 | Name              | Power (W) |
 +-------------------+-----------+
-| AirFighter        |     1.031 |
-|   control         |     0.472 |
-|     comp_clk10Hz  |     0.164 |
-|     comp_clk50Hz  |     0.147 |
-|   display         |     0.473 |
-|     comp_clk50MHz |     0.187 |
+| AirFighter        |     0.983 |
+|   control         |     0.426 |
+|     comp_clk10Hz  |     0.166 |
+|     comp_clk50Hz  |     0.163 |
+|   display         |     0.474 |
+|     comp_clk50MHz |     0.207 |
 +-------------------+-----------+
 
 
