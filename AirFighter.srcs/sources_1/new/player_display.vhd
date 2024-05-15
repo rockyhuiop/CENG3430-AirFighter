@@ -21,7 +21,7 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-
+use work.image_data_pkg.all;  -- Add this line to use the image_data_pkg
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
 --use IEEE.NUMERIC_STD.ALL;
@@ -74,8 +74,8 @@ architecture Behavioral of player_display is
     end component;
     
     -- Constants of the square
-    constant LENGTH: integer := 100;
-    constant WIDTH: integer := 20;
+    constant LENGTH: integer := 128;
+    constant WIDTH: integer := 128;
     signal p1_H_TOP_LEFT: integer := H_START + p1_x - WIDTH/2;
     signal p1_V_TOP_LEFT: integer := V_START + p1_y - LENGTH/2;
     
@@ -167,9 +167,9 @@ begin
             -- Display Area (draw the square here)
             if((hcount >= p1_H_TOP_LEFT and hcount < p1_H_TOP_LEFT + WIDTH) and
                (vcount >= p1_V_TOP_LEFT and vcount < p1_V_TOP_LEFT + LENGTH)) then
-                red   <= "1111";
-                green <= "0000";
-                blue  <= "1111";
+                red   <= Image(vcount-(p1_V_TOP_LEFT + LENGTH), hcount-(p1_H_TOP_LEFT + WIDTH))(23 downto 20); -- Extracting 4 MSBs for each color
+                green <= Image(vcount-(p1_V_TOP_LEFT + LENGTH), hcount-(p1_H_TOP_LEFT + WIDTH))(15 downto 12);
+                blue  <= Image(vcount-(p1_V_TOP_LEFT + LENGTH), hcount-(p1_H_TOP_LEFT + WIDTH))(7 downto 4);
             elsif((hcount >= p2_H_TOP_LEFT and hcount < p2_H_TOP_LEFT + WIDTH) and
                  (vcount >= p2_V_TOP_LEFT and vcount < p2_V_TOP_LEFT + LENGTH)) then
                 red   <= "1100";
