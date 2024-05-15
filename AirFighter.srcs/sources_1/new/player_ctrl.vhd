@@ -41,6 +41,8 @@ entity player_ctrl is
 end player_ctrl;
 
 architecture Behavioral of player_ctrl is
+
+    -- init position
     signal sig_p1_x: integer := 100;
     signal sig_p1_y: integer := 300;
     signal sig_p2_x: integer := 924;
@@ -50,8 +52,13 @@ architecture Behavioral of player_ctrl is
     signal sig_p2b_x: integer := 924;
     signal sig_p2b_y: integer := 300;
     
+    -- mobile plane
     signal sig_m1_x: integer := 511;
     signal sig_m1_y: integer := 0;
+    
+    -- score
+    signal p1_score: integer := 0;
+    signal p2_score: integer := 0;
     
     --signal p1_is_hit: boolean := false;
     --signal p2_is_hit: boolean := false;
@@ -129,6 +136,12 @@ begin
             end if;
         end if;
     end process btn_proc;
+    
+    score_proc: process(clk50MHz)
+    begin
+        
+        
+    end process score_proc;
 
     bullet_proc: process(clk50Hz)
     begin
@@ -163,7 +176,7 @@ begin
             
             -- Check hit
             if p2_eff_count < 1 then
-                if sig_p1b_x >= p2_baseline and (sig_p1b_y >= sig_p2_y - p_length/2 and sig_p1b_y <= sig_p2_y + p_length/2) then
+                if (sig_p1b_x >= p2_baseline and sig_p1b_x <= sig_p2_x) and (sig_p1b_y >= sig_p2_y - p_length/2 and sig_p1b_y <= sig_p2_y + p_length/2) then
                     sig_p1b_x <= sig_p1_x + 14;
                     p2_eff_count <= p2_eff_count + 1;
                 end if;
@@ -181,7 +194,7 @@ begin
             end if;
             
             if p1_eff_count < 1 then
-                if sig_p2b_x <= p1_baseline and (sig_p2b_y >= sig_p1_y - p_length/2 and sig_p2b_y <= sig_p1_y + p_length/2) then
+                if sig_p2b_x <= p1_baseline and sig_p2b_x >= sig_p1_x and (sig_p2b_y >= sig_p1_y - p_length/2 and sig_p2b_y <= sig_p1_y + p_length/2) then
                     sig_p2b_x <= sig_p2_x - 14;
                     p1_eff_count <= p1_eff_count + 1;
                 end if;  
@@ -199,12 +212,14 @@ begin
             end if;
             
             if m1_eff_count < 1 then
-                if sig_p1b_x >= sig_m1_x - m_WIDTH/2 and (sig_p1b_y >= sig_m1_y - m_length/2 and sig_p1b_y <= sig_m1_y + m_length/2) then
+                if (sig_p1b_x >= sig_m1_x - m_WIDTH/2 and sig_p1b_x <= sig_m1_x) 
+                    and (sig_p1b_y >= sig_m1_y - m_length/2 and sig_p1b_y <= sig_m1_y + m_length/2) then
                     sig_p1b_x <= sig_p1_x + 14;
                     m1_eff_count <= m1_eff_count + 1;
                 end if;
                 
-                if sig_p2b_x <= sig_m1_x + m_WIDTH/2 and (sig_p2b_y >= sig_m1_y - m_length/2 and sig_p2b_y <= sig_m1_y + m_length/2) then
+                if (sig_p2b_x <= sig_m1_x + m_WIDTH/2 and sig_p2b_x >= sig_m1_x)  
+                    and (sig_p2b_y >= sig_m1_y - m_length/2 and sig_p2b_y <= sig_m1_y + m_length/2) then
                     sig_p2b_x <= sig_p2_x - 14;
                     m1_eff_count <= m1_eff_count + 1;
                 end if;
