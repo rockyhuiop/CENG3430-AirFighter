@@ -21,7 +21,7 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-
+use IEEE.NUMERIC_STD.ALL;
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
 --use IEEE.NUMERIC_STD.ALL;
@@ -54,8 +54,12 @@ architecture Behavioral of player_ctrl is
     signal sig_p2b_y: integer := 300;
     
     -- mobile plane
-    signal sig_m1_x: integer := 511;
-    signal sig_m1_y: integer := 0;
+    signal sig_m1_x: integer := 0;
+    signal sig_m1_y: integer := 300;
+    signal m1_cos1_in: unsigned(7 downto 0);
+    signal m1_cos1_out: signed(15 downto 0);
+    signal m1_cos_in: unsigned(7 downto 0);
+    signal m1_cos_out: signed(15 downto 0);
     
     -- score
     signal sig_p1_score: integer := 0;
@@ -79,6 +83,20 @@ architecture Behavioral of player_ctrl is
         clk_out: out std_logic
     );
     end component;
+    
+    component cosine_lut is
+    Port ( clk : in STD_LOGIC;
+           angle : in unsigned(7 downto 0);  -- Input angle, 0-255 represents 0-2pi
+           cos_out : out signed(15 downto 0)  -- Output cosine value, scaled to use full 16-bit range
+         );
+    end component;
+    
+    component cos_lut is
+    Port ( clk : in STD_LOGIC;
+           angle : in unsigned(7 downto 0);  -- Input angle, 0-255 represents 0-2pi
+           cos_out : out signed(15 downto 0)  -- Output cosine value, scaled to use full 16-bit range
+         );
+    end component;
    
     constant p1_baseline : integer := (100 + 64);
     constant p2_baseline : integer := (924 - 64); 
@@ -88,10 +106,10 @@ architecture Behavioral of player_ctrl is
     constant RIGHT : integer := 1024;
     constant p_LENGTH : integer := 100;
     constant p_WIDTH : integer := 20;
-    constant b_SPEED: integer := 10; -- 50 pixels per second
+    constant b_SPEED: integer := 12; -- 50 pixels per second
     constant b_LENGTH: integer := 28;
     constant b_WIDTH: integer := 6;
-    constant m_SPEED: integer := 2; -- 10 pixels per second
+    constant m_SPEED: integer := 5;
     constant m_LENGTH: integer := 64;
     constant m_WIDTH: integer := 47;
     
@@ -100,8 +118,8 @@ begin
     comp_clk50MHz: clock_divider generic map(N => 1) port map(clk, clk50MHz);
     comp_clk10Hz: clock_divider generic map(N => 5000000) port map(clk, clk10Hz);
     comp_clk50Hz: clock_divider generic map(N => 1000000) port map(clk, clk50Hz);
-    
-    
+    m1_cos: cosine_lut port map(clk, m1_cos_in, m1_cos_out);
+    m1_cos1: cos_lut port map(clk, m1_cos1_in, m1_cos1_out);
     
 -- Task: BTN Controller
     btn_proc: process(btnL, btnR, btnU, btnD)
@@ -171,10 +189,13 @@ begin
             end if;
             
             -- Update monster 1's position
-            if sig_m1_y + m_speed - m_LENGTH/2 < BOTTOM then
-                sig_m1_y <= sig_m1_y + m_speed;
+            if sig_m1_x - m_WIDTH/2 < RIGHT then
+                sig_m1_x <= sig_m1_x + m_speed;
+                m1_cos1_in <= to_unsigned((sig_m1_x * 255) / 1024, m1_cos1_in'length);
+                m1_cos_in <= to_unsigned(((sig_m1_x * 255) / 2) / 1024, m1_cos_in'length) ;
+                sig_m1_y <= ((to_integer(m1_cos_out) - to_integer(m1_cos1_out)) * 300 / 65535) + 300;
             else
-                sig_m1_y <= 0 - m_LENGTH/2;
+                sig_m1_x <= 0 - m_WIDTH/2;
             end if;
             
             -- Check hit
@@ -238,8 +259,8 @@ begin
                 end if;
                 m1_eff_count <= m1_eff_count + 1;
                 if m1_eff_count >= 10 then
-                    sig_m1_x <= 511;
-                    sig_m1_y <= 0;
+                    sig_m1_x <= 0;
+                    sig_m1_y <= 300;
                     m1_eff_count <= 0;
                 end if;
             end if;
