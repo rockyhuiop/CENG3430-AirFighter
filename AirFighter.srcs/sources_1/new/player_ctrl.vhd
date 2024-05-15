@@ -36,7 +36,8 @@ entity player_ctrl is
         clk, btnL, btnR, btnU, btnD: in std_logic;
         p1_x, p1_y, p2_x, p2_y: out integer;
         p1b_x, p1b_y, p2b_x, p2b_y: out integer;
-        m1_x, m1_y: out integer
+        m1_x, m1_y: out integer;
+        p1_score, p2_score: out integer
     );
 end player_ctrl;
 
@@ -57,8 +58,8 @@ architecture Behavioral of player_ctrl is
     signal sig_m1_y: integer := 0;
     
     -- score
-    signal p1_score: integer := 0;
-    signal p2_score: integer := 0;
+    signal sig_p1_score: integer := 0;
+    signal sig_p2_score: integer := 0;
     
     --signal p1_is_hit: boolean := false;
     --signal p2_is_hit: boolean := false;
@@ -91,8 +92,8 @@ architecture Behavioral of player_ctrl is
     constant b_LENGTH: integer := 28;
     constant b_WIDTH: integer := 12;
     constant m_SPEED: integer := 2; -- 10 pixels per second
-    constant m_LENGTH: integer := 128;
-    constant m_WIDTH: integer := 128;
+    constant m_LENGTH: integer := 64;
+    constant m_WIDTH: integer := 47;
     
     
 begin
@@ -137,15 +138,17 @@ begin
         end if;
     end process btn_proc;
     
-    score_proc: process(clk50MHz)
-    begin
-        
-        
-    end process score_proc;
 
     bullet_proc: process(clk50Hz)
     begin
         if rising_edge(clk50Hz) then
+            if sig_p1_score >= 99 then
+                sig_p1_score <= 0;
+            end if;
+            if sig_p2_score >= 99 then
+                sig_p2_score <= 0;
+            end if;
+            
             if sig_p1b_x = sig_p1_x + 14 then
                 sig_p1b_y <= sig_p1_y;
             end if;
@@ -176,11 +179,14 @@ begin
             
             -- Check hit
             if p2_eff_count < 1 then
+                -- if hit enter show eff
                 if (sig_p1b_x >= p2_baseline and sig_p1b_x <= sig_p2_x) and (sig_p1b_y >= sig_p2_y - p_length/2 and sig_p1b_y <= sig_p2_y + p_length/2) then
                     sig_p1b_x <= sig_p1_x + 14;
                     p2_eff_count <= p2_eff_count + 1;
+                    sig_p1_score <= sig_p1_score + 1;
                 end if;
             else
+                -- eff process
                 if p2_eff_count mod 2 = 0 then
                     sig_p2_x <= sig_p2_x - 10;
                 else
@@ -197,6 +203,7 @@ begin
                 if sig_p2b_x <= p1_baseline and sig_p2b_x >= sig_p1_x and (sig_p2b_y >= sig_p1_y - p_length/2 and sig_p2b_y <= sig_p1_y + p_length/2) then
                     sig_p2b_x <= sig_p2_x - 14;
                     p1_eff_count <= p1_eff_count + 1;
+                    sig_p2_score <= sig_p2_score + 1; 
                 end if;  
             else
                 if p1_eff_count mod 2 = 0 then
@@ -253,6 +260,8 @@ begin
     p2b_y <= sig_p2b_y;
     m1_x <= sig_m1_x;
     m1_y <= sig_m1_y;
+    p1_score <= sig_p1_score;
+    p2_score <= sig_p2_score;
 
 
 end Behavioral;

@@ -21,7 +21,8 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use work.image_data_pkg.all;  -- Add this line to use the image_data_pkg
+use work.image_data_pkg.all;
+use work.pixelNum_pkg.all;  -- Add this line to use the image_data_pkg
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
 --use IEEE.NUMERIC_STD.ALL;
@@ -38,7 +39,8 @@ entity player_display is
         red, green, blue: out std_logic_vector(3 downto 0);
         p1_x, p1_y, p2_x, p2_y: in integer;
         p1b_x, p1b_y, p2b_x, p2b_y: in integer;
-        m1_x, m1_y: in integer
+        m1_x, m1_y: in integer;
+        p1_score, p2_score: in integer
     );
 end player_display;
 
@@ -88,8 +90,13 @@ architecture Behavioral of player_display is
     constant BULLET_WIDTH: integer := 12;
     
     constant m_SPEED: integer := 10; -- 10 pixels per second
-    constant m_LENGTH: integer := 128;
-    constant m_WIDTH: integer := 128;
+    constant m_LENGTH: integer := 64;
+    constant m_WIDTH: integer := 47;
+
+    constant S1_H_START: integer := H_START + 100 - WIDTH/2;
+    constant S1_V_START: integer := V_START + 20;
+    constant S2_H_START: integer := H_START + 924 + WIDTH/2;
+    constant S2_V_START: integer := V_START + 20;
     
     -- Signals for the bullet
     signal p1_bullet_x: integer := H_START + p1b_x - BULLET_LENGTH/2;
@@ -186,15 +193,191 @@ begin
                 red   <= "0000";
                 green <= "1111";
                 blue  <= "1111";
+            -- monster display
             elsif((hcount >= sig_m1_x and hcount < sig_m1_x + m_WIDTH) and
                  (vcount >= sig_m1_y and vcount < sig_m1_y + m_LENGTH)) then
-                red   <= "1111";
-                green <= "0000";
-                blue  <= "0000";
+                red   <= p1drone(vcount-sig_m1_y, hcount-(sig_m1_x))(23 downto 20); -- Extracting 4 MSBs for each color
+                green <= p1drone(vcount-sig_m1_y, hcount-(sig_m1_x))(15 downto 12);
+                blue  <= p1drone(vcount-sig_m1_y, hcount-(sig_m1_x))(7 downto 4);
             else
-                red   <= "1111";
-                green <= "1111";
-                blue  <= "1111";
+                -- p1 score space 10 digit
+                if((hcount >= s1_H_START and hcount < s1_H_START + 48) and
+                   (vcount >= s1_V_START and vcount < s1_V_START + 48)) then
+                    if p1_score / 10 = 0 then
+                        red   <= pix0(vcount-(s1_V_START), hcount-(s1_H_START))(23 downto 20); -- Extracting 4 MSBs for each color
+                        green <= pix0(vcount-(s1_V_START), hcount-(s1_H_START))(15 downto 12);
+                        blue  <= pix0(vcount-(s1_V_START), hcount-(s1_H_START))(7 downto 4);
+                    elsif p1_score / 10 = 1 then
+                        red   <= pix1(vcount-(s1_V_START), hcount-(s1_H_START))(23 downto 20); -- Extracting 4 MSBs for each color
+                        green <= pix1(vcount-(s1_V_START), hcount-(s1_H_START))(15 downto 12);
+                        blue  <= pix1(vcount-(s1_V_START), hcount-(s1_H_START))(7 downto 4);
+                    elsif p1_score / 10 = 2 then
+                        red   <= pix2(vcount-(s1_V_START), hcount-(s1_H_START))(23 downto 20); -- Extracting 4 MSBs for each color
+                        green <= pix2(vcount-(s1_V_START), hcount-(s1_H_START))(15 downto 12);
+                        blue  <= pix2(vcount-(s1_V_START), hcount-(s1_H_START))(7 downto 4);
+                    elsif p1_score / 10 = 3 then
+                        red   <= pix3(vcount-(s1_V_START), hcount-(s1_H_START))(23 downto 20); -- Extracting 4 MSBs for each color
+                        green <= pix3(vcount-(s1_V_START), hcount-(s1_H_START))(15 downto 12);
+                        blue  <= pix3(vcount-(s1_V_START), hcount-(s1_H_START))(7 downto 4);
+                    elsif p1_score / 10 = 4 then
+                        red   <= pix4(vcount-(s1_V_START), hcount-(s1_H_START))(23 downto 20); -- Extracting 4 MSBs for each color
+                        green <= pix4(vcount-(s1_V_START), hcount-(s1_H_START))(15 downto 12);
+                        blue  <= pix4(vcount-(s1_V_START), hcount-(s1_H_START))(7 downto 4);
+                    elsif p1_score / 10 = 5 then
+                        red   <= pix5(vcount-(s1_V_START), hcount-(s1_H_START))(23 downto 20); -- Extracting 4 MSBs for each color
+                        green <= pix5(vcount-(s1_V_START), hcount-(s1_H_START))(15 downto 12);
+                        blue  <= pix5(vcount-(s1_V_START), hcount-(s1_H_START))(7 downto 4);
+                    elsif p1_score / 10 = 6 then
+                        red   <= pix6(vcount-(s1_V_START), hcount-(s1_H_START))(23 downto 20); -- Extracting 4 MSBs for each color
+                        green <= pix6(vcount-(s1_V_START), hcount-(s1_H_START))(15 downto 12);
+                        blue  <= pix6(vcount-(s1_V_START), hcount-(s1_H_START))(7 downto 4);
+                    elsif p1_score / 10 = 7 then
+                        red   <= pix7(vcount-(s1_V_START), hcount-(s1_H_START))(23 downto 20); -- Extracting 4 MSBs for each color
+                        green <= pix7(vcount-(s1_V_START), hcount-(s1_H_START))(15 downto 12);
+                        blue  <= pix7(vcount-(s1_V_START), hcount-(s1_H_START))(7 downto 4);
+                    elsif p1_score / 10 = 8 then
+                        red   <= pix8(vcount-(s1_V_START), hcount-(s1_H_START))(23 downto 20); -- Extracting 4 MSBs for each color
+                        green <= pix8(vcount-(s1_V_START), hcount-(s1_H_START))(15 downto 12);
+                        blue  <= pix8(vcount-(s1_V_START), hcount-(s1_H_START))(7 downto 4);
+                    elsif p1_score / 10 = 9 then
+                        red   <= pix9(vcount-(s1_V_START), hcount-(s1_H_START))(23 downto 20); -- Extracting 4 MSBs for each color
+                        green <= pix9(vcount-(s1_V_START), hcount-(s1_H_START))(15 downto 12);
+                        blue  <= pix9(vcount-(s1_V_START), hcount-(s1_H_START))(7 downto 4);
+                    end if;
+                elsif ((hcount >= s1_H_START + 48 and hcount < s1_H_START + 48 + 48) and
+                      (vcount >= s1_V_START and vcount < s1_V_START + 48)) then
+                    if p1_score mod 10 = 0 then
+                        red   <= pix0(vcount-(s1_V_START), hcount-(s1_H_START+48))(23 downto 20); -- Extracting 4 MSBs for each color
+                        green <= pix0(vcount-(s1_V_START), hcount-(s1_H_START+48))(15 downto 12);
+                        blue  <= pix0(vcount-(s1_V_START), hcount-(s1_H_START+48))(7 downto 4);
+                    elsif p1_score mod 10 = 1 then
+                        red   <= pix1(vcount-(s1_V_START), hcount-(s1_H_START+48))(23 downto 20); -- Extracting 4 MSBs for each color
+                        green <= pix1(vcount-(s1_V_START), hcount-(s1_H_START+48))(15 downto 12);
+                        blue  <= pix1(vcount-(s1_V_START), hcount-(s1_H_START+48))(7 downto 4);
+                    elsif p1_score mod 10 = 2 then
+                        red   <= pix2(vcount-(s1_V_START), hcount-(s1_H_START+48))(23 downto 20); -- Extracting 4 MSBs for each color
+                        green <= pix2(vcount-(s1_V_START), hcount-(s1_H_START+48))(15 downto 12);
+                        blue  <= pix2(vcount-(s1_V_START), hcount-(s1_H_START+48))(7 downto 4);
+                    elsif p1_score mod 10 = 3 then
+                        red   <= pix3(vcount-(s1_V_START), hcount-(s1_H_START+48))(23 downto 20); -- Extracting 4 MSBs for each color
+                        green <= pix3(vcount-(s1_V_START), hcount-(s1_H_START+48))(15 downto 12);
+                        blue  <= pix3(vcount-(s1_V_START), hcount-(s1_H_START+48))(7 downto 4);
+                    elsif p1_score mod 10 = 4 then
+                        red   <= pix4(vcount-(s1_V_START), hcount-(s1_H_START+48))(23 downto 20); -- Extracting 4 MSBs for each color
+                        green <= pix4(vcount-(s1_V_START), hcount-(s1_H_START+48))(15 downto 12);
+                        blue  <= pix4(vcount-(s1_V_START), hcount-(s1_H_START+48))(7 downto 4);
+                    elsif p1_score mod 10 = 5 then
+                        red   <= pix5(vcount-(s1_V_START), hcount-(s1_H_START+48))(23 downto 20); -- Extracting 4 MSBs for each color
+                        green <= pix5(vcount-(s1_V_START), hcount-(s1_H_START+48))(15 downto 12);
+                        blue  <= pix5(vcount-(s1_V_START), hcount-(s1_H_START+48))(7 downto 4);
+                    elsif p1_score mod 10 = 6 then
+                        red   <= pix6(vcount-(s1_V_START), hcount-(s1_H_START+48))(23 downto 20); -- Extracting 4 MSBs for each color
+                        green <= pix6(vcount-(s1_V_START), hcount-(s1_H_START+48))(15 downto 12);
+                        blue  <= pix6(vcount-(s1_V_START), hcount-(s1_H_START+48))(7 downto 4);
+                    elsif p1_score mod 10 = 7 then
+                        red   <= pix7(vcount-(s1_V_START), hcount-(s1_H_START+48))(23 downto 20); -- Extracting 4 MSBs for each color
+                        green <= pix7(vcount-(s1_V_START), hcount-(s1_H_START+48))(15 downto 12);
+                        blue  <= pix7(vcount-(s1_V_START), hcount-(s1_H_START+48))(7 downto 4);
+                    elsif p1_score mod 10 = 8 then
+                        red   <= pix8(vcount-(s1_V_START), hcount-(s1_H_START+48))(23 downto 20); -- Extracting 4 MSBs for each color
+                        green <= pix8(vcount-(s1_V_START), hcount-(s1_H_START+48))(15 downto 12);
+                        blue  <= pix8(vcount-(s1_V_START), hcount-(s1_H_START+48))(7 downto 4);
+                    elsif p1_score mod 10 = 9 then
+                        red   <= pix9(vcount-(s1_V_START), hcount-(s1_H_START+48))(23 downto 20); -- Extracting 4 MSBs for each color
+                        green <= pix9(vcount-(s1_V_START), hcount-(s1_H_START+48))(15 downto 12);
+                        blue  <= pix9(vcount-(s1_V_START), hcount-(s1_H_START+48))(7 downto 4);
+                    end if;
+                elsif((hcount >= s2_H_START and hcount < s2_H_START + 48) and
+                   (vcount >= s2_V_START and vcount < s2_V_START + 48)) then
+                    if p1_score / 10 = 0 then
+                        red   <= pix0(vcount-(s2_V_START), hcount-(s2_H_START))(23 downto 20); -- Extracting 4 MSBs for each color
+                        green <= pix0(vcount-(s2_V_START), hcount-(s2_H_START))(15 downto 12);
+                        blue  <= pix0(vcount-(s2_V_START), hcount-(s2_H_START))(7 downto 4);
+                    elsif p1_score / 10 = 1 then
+                        red   <= pix0(vcount-(s2_V_START), hcount-(s2_H_START))(23 downto 20); -- Extracting 4 MSBs for each color
+                        green <= pix0(vcount-(s2_V_START), hcount-(s2_H_START))(15 downto 12);
+                        blue  <= pix0(vcount-(s2_V_START), hcount-(s2_H_START))(7 downto 4);
+                    elsif p1_score / 10 = 2 then
+                        red   <= pix0(vcount-(s2_V_START), hcount-(s2_H_START))(23 downto 20); -- Extracting 4 MSBs for each color
+                        green <= pix0(vcount-(s2_V_START), hcount-(s2_H_START))(15 downto 12);
+                        blue  <= pix0(vcount-(s2_V_START), hcount-(s2_H_START))(7 downto 4);
+                    elsif p1_score / 10 = 3 then
+                        red   <= pix0(vcount-(s2_V_START), hcount-(s2_H_START))(23 downto 20); -- Extracting 4 MSBs for each color
+                        green <= pix0(vcount-(s2_V_START), hcount-(s2_H_START))(15 downto 12);
+                        blue  <= pix0(vcount-(s2_V_START), hcount-(s2_H_START))(7 downto 4);
+                    elsif p1_score / 10 = 4 then
+                        red   <= pix0(vcount-(s2_V_START), hcount-(s2_H_START))(23 downto 20); -- Extracting 4 MSBs for each color
+                        green <= pix0(vcount-(s2_V_START), hcount-(s2_H_START))(15 downto 12);
+                        blue  <= pix0(vcount-(s2_V_START), hcount-(s2_H_START))(7 downto 4);
+                    elsif p1_score / 10 = 5 then
+                        red   <= pix0(vcount-(s2_V_START), hcount-(s2_H_START))(23 downto 20); -- Extracting 4 MSBs for each color
+                        green <= pix0(vcount-(s2_V_START), hcount-(s2_H_START))(15 downto 12);
+                        blue  <= pix0(vcount-(s2_V_START), hcount-(s2_H_START))(7 downto 4);
+                    elsif p1_score / 10 = 6 then
+                        red   <= pix0(vcount-(s2_V_START), hcount-(s2_H_START))(23 downto 20); -- Extracting 4 MSBs for each color
+                        green <= pix0(vcount-(s2_V_START), hcount-(s2_H_START))(15 downto 12);
+                        blue  <= pix0(vcount-(s2_V_START), hcount-(s2_H_START))(7 downto 4);
+                    elsif p1_score / 10 = 7 then
+                        red   <= pix0(vcount-(s2_V_START), hcount-(s2_H_START))(23 downto 20); -- Extracting 4 MSBs for each color
+                        green <= pix0(vcount-(s2_V_START), hcount-(s2_H_START))(15 downto 12);
+                        blue  <= pix0(vcount-(s2_V_START), hcount-(s2_H_START))(7 downto 4);
+                    elsif p1_score / 10 = 8 then
+                        red   <= pix0(vcount-(s2_V_START), hcount-(s2_H_START))(23 downto 20); -- Extracting 4 MSBs for each color
+                        green <= pix0(vcount-(s2_V_START), hcount-(s2_H_START))(15 downto 12);
+                        blue  <= pix0(vcount-(s2_V_START), hcount-(s2_H_START))(7 downto 4);
+                    elsif p1_score / 10 = 9 then
+                        red   <= pix0(vcount-(s2_V_START), hcount-(s2_H_START))(23 downto 20); -- Extracting 4 MSBs for each color
+                        green <= pix0(vcount-(s2_V_START), hcount-(s2_H_START))(15 downto 12);
+                        blue  <= pix0(vcount-(s2_V_START), hcount-(s2_H_START))(7 downto 4);
+                    end if;
+                elsif ((hcount >= s2_H_START + 48 and hcount < s2_H_START + 48 + 48) and
+                      (vcount >= s2_V_START and vcount < s2_V_START + 48)) then
+                    if p1_score mod 10 = 0 then
+                        red   <= pix0(vcount-(s2_V_START), hcount-(s2_H_START+48))(23 downto 20); -- Extracting 4 MSBs for each color
+                        green <= pix0(vcount-(s2_V_START), hcount-(s2_H_START+48))(15 downto 12);
+                        blue  <= pix0(vcount-(s2_V_START), hcount-(s2_H_START+48))(7 downto 4);
+                    elsif p1_score mod 10 = 1 then
+                        red   <= pix0(vcount-(s2_V_START), hcount-(s2_H_START+48))(23 downto 20); -- Extracting 4 MSBs for each color
+                        green <= pix0(vcount-(s2_V_START), hcount-(s2_H_START+48))(15 downto 12);
+                        blue  <= pix0(vcount-(s2_V_START), hcount-(s2_H_START+48))(7 downto 4);
+                    elsif p1_score mod 10 = 2 then
+                        red   <= pix0(vcount-(s2_V_START), hcount-(s2_H_START+48))(23 downto 20); -- Extracting 4 MSBs for each color
+                        green <= pix0(vcount-(s2_V_START), hcount-(s2_H_START+48))(15 downto 12);
+                        blue  <= pix0(vcount-(s2_V_START), hcount-(s2_H_START+48))(7 downto 4);
+                    elsif p1_score mod 10 = 3 then
+                        red   <= pix0(vcount-(s2_V_START), hcount-(s2_H_START+48))(23 downto 20); -- Extracting 4 MSBs for each color
+                        green <= pix0(vcount-(s2_V_START), hcount-(s2_H_START+48))(15 downto 12);
+                        blue  <= pix0(vcount-(s2_V_START), hcount-(s2_H_START+48))(7 downto 4);
+                    elsif p1_score mod 10 = 4 then
+                        red   <= pix0(vcount-(s2_V_START), hcount-(s2_H_START+48))(23 downto 20); -- Extracting 4 MSBs for each color
+                        green <= pix0(vcount-(s2_V_START), hcount-(s2_H_START+48))(15 downto 12);
+                        blue  <= pix0(vcount-(s2_V_START), hcount-(s2_H_START+48))(7 downto 4);
+                    elsif p1_score mod 10 = 5 then
+                        red   <= pix0(vcount-(s2_V_START), hcount-(s2_H_START+48))(23 downto 20); -- Extracting 4 MSBs for each color
+                        green <= pix0(vcount-(s2_V_START), hcount-(s2_H_START+48))(15 downto 12);
+                        blue  <= pix0(vcount-(s2_V_START), hcount-(s2_H_START+48))(7 downto 4);
+                    elsif p1_score mod 10 = 6 then
+                        red   <= pix0(vcount-(s2_V_START), hcount-(s2_H_START+48))(23 downto 20); -- Extracting 4 MSBs for each color
+                        green <= pix0(vcount-(s2_V_START), hcount-(s2_H_START+48))(15 downto 12);
+                        blue  <= pix0(vcount-(s2_V_START), hcount-(s2_H_START+48))(7 downto 4);
+                    elsif p1_score mod 10 = 7 then
+                        red   <= pix0(vcount-(s2_V_START), hcount-(s2_H_START+48))(23 downto 20); -- Extracting 4 MSBs for each color
+                        green <= pix0(vcount-(s2_V_START), hcount-(s2_H_START+48))(15 downto 12);
+                        blue  <= pix0(vcount-(s2_V_START), hcount-(s2_H_START+48))(7 downto 4);
+                    elsif p1_score mod 10 = 8 then
+                        red   <= pix0(vcount-(s2_V_START), hcount-(s2_H_START+48))(23 downto 20); -- Extracting 4 MSBs for each color
+                        green <= pix0(vcount-(s2_V_START), hcount-(s2_H_START+48))(15 downto 12);
+                        blue  <= pix0(vcount-(s2_V_START), hcount-(s2_H_START+48))(7 downto 4);
+                    elsif p1_score mod 10 = 9 then
+                        red   <= pix0(vcount-(s2_V_START), hcount-(s2_H_START+48))(23 downto 20); -- Extracting 4 MSBs for each color
+                        green <= pix0(vcount-(s2_V_START), hcount-(s2_H_START+48))(15 downto 12);
+                        blue  <= pix0(vcount-(s2_V_START), hcount-(s2_H_START+48))(7 downto 4);
+                    end if;
+                else
+                    red   <= "1111";
+                    green <= "1111";
+                    blue  <= "1111";
+                end if;
             end if;
         else
             -- Blanking Area
