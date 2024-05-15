@@ -80,8 +80,8 @@ architecture Behavioral of player_ctrl is
     );
     end component;
    
-    constant p1_baseline : integer := (100 + 10);
-    constant p2_baseline : integer := (924 - 10); 
+    constant p1_baseline : integer := (100 + 64);
+    constant p2_baseline : integer := (924 - 64); 
     constant TOP : integer := 0;
     constant BOTTOM : integer := 600;
     constant LEFT : integer := 0;
@@ -90,7 +90,7 @@ architecture Behavioral of player_ctrl is
     constant p_WIDTH : integer := 20;
     constant b_SPEED: integer := 10; -- 50 pixels per second
     constant b_LENGTH: integer := 28;
-    constant b_WIDTH: integer := 12;
+    constant b_WIDTH: integer := 6;
     constant m_SPEED: integer := 2; -- 10 pixels per second
     constant m_LENGTH: integer := 64;
     constant m_WIDTH: integer := 47;
@@ -106,33 +106,33 @@ begin
 -- Task: BTN Controller
     btn_proc: process(btnL, btnR, btnU, btnD)
     begin
-        if(rising_edge(clk10Hz)) then
+        if(rising_edge(clk50Hz)) then
             if(btnU = '1') then
-                if(sig_p1_y - 10 >= TOP) then
-                    sig_p1_y <= (sig_p1_y - 10);
+                if(sig_p1_y - 3 >= TOP) then
+                    sig_p1_y <= (sig_p1_y - 3);
                 else
                     sig_p1_y <= TOP;
                 end if;
             end if;
             if(btnD = '1') then
-                if(sig_p1_y + 10 + p_length/2 < bottom) then
-                    sig_p1_y <= (sig_p1_y + 10);
+                if(sig_p1_y + 3 + p_length/2 < bottom) then
+                    sig_p1_y <= (sig_p1_y + 3);
                 else
-                    sig_p1_y <= (bottom - p_length/2 - 10);
+                    sig_p1_y <= (bottom - p_length/2 - 3);
                 end if;
             end if;
             if(btnL = '1') then
-                if(sig_p2_y - 10 >= TOP) then
-                    sig_p2_y <= (sig_p2_y - 10);
+                if(sig_p2_y - 3 >= TOP) then
+                    sig_p2_y <= (sig_p2_y - 3);
                 else
                     sig_p2_y <= TOP;
                 end if;
             end if;
             if(btnR = '1') then
-                if(sig_p2_y + 10 + p_length/2 < bottom) then
-                    sig_p2_y <= (sig_p2_y + 10);
+                if(sig_p2_y + 3 + p_length/2 < bottom) then
+                    sig_p2_y <= (sig_p2_y + 3);
                 else
-                    sig_p2_y <= (bottom - p_length/2 - 10);
+                    sig_p2_y <= (bottom - p_length/2 - 3);
                 end if;
             end if;
         end if;
