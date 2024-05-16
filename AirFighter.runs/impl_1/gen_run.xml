@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7z020clg484-1" LaunchTime="1715807760">
+<GenRun Id="impl_1" LaunchPart="xc7z020clg484-1" LaunchTime="1715890473">
   <File Type="ROUTE-PWR" Name="AirFighter_power_routed.rpt"/>
   <File Type="PA-TCL" Name="AirFighter.tcl"/>
   <File Type="ROUTE-PWR-SUM" Name="AirFighter_power_summary_routed.pb"/>
@@ -104,6 +104,12 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/new/RandomGen.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/new/bkgd.vhdl">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -136,6 +142,13 @@
     </File>
     <File Path="$PSRCDIR/sources_1/new/AirFighter.vhd">
       <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/TanlocusLUT.vhd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>

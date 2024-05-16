@@ -3,8 +3,8 @@
 # SW Build 3865809 on Sun May  7 15:05:29 MDT 2023
 # IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
 # SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
-# Start of session at: Thu May 16 05:16:07 2024
-# Process ID: 14368
+# Start of session at: Fri May 17 04:14:35 2024
+# Process ID: 21704
 # Current directory: C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.runs/synth_1
 # Command line: vivado.exe -log AirFighter.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source AirFighter.tcl
 # Log file: C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.runs/synth_1/AirFighter.vds
@@ -27,78 +27,93 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Device 21-403] Loading part xc7z020clg484-1
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 14772
+INFO: [Synth 8-7075] Helper process launched with PID 15280
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1314.242 ; gain = 413.250
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1311.598 ; gain = 411.473
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'AirFighter' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/AirFighter.vhd:42]
-INFO: [Synth 8-3491] module 'player_ctrl' declared at 'C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:34' bound to instance 'control' of component 'player_ctrl' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/AirFighter.vhd:96]
+INFO: [Synth 8-3491] module 'player_ctrl' declared at 'C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:34' bound to instance 'control' of component 'player_ctrl' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/AirFighter.vhd:98]
 INFO: [Synth 8-638] synthesizing module 'player_ctrl' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:44]
 	Parameter N bound to: 1 - type: integer 
-INFO: [Synth 8-3491] module 'clock_divider' declared at 'C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/clock_divider.vhd:34' bound to instance 'comp_clk50MHz' of component 'clock_divider' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:118]
+INFO: [Synth 8-3491] module 'clock_divider' declared at 'C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/clock_divider.vhd:34' bound to instance 'comp_clk50MHz' of component 'clock_divider' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:138]
 INFO: [Synth 8-638] synthesizing module 'clock_divider' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/clock_divider.vhd:42]
 	Parameter N bound to: 1 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'clock_divider' (0#1) [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/clock_divider.vhd:42]
 	Parameter N bound to: 5000000 - type: integer 
-INFO: [Synth 8-3491] module 'clock_divider' declared at 'C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/clock_divider.vhd:34' bound to instance 'comp_clk10Hz' of component 'clock_divider' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:119]
+INFO: [Synth 8-3491] module 'clock_divider' declared at 'C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/clock_divider.vhd:34' bound to instance 'comp_clk10Hz' of component 'clock_divider' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:139]
 INFO: [Synth 8-638] synthesizing module 'clock_divider__parameterized1' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/clock_divider.vhd:42]
 	Parameter N bound to: 5000000 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'clock_divider__parameterized1' (0#1) [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/clock_divider.vhd:42]
 	Parameter N bound to: 1000000 - type: integer 
-INFO: [Synth 8-3491] module 'clock_divider' declared at 'C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/clock_divider.vhd:34' bound to instance 'comp_clk50Hz' of component 'clock_divider' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:120]
+INFO: [Synth 8-3491] module 'clock_divider' declared at 'C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/clock_divider.vhd:34' bound to instance 'comp_clk50Hz' of component 'clock_divider' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:140]
 INFO: [Synth 8-638] synthesizing module 'clock_divider__parameterized3' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/clock_divider.vhd:42]
 	Parameter N bound to: 1000000 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'clock_divider__parameterized3' (0#1) [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/clock_divider.vhd:42]
-INFO: [Synth 8-3491] module 'cosine_lut' declared at 'C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/CosineLUT.vhd:5' bound to instance 'm1_cos' of component 'cosine_lut' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:121]
+	Parameter N bound to: 1851852 - type: integer 
+INFO: [Synth 8-3491] module 'clock_divider' declared at 'C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/clock_divider.vhd:34' bound to instance 'comp_clk27Hz' of component 'clock_divider' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:141]
+INFO: [Synth 8-638] synthesizing module 'clock_divider__parameterized5' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/clock_divider.vhd:42]
+	Parameter N bound to: 1851852 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'clock_divider__parameterized5' (0#1) [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/clock_divider.vhd:42]
+INFO: [Synth 8-3491] module 'cosine_lut' declared at 'C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/CosineLUT.vhd:5' bound to instance 'm1_cos' of component 'cosine_lut' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:142]
 INFO: [Synth 8-638] synthesizing module 'cosine_lut' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/CosineLUT.vhd:12]
 INFO: [Synth 8-256] done synthesizing module 'cosine_lut' (0#1) [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/CosineLUT.vhd:12]
-INFO: [Synth 8-3491] module 'cos_lut' declared at 'C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/CosLUT.vhd:5' bound to instance 'm1_cos1' of component 'cos_lut' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:122]
+INFO: [Synth 8-3491] module 'cos_lut' declared at 'C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/CosLUT.vhd:5' bound to instance 'm1_cos1' of component 'cos_lut' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:143]
 INFO: [Synth 8-638] synthesizing module 'cos_lut' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/CosLUT.vhd:12]
 INFO: [Synth 8-256] done synthesizing module 'cos_lut' (0#1) [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/CosLUT.vhd:12]
-WARNING: [Synth 8-614] signal 'clk50Hz' is read in the process but is not in the sensitivity list [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:125]
+INFO: [Synth 8-3491] module 'cosine_lut' declared at 'C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/CosineLUT.vhd:5' bound to instance 'm2_cos' of component 'cosine_lut' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:144]
+INFO: [Synth 8-3491] module 'cos_lut' declared at 'C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/CosLUT.vhd:5' bound to instance 'm2_cos1' of component 'cos_lut' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:145]
+INFO: [Synth 8-3491] module 'rand_gen' declared at 'C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/RandomGen.vhd:5' bound to instance 'comp_rand_gen' of component 'rand_gen' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:146]
+INFO: [Synth 8-638] synthesizing module 'rand_gen' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/RandomGen.vhd:12]
+INFO: [Synth 8-256] done synthesizing module 'rand_gen' (0#1) [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/RandomGen.vhd:12]
+INFO: [Synth 8-3491] module 'rand_gen' declared at 'C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/RandomGen.vhd:5' bound to instance 'comp_rand_gen2' of component 'rand_gen' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:147]
+WARNING: [Synth 8-614] signal 'clk50Hz' is read in the process but is not in the sensitivity list [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:150]
 INFO: [Synth 8-256] done synthesizing module 'player_ctrl' (0#1) [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_ctrl.vhd:44]
-INFO: [Synth 8-3491] module 'player_display' declared at 'C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:36' bound to instance 'display' of component 'player_display' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/AirFighter.vhd:104]
+INFO: [Synth 8-3491] module 'player_display' declared at 'C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:36' bound to instance 'display' of component 'player_display' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/AirFighter.vhd:106]
 INFO: [Synth 8-638] synthesizing module 'player_display' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:48]
 	Parameter N bound to: 1 - type: integer 
-INFO: [Synth 8-3491] module 'clock_divider' declared at 'C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/clock_divider.vhd:34' bound to instance 'comp_clk50MHz' of component 'clock_divider' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:124]
+INFO: [Synth 8-3491] module 'clock_divider' declared at 'C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/clock_divider.vhd:34' bound to instance 'comp_clk50MHz' of component 'clock_divider' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:126]
 	Parameter N bound to: 5000000 - type: integer 
-INFO: [Synth 8-3491] module 'clock_divider' declared at 'C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/clock_divider.vhd:34' bound to instance 'comp_clk10Hz' of component 'clock_divider' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:125]
+INFO: [Synth 8-3491] module 'clock_divider' declared at 'C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/clock_divider.vhd:34' bound to instance 'comp_clk10Hz' of component 'clock_divider' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:127]
 	Parameter N bound to: 2500000 - type: integer 
-INFO: [Synth 8-3491] module 'clock_divider' declared at 'C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/clock_divider.vhd:34' bound to instance 'comp_clk20Hz' of component 'clock_divider' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:126]
-INFO: [Synth 8-638] synthesizing module 'clock_divider__parameterized6' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/clock_divider.vhd:42]
+INFO: [Synth 8-3491] module 'clock_divider' declared at 'C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/clock_divider.vhd:34' bound to instance 'comp_clk20Hz' of component 'clock_divider' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:128]
+INFO: [Synth 8-638] synthesizing module 'clock_divider__parameterized8' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/clock_divider.vhd:42]
 	Parameter N bound to: 2500000 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'clock_divider__parameterized6' (0#1) [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/clock_divider.vhd:42]
-WARNING: [Synth 8-614] signal 'p1_score' is read in the process but is not in the sensitivity list [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:176]
-WARNING: [Synth 8-614] signal 'p2_score' is read in the process but is not in the sensitivity list [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:176]
-WARNING: [Synth 8-614] signal 'p1_H_TOP_LEFT' is read in the process but is not in the sensitivity list [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:176]
-WARNING: [Synth 8-614] signal 'p1_V_TOP_LEFT' is read in the process but is not in the sensitivity list [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:176]
-WARNING: [Synth 8-614] signal 'sig_m1_x' is read in the process but is not in the sensitivity list [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:176]
-WARNING: [Synth 8-614] signal 'sig_m1_y' is read in the process but is not in the sensitivity list [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:176]
-WARNING: [Synth 8-614] signal 'bkgdindex' is read in the process but is not in the sensitivity list [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:176]
-WARNING: [Synth 8-614] signal 'p2_H_TOP_LEFT' is read in the process but is not in the sensitivity list [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:176]
-WARNING: [Synth 8-614] signal 'p2_V_TOP_LEFT' is read in the process but is not in the sensitivity list [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:176]
-WARNING: [Synth 8-614] signal 'p1_bullet_x' is read in the process but is not in the sensitivity list [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:176]
-WARNING: [Synth 8-614] signal 'p1_bullet_y' is read in the process but is not in the sensitivity list [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:176]
-WARNING: [Synth 8-614] signal 'p2_bullet_x' is read in the process but is not in the sensitivity list [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:176]
-WARNING: [Synth 8-614] signal 'p2_bullet_y' is read in the process but is not in the sensitivity list [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:176]
+INFO: [Synth 8-256] done synthesizing module 'clock_divider__parameterized8' (0#1) [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/clock_divider.vhd:42]
+WARNING: [Synth 8-614] signal 'p1_score' is read in the process but is not in the sensitivity list [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:178]
+WARNING: [Synth 8-614] signal 'p2_score' is read in the process but is not in the sensitivity list [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:178]
+WARNING: [Synth 8-614] signal 'p1_H_TOP_LEFT' is read in the process but is not in the sensitivity list [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:178]
+WARNING: [Synth 8-614] signal 'p1_V_TOP_LEFT' is read in the process but is not in the sensitivity list [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:178]
+WARNING: [Synth 8-614] signal 'sig_m1_x' is read in the process but is not in the sensitivity list [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:178]
+WARNING: [Synth 8-614] signal 'sig_m1_y' is read in the process but is not in the sensitivity list [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:178]
+WARNING: [Synth 8-614] signal 'bkgdindex' is read in the process but is not in the sensitivity list [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:178]
+WARNING: [Synth 8-614] signal 'p2_H_TOP_LEFT' is read in the process but is not in the sensitivity list [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:178]
+WARNING: [Synth 8-614] signal 'p2_V_TOP_LEFT' is read in the process but is not in the sensitivity list [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:178]
+WARNING: [Synth 8-614] signal 'p1_bullet_x' is read in the process but is not in the sensitivity list [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:178]
+WARNING: [Synth 8-614] signal 'p1_bullet_y' is read in the process but is not in the sensitivity list [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:178]
+WARNING: [Synth 8-614] signal 'p2_bullet_x' is read in the process but is not in the sensitivity list [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:178]
+WARNING: [Synth 8-614] signal 'p2_bullet_y' is read in the process but is not in the sensitivity list [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:178]
+WARNING: [Synth 8-614] signal 'sig_m2_x' is read in the process but is not in the sensitivity list [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:178]
+WARNING: [Synth 8-614] signal 'sig_m2_y' is read in the process but is not in the sensitivity list [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:178]
 INFO: [Synth 8-256] done synthesizing module 'player_display' (0#1) [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:48]
 INFO: [Synth 8-256] done synthesizing module 'AirFighter' (0#1) [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/AirFighter.vhd:42]
 WARNING: [Synth 8-7129] Port reset in module AirFighter is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 2101.078 ; gain = 1200.086
+Finished RTL Elaboration : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 2378.172 ; gain = 1478.047
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 2101.078 ; gain = 1200.086
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 2378.172 ; gain = 1478.047
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 2101.078 ; gain = 1200.086
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 2378.172 ; gain = 1478.047
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.069 . Memory (MB): peak = 2101.078 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.130 . Memory (MB): peak = 2378.172 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -111,117 +126,103 @@ INFO: [Project 1-236] Implementation specific constraints were found while readi
 Resolution: To avoid this warning, move constraints listed in [.Xil/AirFighter_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2101.078 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2378.172 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 2101.078 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.014 . Memory (MB): peak = 2378.172 ; gain = 0.000
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 2101.078 ; gain = 1200.086
+Finished Constraint Validation : Time (s): cpu = 00:00:27 ; elapsed = 00:00:27 . Memory (MB): peak = 2378.172 ; gain = 1478.047
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 2101.078 ; gain = 1200.086
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:27 ; elapsed = 00:00:27 . Memory (MB): peak = 2378.172 ; gain = 1478.047
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 2101.078 ; gain = 1200.086
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:27 ; elapsed = 00:00:27 . Memory (MB): peak = 2378.172 ; gain = 1478.047
 ---------------------------------------------------------------------------------
+WARNING: [Synth 8-327] inferring latch for variable 'sig_red_reg' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:191]
+WARNING: [Synth 8-327] inferring latch for variable 'sig_green_reg' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:192]
+WARNING: [Synth 8-327] inferring latch for variable 'sig_blue_reg' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:193]
 ---------------------------------------------------------------------------------
-Start Preparing Guide Design
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 2378.172 ; gain = 1478.047
 ---------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Doing Graph Differ : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 2101.078 ; gain = 1200.086
----------------------------------------------------------------------------------
-WARNING: [Synth 8-6702] IncrSynth : Over 50% of partitions are impacted by design changes. Reverting to default synthesis
-WARNING: [Synth 8-6702] IncrSynth : Reverting to default synthesis
----------------------------------------------------------------------------------
-Finished Preparing Guide Design : Time (s): cpu = 00:00:19 ; elapsed = 00:00:19 . Memory (MB): peak = 2101.078 ; gain = 1200.086
----------------------------------------------------------------------------------
-WARNING: [Synth 8-327] inferring latch for variable 'sig_red_reg' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:189]
-WARNING: [Synth 8-327] inferring latch for variable 'sig_green_reg' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:190]
-WARNING: [Synth 8-327] inferring latch for variable 'sig_blue_reg' [C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.srcs/sources_1/new/player_display.vhd:191]
----------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 2101.078 ; gain = 1200.086
----------------------------------------------------------------------------------
-
-
-Incremental Synthesis Report Summary:
-
-1. Incremental synthesis run: no
-
-   Reason for not running incremental synthesis : Change is too high
-
-
-INFO: [Synth 8-7130] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   3 Input   33 Bit       Adders := 6     
-	   2 Input   32 Bit       Adders := 57    
-	   2 Input   31 Bit       Adders := 8     
+	   3 Input   33 Bit       Adders := 8     
+	   2 Input   32 Bit       Adders := 70    
+	   3 Input   32 Bit       Adders := 2     
+	   2 Input   31 Bit       Adders := 10    
 	   2 Input    9 Bit       Adders := 1     
 	   2 Input    8 Bit       Adders := 1     
-	   3 Input    7 Bit       Adders := 4     
-	   2 Input    6 Bit       Adders := 5     
+	   3 Input    7 Bit       Adders := 6     
 	   3 Input    6 Bit       Adders := 2     
+	   2 Input    6 Bit       Adders := 5     
 	   2 Input    5 Bit       Adders := 2     
++---XORs : 
+	   2 Input      1 Bit         XORs := 2     
 +---Registers : 
-	               32 Bit    Registers := 19    
-	               16 Bit    Registers := 2     
-	                8 Bit    Registers := 2     
-	                1 Bit    Registers := 6     
+	               32 Bit    Registers := 24    
+	               16 Bit    Registers := 4     
+	               10 Bit    Registers := 2     
+	                8 Bit    Registers := 4     
+	                1 Bit    Registers := 7     
 +---Multipliers : 
-	               9x32  Multipliers := 1     
+	               9x32  Multipliers := 2     
 +---ROMs : 
-	                    ROMs := 2     
+	                    ROMs := 4     
 +---Muxes : 
 	   4 Input   32 Bit        Muxes := 2     
-	   2 Input   32 Bit        Muxes := 23    
-	   3 Input   32 Bit        Muxes := 1     
-	   2 Input   31 Bit        Muxes := 7     
-	   3 Input   24 Bit        Muxes := 1     
+	   2 Input   32 Bit        Muxes := 28    
+	   3 Input   32 Bit        Muxes := 2     
+	   2 Input   31 Bit        Muxes := 9     
 	 128 Input   24 Bit        Muxes := 37    
-	   7 Input   24 Bit        Muxes := 10    
-	  48 Input   24 Bit        Muxes := 28    
-	  11 Input   24 Bit        Muxes := 4     
-	   6 Input   24 Bit        Muxes := 5     
-	  64 Input   24 Bit        Muxes := 19    
-	   8 Input   24 Bit        Muxes := 4     
-	   4 Input   24 Bit        Muxes := 4     
+	   3 Input   24 Bit        Muxes := 10    
+	   4 Input   24 Bit        Muxes := 10    
+	  76 Input   24 Bit        Muxes := 2     
+	   8 Input   24 Bit        Muxes := 3     
+	   7 Input   24 Bit        Muxes := 12    
+	   6 Input   24 Bit        Muxes := 7     
+	  48 Input   24 Bit        Muxes := 38    
+	  11 Input   24 Bit        Muxes := 8     
 	 128 Input   23 Bit        Muxes := 6     
 	   5 Input   23 Bit        Muxes := 1     
 	  48 Input   23 Bit        Muxes := 10    
+	   5 Input   21 Bit        Muxes := 12    
 	   3 Input   21 Bit        Muxes := 1     
 	   4 Input   21 Bit        Muxes := 1     
-	   5 Input   21 Bit        Muxes := 12    
 	   6 Input   21 Bit        Muxes := 1     
 	   7 Input   17 Bit        Muxes := 1     
 	   2 Input   13 Bit        Muxes := 2     
 	   2 Input   12 Bit        Muxes := 2     
 	   2 Input   11 Bit        Muxes := 2     
-	   3 Input    9 Bit        Muxes := 1     
 	   2 Input    9 Bit        Muxes := 1     
+	   3 Input    9 Bit        Muxes := 1     
 	   2 Input    8 Bit        Muxes := 2     
-	   2 Input    7 Bit        Muxes := 1     
-	   2 Input    6 Bit        Muxes := 1     
-	   3 Input    5 Bit        Muxes := 1     
+	   2 Input    7 Bit        Muxes := 2     
+	   2 Input    6 Bit        Muxes := 2     
+	   3 Input    5 Bit        Muxes := 2     
 	   2 Input    5 Bit        Muxes := 6     
-	   2 Input    4 Bit        Muxes := 27    
-	  48 Input    4 Bit        Muxes := 4     
-	  10 Input    4 Bit        Muxes := 6     
+	   2 Input    4 Bit        Muxes := 33    
+	  48 Input    4 Bit        Muxes := 8     
+	  10 Input    4 Bit        Muxes := 12    
 	 128 Input    3 Bit        Muxes := 25    
-	  48 Input    3 Bit        Muxes := 8     
-	  64 Input    3 Bit        Muxes := 1     
+	  48 Input    3 Bit        Muxes := 12    
+	  76 Input    2 Bit        Muxes := 16    
+	   3 Input    2 Bit        Muxes := 1     
 	 128 Input    2 Bit        Muxes := 7     
-	   2 Input    1 Bit        Muxes := 15    
+	   2 Input    1 Bit        Muxes := 21    
 	  11 Input    1 Bit        Muxes := 2     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
@@ -239,14 +240,19 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
-DSP Report: Generating DSP sig_m1_y4, operation Mode is: (D'-A2)*(B:0x12c).
-DSP Report: register m1_cos/cos_out_reg is absorbed into DSP sig_m1_y4.
-DSP Report: register sig_m1_y4 is absorbed into DSP sig_m1_y4.
-DSP Report: operator sig_m1_y4 is absorbed into DSP sig_m1_y4.
-DSP Report: operator sig_m1_y5 is absorbed into DSP sig_m1_y4.
+DSP Report: Generating DSP sig_m2_y5, operation Mode is: (D'-A2)*(B:0x12c).
+DSP Report: register m2_cos/cos_out_reg is absorbed into DSP sig_m2_y5.
+DSP Report: register sig_m2_y5 is absorbed into DSP sig_m2_y5.
+DSP Report: operator sig_m2_y5 is absorbed into DSP sig_m2_y5.
+DSP Report: operator sig_m2_y6 is absorbed into DSP sig_m2_y5.
+DSP Report: Generating DSP sig_m1_y5, operation Mode is: (D'-A2)*(B:0x12c).
+DSP Report: register m1_cos/cos_out_reg is absorbed into DSP sig_m1_y5.
+DSP Report: register sig_m1_y5 is absorbed into DSP sig_m1_y5.
+DSP Report: operator sig_m1_y5 is absorbed into DSP sig_m1_y5.
+DSP Report: operator sig_m1_y6 is absorbed into DSP sig_m1_y5.
 WARNING: [Synth 8-7129] Port reset in module AirFighter is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:04:00 ; elapsed = 00:04:06 . Memory (MB): peak = 2455.672 ; gain = 1554.680
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:07:46 ; elapsed = 00:07:53 . Memory (MB): peak = 2751.797 ; gain = 1851.672
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -517,31 +523,21 @@ ROM: Preliminary Mapping Report
 |player_display | street[0,218]  | 256x24        | LUT            | 
 |player_display | street[0,219]  | 256x23        | LUT            | 
 |player_display | street[0,220]  | 256x23        | LUT            | 
-|player_display | p1drone[0,3]   | 64x23         | LUT            | 
-|player_display | p1drone[0,7]   | 64x23         | LUT            | 
-|player_display | p1drone[0,8]   | 64x23         | LUT            | 
-|player_display | p1drone[0,9]   | 64x23         | LUT            | 
-|player_display | p1drone[0,11]  | 64x23         | LUT            | 
-|player_display | p1drone[0,12]  | 64x23         | LUT            | 
-|player_display | p1drone[0,13]  | 64x19         | LUT            | 
-|player_display | p1drone[0,14]  | 64x22         | LUT            | 
-|player_display | p1drone[0,15]  | 64x22         | LUT            | 
-|player_display | p1drone[0,21]  | 64x23         | LUT            | 
-|player_display | p1drone[0,22]  | 64x24         | LUT            | 
-|player_display | p1drone[0,23]  | 64x24         | LUT            | 
-|player_display | p1drone[0,24]  | 64x24         | LUT            | 
-|player_display | p1drone[0,25]  | 64x24         | LUT            | 
-|player_display | p1drone[0,26]  | 64x24         | LUT            | 
-|player_display | p1drone[0,27]  | 64x24         | LUT            | 
-|player_display | p1drone[0,28]  | 64x24         | LUT            | 
-|player_display | p1drone[0,29]  | 64x24         | LUT            | 
-|player_display | p1drone[0,30]  | 64x24         | LUT            | 
-|player_display | p1drone[0,31]  | 64x24         | LUT            | 
-|player_display | p1drone[0,32]  | 64x24         | LUT            | 
-|player_display | p1drone[0,33]  | 64x23         | LUT            | 
-|player_display | p1drone[0,34]  | 64x24         | LUT            | 
-|player_display | p1drone[0,35]  | 64x23         | LUT            | 
-|player_display | p1drone[0,36]  | 64x23         | LUT            | 
+|player_display | p1drone[0,2]   | 128x2         | LUT            | 
+|player_display | p1drone[0,6]   | 128x2         | LUT            | 
+|player_display | p1drone[0,10]  | 128x2         | LUT            | 
+|player_display | p1drone[0,12]  | 128x4         | LUT            | 
+|player_display | p1drone[0,14]  | 128x2         | LUT            | 
+|player_display | p1drone[0,16]  | 128x4         | LUT            | 
+|player_display | p1drone[0,24]  | 128x4         | LUT            | 
+|player_display | p1drone[0,26]  | 128x12        | LUT            | 
+|player_display | p1drone[0,28]  | 128x8         | LUT            | 
+|player_display | p1drone[0,30]  | 128x12        | LUT            | 
+|player_display | p1drone[0,32]  | 128x14        | LUT            | 
+|player_display | p1drone[0,34]  | 128x14        | LUT            | 
+|player_display | p1drone[0,36]  | 128x4         | LUT            | 
+|player_display | p1drone[0,38]  | 128x4         | LUT            | 
+|player_display | p1drone[0,40]  | 128x2         | LUT            | 
 |player_display | Image[0,82]    | 128x10        | LUT            | 
 |player_display | Image[0,84]    | 128x13        | LUT            | 
 |player_display | Image[0,86]    | 128x21        | LUT            | 
@@ -566,8 +562,44 @@ ROM: Preliminary Mapping Report
 |player_display | p2Image[0,83]  | 128x24        | LUT            | 
 |player_display | p2Image[0,84]  | 128x24        | LUT            | 
 |player_display | p2Image[0,85]  | 128x24        | LUT            | 
+|player_display | p2drone[0,10]  | 128x2         | LUT            | 
+|player_display | p2drone[0,12]  | 128x4         | LUT            | 
+|player_display | p2drone[0,14]  | 128x4         | LUT            | 
+|player_display | p2drone[0,16]  | 128x12        | LUT            | 
+|player_display | p2drone[0,18]  | 128x12        | LUT            | 
+|player_display | p2drone[0,20]  | 128x13        | LUT            | 
+|player_display | p2drone[0,22]  | 128x8         | LUT            | 
+|player_display | p2drone[0,24]  | 128x13        | LUT            | 
+|player_display | p2drone[0,26]  | 128x4         | LUT            | 
+|player_display | p2drone[0,34]  | 128x4         | LUT            | 
+|player_display | p2drone[0,36]  | 128x2         | LUT            | 
+|player_display | p2drone[0,38]  | 128x4         | LUT            | 
+|player_display | p2drone[0,40]  | 128x2         | LUT            | 
+|player_display | p2drone[0,42]  | 128x2         | LUT            | 
+|player_display | p2drone[0,48]  | 128x2         | LUT            | 
+|player_ctrl    | m2_cos1_in_reg | 256x16        | Block RAM      | 
+|player_ctrl    | m2_cos_in_reg  | 256x16        | Block RAM      | 
 |player_ctrl    | m1_cos1_in_reg | 256x16        | Block RAM      | 
 |player_ctrl    | m1_cos_in_reg  | 256x16        | Block RAM      | 
+|AirFighter     | street[0,1]    | 256x23        | LUT            | 
+|AirFighter     | street[0,2]    | 256x23        | LUT            | 
+|AirFighter     | street[0,3]    | 256x23        | LUT            | 
+|AirFighter     | street[0,4]    | 256x23        | LUT            | 
+|AirFighter     | street[0,19]   | 256x23        | LUT            | 
+|AirFighter     | street[0,21]   | 256x23        | LUT            | 
+|AirFighter     | street[0,22]   | 256x23        | LUT            | 
+|AirFighter     | street[0,23]   | 256x23        | LUT            | 
+|AirFighter     | street[0,24]   | 256x23        | LUT            | 
+|AirFighter     | street[0,25]   | 256x23        | LUT            | 
+|AirFighter     | street[0,30]   | 256x24        | LUT            | 
+|AirFighter     | street[0,31]   | 256x24        | LUT            | 
+|AirFighter     | street[0,32]   | 256x24        | LUT            | 
+|AirFighter     | street[0,33]   | 256x24        | LUT            | 
+|AirFighter     | street[0,34]   | 256x24        | LUT            | 
+|AirFighter     | street[0,35]   | 256x24        | LUT            | 
+|AirFighter     | street[0,38]   | 256x24        | LUT            | 
+|AirFighter     | street[0,39]   | 256x24        | LUT            | 
+|AirFighter     | street[0,40]   | 256x24        | LUT            | 
 |AirFighter     | street[0,48]   | 256x24        | LUT            | 
 |AirFighter     | street[0,49]   | 256x24        | LUT            | 
 |AirFighter     | street[0,50]   | 256x24        | LUT            | 
@@ -575,28 +607,27 @@ ROM: Preliminary Mapping Report
 |AirFighter     | street[0,52]   | 256x24        | LUT            | 
 |AirFighter     | street[0,53]   | 256x24        | LUT            | 
 |AirFighter     | street[0,54]   | 256x24        | LUT            | 
-|AirFighter     | street[0,55]   | 256x24        | LUT            | 
-|AirFighter     | street[0,56]   | 256x24        | LUT            | 
-|AirFighter     | street[0,57]   | 256x24        | LUT            | 
-|AirFighter     | street[0,58]   | 256x24        | LUT            | 
-|AirFighter     | street[0,63]   | 256x24        | LUT            | 
-|AirFighter     | street[0,64]   | 256x24        | LUT            | 
-|AirFighter     | street[0,65]   | 256x24        | LUT            | 
-|AirFighter     | street[0,66]   | 256x24        | LUT            | 
-|AirFighter     | street[0,67]   | 256x24        | LUT            | 
+|AirFighter     | street[0,69]   | 256x24        | LUT            | 
 |AirFighter     | street[0,70]   | 256x24        | LUT            | 
 |AirFighter     | street[0,71]   | 256x24        | LUT            | 
-|AirFighter     | street[0,73]   | 256x24        | LUT            | 
-|AirFighter     | street[0,74]   | 256x24        | LUT            | 
-|AirFighter     | street[0,76]   | 256x24        | LUT            | 
-|AirFighter     | street[0,78]   | 256x24        | LUT            | 
-|AirFighter     | street[0,79]   | 256x24        | LUT            | 
-|AirFighter     | street[0,80]   | 256x24        | LUT            | 
+|AirFighter     | street[0,72]   | 256x24        | LUT            | 
+|AirFighter     | street[0,86]   | 256x24        | LUT            | 
+|AirFighter     | street[0,87]   | 256x24        | LUT            | 
+|AirFighter     | street[0,88]   | 256x24        | LUT            | 
+|AirFighter     | street[0,89]   | 256x24        | LUT            | 
+|AirFighter     | street[0,91]   | 256x24        | LUT            | 
+|AirFighter     | street[0,92]   | 256x24        | LUT            | 
 |AirFighter     | street[0,93]   | 256x24        | LUT            | 
+|AirFighter     | street[0,94]   | 256x24        | LUT            | 
+|AirFighter     | street[0,95]   | 256x24        | LUT            | 
+|AirFighter     | street[0,96]   | 256x24        | LUT            | 
+|AirFighter     | street[0,97]   | 256x24        | LUT            | 
 |AirFighter     | street[0,98]   | 256x24        | LUT            | 
 |AirFighter     | street[0,99]   | 256x24        | LUT            | 
 |AirFighter     | street[0,100]  | 256x24        | LUT            | 
 |AirFighter     | street[0,101]  | 256x24        | LUT            | 
+|AirFighter     | street[0,102]  | 256x24        | LUT            | 
+|AirFighter     | street[0,103]  | 256x24        | LUT            | 
 |AirFighter     | street[0,104]  | 256x24        | LUT            | 
 |AirFighter     | street[0,105]  | 256x24        | LUT            | 
 |AirFighter     | street[0,106]  | 256x24        | LUT            | 
@@ -607,31 +638,42 @@ ROM: Preliminary Mapping Report
 |AirFighter     | street[0,111]  | 256x24        | LUT            | 
 |AirFighter     | street[0,112]  | 256x24        | LUT            | 
 |AirFighter     | street[0,113]  | 256x24        | LUT            | 
+|AirFighter     | street[0,114]  | 256x24        | LUT            | 
 |AirFighter     | street[0,115]  | 256x24        | LUT            | 
 |AirFighter     | street[0,116]  | 256x24        | LUT            | 
 |AirFighter     | street[0,117]  | 256x24        | LUT            | 
-|AirFighter     | street[0,118]  | 256x24        | LUT            | 
 |AirFighter     | street[0,119]  | 256x24        | LUT            | 
+|AirFighter     | street[0,120]  | 256x24        | LUT            | 
 |AirFighter     | street[0,121]  | 256x24        | LUT            | 
 |AirFighter     | street[0,122]  | 256x24        | LUT            | 
 |AirFighter     | street[0,123]  | 256x24        | LUT            | 
 |AirFighter     | street[0,124]  | 256x24        | LUT            | 
 |AirFighter     | street[0,125]  | 256x24        | LUT            | 
-|AirFighter     | street[0,127]  | 256x24        | LUT            | 
+|AirFighter     | street[0,126]  | 256x24        | LUT            | 
 |AirFighter     | street[0,128]  | 256x24        | LUT            | 
 |AirFighter     | street[0,129]  | 256x24        | LUT            | 
+|AirFighter     | street[0,130]  | 256x24        | LUT            | 
 |AirFighter     | street[0,131]  | 256x24        | LUT            | 
-|AirFighter     | street[0,132]  | 256x24        | LUT            | 
 |AirFighter     | street[0,133]  | 256x24        | LUT            | 
-|AirFighter     | street[0,134]  | 256x24        | LUT            | 
-|AirFighter     | street[0,135]  | 256x24        | LUT            | 
 |AirFighter     | street[0,136]  | 256x24        | LUT            | 
 |AirFighter     | street[0,137]  | 256x24        | LUT            | 
 |AirFighter     | street[0,138]  | 256x24        | LUT            | 
 |AirFighter     | street[0,139]  | 256x24        | LUT            | 
 |AirFighter     | street[0,140]  | 256x24        | LUT            | 
 |AirFighter     | street[0,141]  | 256x24        | LUT            | 
+|AirFighter     | street[0,142]  | 256x24        | LUT            | 
 |AirFighter     | street[0,143]  | 256x24        | LUT            | 
+|AirFighter     | street[0,144]  | 256x24        | LUT            | 
+|AirFighter     | street[0,145]  | 256x24        | LUT            | 
+|AirFighter     | street[0,146]  | 256x24        | LUT            | 
+|AirFighter     | street[0,147]  | 256x24        | LUT            | 
+|AirFighter     | street[0,148]  | 256x24        | LUT            | 
+|AirFighter     | street[0,149]  | 256x24        | LUT            | 
+|AirFighter     | street[0,150]  | 256x24        | LUT            | 
+|AirFighter     | street[0,151]  | 256x24        | LUT            | 
+|AirFighter     | street[0,152]  | 256x24        | LUT            | 
+|AirFighter     | street[0,153]  | 256x24        | LUT            | 
+|AirFighter     | street[0,154]  | 256x24        | LUT            | 
 |AirFighter     | street[0,155]  | 256x24        | LUT            | 
 |AirFighter     | street[0,156]  | 256x24        | LUT            | 
 |AirFighter     | street[0,157]  | 256x24        | LUT            | 
@@ -677,55 +719,42 @@ ROM: Preliminary Mapping Report
 |AirFighter     | street[0,216]  | 256x24        | LUT            | 
 |AirFighter     | street[0,217]  | 256x24        | LUT            | 
 |AirFighter     | street[0,218]  | 256x24        | LUT            | 
-|AirFighter     | street[0,41]   | 256x24        | LUT            | 
-|AirFighter     | street[0,40]   | 256x24        | LUT            | 
-|AirFighter     | street[0,39]   | 256x24        | LUT            | 
-|AirFighter     | street[0,38]   | 256x24        | LUT            | 
-|AirFighter     | street[0,36]   | 256x24        | LUT            | 
-|AirFighter     | street[0,35]   | 256x24        | LUT            | 
-|AirFighter     | street[0,34]   | 256x24        | LUT            | 
-|AirFighter     | street[0,33]   | 256x24        | LUT            | 
-|AirFighter     | street[0,32]   | 256x24        | LUT            | 
-|AirFighter     | street[0,31]   | 256x24        | LUT            | 
-|AirFighter     | street[0,28]   | 256x24        | LUT            | 
+|AirFighter     | street[0,43]   | 256x24        | LUT            | 
 |AirFighter     | street[0,42]   | 256x24        | LUT            | 
+|AirFighter     | street[0,14]   | 256x24        | LUT            | 
+|AirFighter     | street[0,41]   | 256x24        | LUT            | 
+|AirFighter     | street[0,16]   | 256x24        | LUT            | 
+|AirFighter     | street[0,17]   | 256x24        | LUT            | 
+|AirFighter     | street[0,18]   | 256x24        | LUT            | 
+|AirFighter     | street[0,11]   | 256x24        | LUT            | 
+|AirFighter     | street[0,10]   | 256x24        | LUT            | 
 |AirFighter     | street[0,44]   | 256x24        | LUT            | 
 |AirFighter     | street[0,45]   | 256x24        | LUT            | 
 |AirFighter     | street[0,46]   | 256x24        | LUT            | 
+|AirFighter     | street[0,47]   | 256x24        | LUT            | 
 |AirFighter     | street[0,5]    | 256x24        | LUT            | 
-|AirFighter     | street[0,59]   | 256x23        | LUT            | 
-|AirFighter     | street[0,60]   | 256x23        | LUT            | 
-|AirFighter     | street[0,61]   | 256x23        | LUT            | 
-|AirFighter     | street[0,62]   | 256x23        | LUT            | 
-|AirFighter     | street[0,10]   | 256x24        | LUT            | 
-|AirFighter     | street[0,11]   | 256x24        | LUT            | 
-|AirFighter     | street[0,12]   | 256x23        | LUT            | 
-|AirFighter     | street[0,14]   | 256x24        | LUT            | 
-|AirFighter     | street[0,15]   | 256x23        | LUT            | 
-|AirFighter     | street[0,17]   | 256x24        | LUT            | 
-|AirFighter     | street[0,18]   | 256x24        | LUT            | 
-|AirFighter     | street[0,19]   | 256x23        | LUT            | 
-|AirFighter     | street[0,21]   | 256x23        | LUT            | 
-|AirFighter     | street[0,22]   | 256x23        | LUT            | 
-|AirFighter     | street[0,23]   | 256x23        | LUT            | 
-|AirFighter     | street[0,24]   | 256x23        | LUT            | 
-|AirFighter     | street[0,25]   | 256x23        | LUT            | 
 |AirFighter     | street[0,26]   | 256x24        | LUT            | 
 |AirFighter     | street[0,27]   | 256x24        | LUT            | 
-|AirFighter     | street[0,9]    | 256x23        | LUT            | 
-|AirFighter     | street[0,8]    | 256x23        | LUT            | 
-|AirFighter     | street[0,7]    | 256x23        | LUT            | 
-|AirFighter     | street[0,6]    | 256x23        | LUT            | 
-|AirFighter     | street[0,4]    | 256x23        | LUT            | 
-|AirFighter     | street[0,3]    | 256x23        | LUT            | 
-|AirFighter     | street[0,2]    | 256x23        | LUT            | 
-|AirFighter     | street[0,1]    | 256x23        | LUT            | 
+|AirFighter     | street[0,28]   | 256x24        | LUT            | 
+|AirFighter     | street[0,29]   | 256x24        | LUT            | 
 |AirFighter     | street[0,0]    | 256x23        | LUT            | 
+|AirFighter     | street[0,85]   | 256x24        | LUT            | 
 |AirFighter     | street[0,166]  | 256x23        | LUT            | 
 |AirFighter     | street[0,167]  | 256x23        | LUT            | 
 |AirFighter     | street[0,168]  | 256x23        | LUT            | 
 |AirFighter     | street[0,169]  | 256x23        | LUT            | 
 |AirFighter     | street[0,170]  | 256x23        | LUT            | 
+|AirFighter     | street[0,59]   | 256x23        | LUT            | 
+|AirFighter     | street[0,60]   | 256x23        | LUT            | 
+|AirFighter     | street[0,61]   | 256x23        | LUT            | 
+|AirFighter     | street[0,62]   | 256x23        | LUT            | 
+|AirFighter     | street[0,15]   | 256x23        | LUT            | 
+|AirFighter     | street[0,13]   | 256x23        | LUT            | 
+|AirFighter     | street[0,12]   | 256x23        | LUT            | 
+|AirFighter     | street[0,9]    | 256x23        | LUT            | 
+|AirFighter     | street[0,8]    | 256x23        | LUT            | 
+|AirFighter     | street[0,7]    | 256x23        | LUT            | 
+|AirFighter     | street[0,6]    | 256x23        | LUT            | 
 |AirFighter     | street[0,171]  | 256x23        | LUT            | 
 |AirFighter     | street[0,172]  | 256x23        | LUT            | 
 |AirFighter     | street[0,173]  | 256x23        | LUT            | 
@@ -733,24 +762,36 @@ ROM: Preliminary Mapping Report
 |AirFighter     | street[0,182]  | 256x23        | LUT            | 
 |AirFighter     | street[0,183]  | 256x23        | LUT            | 
 |AirFighter     | street[0,184]  | 256x23        | LUT            | 
+|AirFighter     | street[0,196]  | 256x23        | LUT            | 
+|AirFighter     | street[0,56]   | 256x24        | LUT            | 
+|AirFighter     | street[0,57]   | 256x24        | LUT            | 
+|AirFighter     | street[0,58]   | 256x24        | LUT            | 
 |AirFighter     | street[0,198]  | 256x23        | LUT            | 
 |AirFighter     | street[0,199]  | 256x23        | LUT            | 
 |AirFighter     | street[0,200]  | 256x23        | LUT            | 
 |AirFighter     | street[0,201]  | 256x23        | LUT            | 
+|AirFighter     | street[0,63]   | 256x24        | LUT            | 
+|AirFighter     | street[0,64]   | 256x24        | LUT            | 
+|AirFighter     | street[0,65]   | 256x24        | LUT            | 
+|AirFighter     | street[0,66]   | 256x24        | LUT            | 
+|AirFighter     | street[0,67]   | 256x24        | LUT            | 
+|AirFighter     | street[0,68]   | 256x24        | LUT            | 
 |AirFighter     | street[0,206]  | 256x23        | LUT            | 
 |AirFighter     | street[0,208]  | 256x23        | LUT            | 
+|AirFighter     | street[0,219]  | 256x23        | LUT            | 
 |AirFighter     | street[0,220]  | 256x23        | LUT            | 
-|AirFighter     | street[0,144]  | 256x24        | LUT            | 
-|AirFighter     | street[0,145]  | 256x24        | LUT            | 
-|AirFighter     | street[0,146]  | 256x24        | LUT            | 
-|AirFighter     | street[0,147]  | 256x24        | LUT            | 
-|AirFighter     | street[0,148]  | 256x24        | LUT            | 
-|AirFighter     | street[0,149]  | 256x24        | LUT            | 
-|AirFighter     | street[0,150]  | 256x24        | LUT            | 
-|AirFighter     | street[0,151]  | 256x24        | LUT            | 
-|AirFighter     | street[0,152]  | 256x24        | LUT            | 
-|AirFighter     | street[0,153]  | 256x24        | LUT            | 
-|AirFighter     | street[0,154]  | 256x24        | LUT            | 
+|AirFighter     | street[0,73]   | 256x24        | LUT            | 
+|AirFighter     | street[0,74]   | 256x24        | LUT            | 
+|AirFighter     | street[0,75]   | 256x24        | LUT            | 
+|AirFighter     | street[0,76]   | 256x24        | LUT            | 
+|AirFighter     | street[0,77]   | 256x24        | LUT            | 
+|AirFighter     | street[0,78]   | 256x24        | LUT            | 
+|AirFighter     | street[0,79]   | 256x24        | LUT            | 
+|AirFighter     | street[0,80]   | 256x24        | LUT            | 
+|AirFighter     | street[0,81]   | 256x24        | LUT            | 
+|AirFighter     | street[0,82]   | 256x24        | LUT            | 
+|AirFighter     | street[0,83]   | 256x24        | LUT            | 
+|AirFighter     | street[0,84]   | 256x24        | LUT            | 
 |AirFighter     | p2Image[0,65]  | 128x24        | LUT            | 
 |AirFighter     | p2Image[0,66]  | 128x24        | LUT            | 
 |AirFighter     | p2Image[0,67]  | 128x24        | LUT            | 
@@ -772,74 +813,45 @@ ROM: Preliminary Mapping Report
 |AirFighter     | p2Image[0,83]  | 128x24        | LUT            | 
 |AirFighter     | p2Image[0,84]  | 128x24        | LUT            | 
 |AirFighter     | p2Image[0,85]  | 128x24        | LUT            | 
+|AirFighter     | p2drone[0,10]  | 128x2         | LUT            | 
+|AirFighter     | p2drone[0,12]  | 128x4         | LUT            | 
+|AirFighter     | p2drone[0,14]  | 128x4         | LUT            | 
+|AirFighter     | p2drone[0,16]  | 128x12        | LUT            | 
+|AirFighter     | p2drone[0,18]  | 128x12        | LUT            | 
+|AirFighter     | p2drone[0,20]  | 128x13        | LUT            | 
+|AirFighter     | p2drone[0,22]  | 128x8         | LUT            | 
+|AirFighter     | p2drone[0,24]  | 128x13        | LUT            | 
+|AirFighter     | p2drone[0,26]  | 128x4         | LUT            | 
+|AirFighter     | p2drone[0,34]  | 128x4         | LUT            | 
+|AirFighter     | p2drone[0,36]  | 128x2         | LUT            | 
+|AirFighter     | p2drone[0,38]  | 128x4         | LUT            | 
+|AirFighter     | p2drone[0,40]  | 128x2         | LUT            | 
+|AirFighter     | p2drone[0,42]  | 128x2         | LUT            | 
+|AirFighter     | p2drone[0,48]  | 128x2         | LUT            | 
+|AirFighter     | Image[0,82]    | 128x10        | LUT            | 
+|AirFighter     | Image[0,84]    | 128x13        | LUT            | 
+|AirFighter     | Image[0,86]    | 128x21        | LUT            | 
+|AirFighter     | p1drone[0,2]   | 128x2         | LUT            | 
+|AirFighter     | p1drone[0,6]   | 128x2         | LUT            | 
+|AirFighter     | p1drone[0,10]  | 128x2         | LUT            | 
+|AirFighter     | p1drone[0,12]  | 128x4         | LUT            | 
+|AirFighter     | p1drone[0,14]  | 128x2         | LUT            | 
+|AirFighter     | p1drone[0,16]  | 128x4         | LUT            | 
+|AirFighter     | p1drone[0,24]  | 128x4         | LUT            | 
+|AirFighter     | p1drone[0,26]  | 128x12        | LUT            | 
+|AirFighter     | p1drone[0,28]  | 128x8         | LUT            | 
+|AirFighter     | p1drone[0,30]  | 128x12        | LUT            | 
+|AirFighter     | p1drone[0,32]  | 128x14        | LUT            | 
+|AirFighter     | p1drone[0,34]  | 128x14        | LUT            | 
+|AirFighter     | p1drone[0,36]  | 128x4         | LUT            | 
+|AirFighter     | p1drone[0,38]  | 128x4         | LUT            | 
+|AirFighter     | p1drone[0,40]  | 128x2         | LUT            | 
 |AirFighter     | pix0[0,14]     | 64x7          | LUT            | 
 |AirFighter     | pix0[0,16]     | 64x7          | LUT            | 
 |AirFighter     | pix0[0,18]     | 64x7          | LUT            | 
 |AirFighter     | pix0[0,20]     | 64x7          | LUT            | 
 |AirFighter     | pix2[0,14]     | 64x7          | LUT            | 
 |AirFighter     | pix2[0,16]     | 64x7          | LUT            | 
-|AirFighter     | pix2[0,18]     | 64x7          | LUT            | 
-|AirFighter     | pix2[0,20]     | 64x7          | LUT            | 
-|AirFighter     | pix2[0,22]     | 64x7          | LUT            | 
-|AirFighter     | pix2[0,24]     | 64x7          | LUT            | 
-|AirFighter     | pix2[0,26]     | 64x7          | LUT            | 
-|AirFighter     | pix2[0,28]     | 64x7          | LUT            | 
-|AirFighter     | pix2[0,30]     | 64x7          | LUT            | 
-|AirFighter     | pix2[0,32]     | 64x7          | LUT            | 
-|AirFighter     | pix3[0,16]     | 64x7          | LUT            | 
-|AirFighter     | pix3[0,18]     | 64x7          | LUT            | 
-|AirFighter     | pix3[0,22]     | 64x7          | LUT            | 
-|AirFighter     | pix3[0,24]     | 64x7          | LUT            | 
-|AirFighter     | pix3[0,26]     | 64x7          | LUT            | 
-|AirFighter     | pix3[0,30]     | 64x7          | LUT            | 
-|AirFighter     | pix4[0,18]     | 64x7          | LUT            | 
-|AirFighter     | pix5[0,14]     | 64x7          | LUT            | 
-|AirFighter     | pix5[0,16]     | 64x7          | LUT            | 
-|AirFighter     | pix5[0,18]     | 64x7          | LUT            | 
-|AirFighter     | pix5[0,20]     | 64x7          | LUT            | 
-|AirFighter     | pix5[0,22]     | 64x7          | LUT            | 
-|AirFighter     | pix5[0,26]     | 64x7          | LUT            | 
-|AirFighter     | pix5[0,28]     | 64x7          | LUT            | 
-|AirFighter     | pix5[0,30]     | 64x7          | LUT            | 
-|AirFighter     | pix5[0,32]     | 64x7          | LUT            | 
-|AirFighter     | pix6[0,20]     | 64x7          | LUT            | 
-|AirFighter     | pix6[0,28]     | 64x7          | LUT            | 
-|AirFighter     | pix6[0,30]     | 64x7          | LUT            | 
-|AirFighter     | pix7[0,20]     | 64x7          | LUT            | 
-|AirFighter     | pix7[0,22]     | 64x7          | LUT            | 
-|AirFighter     | pix7[0,24]     | 64x7          | LUT            | 
-|AirFighter     | pix8[0,20]     | 64x7          | LUT            | 
-|AirFighter     | pix9[0,16]     | 64x7          | LUT            | 
-|AirFighter     | pix9[0,18]     | 64x7          | LUT            | 
-|AirFighter     | pix9[0,20]     | 64x7          | LUT            | 
-|AirFighter     | p1drone[0,3]   | 64x23         | LUT            | 
-|AirFighter     | p1drone[0,7]   | 64x23         | LUT            | 
-|AirFighter     | p1drone[0,8]   | 64x23         | LUT            | 
-|AirFighter     | p1drone[0,9]   | 64x23         | LUT            | 
-|AirFighter     | p1drone[0,11]  | 64x23         | LUT            | 
-|AirFighter     | p1drone[0,12]  | 64x23         | LUT            | 
-|AirFighter     | p1drone[0,13]  | 64x19         | LUT            | 
-|AirFighter     | p1drone[0,14]  | 64x22         | LUT            | 
-|AirFighter     | p1drone[0,15]  | 64x22         | LUT            | 
-|AirFighter     | p1drone[0,21]  | 64x23         | LUT            | 
-|AirFighter     | p1drone[0,22]  | 64x24         | LUT            | 
-|AirFighter     | p1drone[0,23]  | 64x24         | LUT            | 
-|AirFighter     | p1drone[0,24]  | 64x24         | LUT            | 
-|AirFighter     | p1drone[0,25]  | 64x24         | LUT            | 
-|AirFighter     | p1drone[0,26]  | 64x24         | LUT            | 
-|AirFighter     | p1drone[0,27]  | 64x24         | LUT            | 
-|AirFighter     | p1drone[0,28]  | 64x24         | LUT            | 
-|AirFighter     | p1drone[0,29]  | 64x24         | LUT            | 
-|AirFighter     | p1drone[0,30]  | 64x24         | LUT            | 
-|AirFighter     | p1drone[0,31]  | 64x24         | LUT            | 
-|AirFighter     | p1drone[0,32]  | 64x24         | LUT            | 
-|AirFighter     | p1drone[0,33]  | 64x23         | LUT            | 
-|AirFighter     | p1drone[0,34]  | 64x24         | LUT            | 
-|AirFighter     | p1drone[0,35]  | 64x23         | LUT            | 
-|AirFighter     | p1drone[0,36]  | 64x23         | LUT            | 
-|AirFighter     | Image[0,82]    | 128x10        | LUT            | 
-|AirFighter     | Image[0,84]    | 128x13        | LUT            | 
-|AirFighter     | Image[0,86]    | 128x21        | LUT            | 
 +---------------+----------------+---------------+----------------+
 
 
@@ -847,6 +859,7 @@ DSP: Preliminary Mapping Report (see note below. The ' indicates corresponding R
 +------------+-------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
 |Module Name | DSP Mapping       | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
 +------------+-------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|player_ctrl | (D'-A2)*(B:0x12c) | 17     | 10     | -      | 16     | 28     | 1    | 0    | -    | 1    | 0     | 0    | 0    | 
 |player_ctrl | (D'-A2)*(B:0x12c) | 17     | 10     | -      | 16     | 28     | 1    | 0    | -    | 1    | 0     | 0    | 0    | 
 +------------+-------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
 
@@ -858,21 +871,23 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:04:06 ; elapsed = 00:04:12 . Memory (MB): peak = 2455.672 ; gain = 1554.680
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:07:52 ; elapsed = 00:07:59 . Memory (MB): peak = 2751.797 ; gain = 1851.672
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:04:06 ; elapsed = 00:04:12 . Memory (MB): peak = 2455.672 ; gain = 1554.680
+Finished Timing Optimization : Time (s): cpu = 00:07:52 ; elapsed = 00:07:59 . Memory (MB): peak = 2751.797 ; gain = 1851.672
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-7052] The timing for the instance control/m1_cos1_in_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance control/m1_cos_in_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance control/m2_cos1_in_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance control/m2_cos1_in_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance control/m2_cos_in_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance control/m2_cos_in_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:04:10 ; elapsed = 00:04:17 . Memory (MB): peak = 2455.672 ; gain = 1554.680
+Finished Technology Mapping : Time (s): cpu = 00:07:56 ; elapsed = 00:08:04 . Memory (MB): peak = 2751.797 ; gain = 1851.672
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -890,37 +905,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:04:13 ; elapsed = 00:04:20 . Memory (MB): peak = 2455.672 ; gain = 1554.680
+Finished IO Insertion : Time (s): cpu = 00:07:59 ; elapsed = 00:08:07 . Memory (MB): peak = 2751.797 ; gain = 1851.672
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:04:13 ; elapsed = 00:04:20 . Memory (MB): peak = 2455.672 ; gain = 1554.680
+Finished Renaming Generated Instances : Time (s): cpu = 00:07:59 ; elapsed = 00:08:07 . Memory (MB): peak = 2751.797 ; gain = 1851.672
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:04:13 ; elapsed = 00:04:20 . Memory (MB): peak = 2455.672 ; gain = 1554.680
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:08:00 ; elapsed = 00:08:07 . Memory (MB): peak = 2751.797 ; gain = 1851.672
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:04:13 ; elapsed = 00:04:20 . Memory (MB): peak = 2455.672 ; gain = 1554.680
+Finished Renaming Generated Ports : Time (s): cpu = 00:08:00 ; elapsed = 00:08:07 . Memory (MB): peak = 2751.797 ; gain = 1851.672
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:04:17 ; elapsed = 00:04:23 . Memory (MB): peak = 2455.672 ; gain = 1554.680
+Finished Handling Custom Attributes : Time (s): cpu = 00:08:04 ; elapsed = 00:08:12 . Memory (MB): peak = 2751.797 ; gain = 1851.672
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:04:17 ; elapsed = 00:04:23 . Memory (MB): peak = 2455.672 ; gain = 1554.680
+Finished Renaming Generated Nets : Time (s): cpu = 00:08:04 ; elapsed = 00:08:12 . Memory (MB): peak = 2751.797 ; gain = 1851.672
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -930,6 +945,7 @@ DSP Final Report (the ' indicates corresponding REG is set)
 +------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
 |Module Name | DSP Mapping | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
 +------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|player_ctrl | D'-A'*B     | 30     | 9      | -      | 25     | 28     | 1    | 0    | -    | 0    | 0     | 0    | 0    | 
 |player_ctrl | D'-A'*B     | 30     | 9      | -      | 25     | 28     | 1    | 0    | -    | 0    | 0     | 0    | 0    | 
 +------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
 
@@ -945,45 +961,45 @@ Report Cell Usage:
 |      |Cell     |Count |
 +------+---------+------+
 |1     |BUFG     |     3|
-|2     |CARRY4   |  1218|
-|3     |DSP48E1  |     1|
-|4     |LUT1     |   705|
-|5     |LUT2     |  1412|
-|6     |LUT3     |   937|
-|7     |LUT4     |  1841|
-|8     |LUT5     |  3056|
-|9     |LUT6     | 11058|
-|10    |MUXF7    |  1415|
-|11    |MUXF8    |   369|
+|2     |CARRY4   |  1502|
+|3     |DSP48E1  |     2|
+|4     |LUT1     |   865|
+|5     |LUT2     |  1783|
+|6     |LUT3     |  1200|
+|7     |LUT4     |  2038|
+|8     |LUT5     |  3376|
+|9     |LUT6     | 11413|
+|10    |MUXF7    |  1263|
+|11    |MUXF8    |   384|
 |12    |RAMB18E1 |     2|
-|14    |FDRE     |   605|
-|15    |FDSE     |    50|
+|14    |FDRE     |   811|
+|15    |FDSE     |    47|
 |16    |LD       |    12|
 |17    |IBUF     |     5|
 |18    |OBUF     |    14|
 +------+---------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:04:17 ; elapsed = 00:04:23 . Memory (MB): peak = 2455.672 ; gain = 1554.680
+Finished Writing Synthesis Report : Time (s): cpu = 00:08:04 ; elapsed = 00:08:12 . Memory (MB): peak = 2751.797 ; gain = 1851.672
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 7 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:04:03 ; elapsed = 00:04:22 . Memory (MB): peak = 2455.672 ; gain = 1554.680
-Synthesis Optimization Complete : Time (s): cpu = 00:04:17 ; elapsed = 00:04:23 . Memory (MB): peak = 2455.672 ; gain = 1554.680
+Synthesis finished with 0 errors, 0 critical warnings and 5 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:07:43 ; elapsed = 00:08:09 . Memory (MB): peak = 2751.797 ; gain = 1851.672
+Synthesis Optimization Complete : Time (s): cpu = 00:08:04 ; elapsed = 00:08:12 . Memory (MB): peak = 2751.797 ; gain = 1851.672
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.142 . Memory (MB): peak = 2455.672 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 3017 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.161 . Memory (MB): peak = 2751.797 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 3165 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 2455.672 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 2751.797 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 12 instances were transformed.
   LD => LDCE: 12 instances
 
-Synth Design complete | Checksum: 8bfa2fa9
+Synth Design complete | Checksum: 9c8cdfca
 INFO: [Common 17-83] Releasing license: Synthesis
-51 Infos, 26 Warnings, 0 Critical Warnings and 0 Errors encountered.
+65 Infos, 26 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:04:21 ; elapsed = 00:04:28 . Memory (MB): peak = 2455.672 ; gain = 1967.570
+synth_design: Time (s): cpu = 00:08:09 ; elapsed = 00:08:17 . Memory (MB): peak = 2751.797 ; gain = 2264.859
 INFO: [Common 17-1381] The checkpoint 'C:/Users/Student/Documents/Rocky/proj/AirFighter/CENG3430-AirFighter/AirFighter.runs/synth_1/AirFighter.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file AirFighter_utilization_synth.rpt -pb AirFighter_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Thu May 16 05:20:41 2024...
+INFO: [Common 17-206] Exiting Vivado at Fri May 17 04:22:58 2024...

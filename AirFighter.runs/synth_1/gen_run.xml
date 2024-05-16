@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z020clg484-1" LaunchTime="1715807760" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/AirFighter.dcp">
+<GenRun Id="synth_1" LaunchPart="xc7z020clg484-1" LaunchTime="1715890473" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/AirFighter.dcp">
   <File Type="PA-TCL" Name="AirFighter.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="AirFighter_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="AirFighter_reports.tcl"/>
@@ -24,6 +24,12 @@
       </FileInfo>
     </File>
     <File Path="$PSRCDIR/sources_1/new/CosineLUT.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/RandomGen.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -61,6 +67,13 @@
     </File>
     <File Path="$PSRCDIR/sources_1/new/AirFighter.vhd">
       <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/TanlocusLUT.vhd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>

@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-| Date             : Thu May 16 05:21:54 2024
+| Date             : Fri May 17 04:24:13 2024
 | Host             : 102-019 running 64-bit major release  (build 9200)
 | Command          : report_power -file AirFighter_power_routed.rpt -pb AirFighter_power_summary_routed.pb -rpx AirFighter_power_routed.rpx
 | Design           : AirFighter
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+----------------------------------+
-| Total On-Chip Power (W)  | 47.925 (Junction temp exceeded!) |
+| Total On-Chip Power (W)  | 46.446 (Junction temp exceeded!) |
 | Design Power Budget (W)  | Unspecified*                     |
 | Power Budget Margin (W)  | NA                               |
-| Dynamic (W)              | 46.885                           |
+| Dynamic (W)              | 45.406                           |
 | Device Static (W)        | 1.040                            |
 | Effective TJA (C/W)      | 11.5                             |
 | Max Ambient (C)          | 0.0                              |
@@ -52,19 +52,19 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Slice Logic    |    19.885 |    22674 |       --- |             --- |
-|   LUT as Logic |    19.336 |    17371 |     53200 |           32.65 |
-|   F7/F8 Muxes  |     0.279 |     1781 |     53200 |            3.35 |
-|   CARRY4       |     0.218 |     1218 |     13300 |            9.16 |
-|   Register     |     0.046 |      667 |    106400 |            0.63 |
+| Slice Logic    |    19.988 |    24715 |       --- |             --- |
+|   LUT as Logic |    19.485 |    18764 |     53200 |           35.27 |
+|   CARRY4       |     0.252 |     1502 |     13300 |           11.29 |
+|   F7/F8 Muxes  |     0.172 |     1647 |     53200 |            3.10 |
+|   Register     |     0.074 |      870 |    106400 |            0.82 |
 |   BUFG         |     0.006 |        3 |        32 |            9.38 |
-|   Others       |     0.000 |       13 |       --- |             --- |
-| Signals        |    26.981 |    17087 |       --- |             --- |
+|   Others       |     0.000 |       21 |       --- |             --- |
+| Signals        |    25.397 |    19074 |       --- |             --- |
 | Block RAM      |     0.000 |        1 |       140 |            0.71 |
-| DSPs           |     0.000 |        1 |       220 |            0.45 |
+| DSPs           |     0.000 |        2 |       220 |            0.91 |
 | I/O            |     0.020 |       19 |       200 |            9.50 |
 | Static Power   |     1.040 |          |           |                 |
-| Total          |    47.925 |          |           |                 |
+| Total          |    46.446 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -74,7 +74,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |    47.185 |      46.885 |      0.300 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |    45.705 |      45.406 |      0.300 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.100 |       0.000 |      0.100 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -148,12 +148,14 @@ Table of Contents
 +-------------------+-----------+
 | Name              | Power (W) |
 +-------------------+-----------+
-| AirFighter        |    46.885 |
-|   control         |     0.780 |
-|     comp_clk50Hz  |     0.184 |
-|   display         |    45.999 |
-|     comp_clk20Hz  |     0.177 |
-|     comp_clk50MHz |     0.157 |
+| AirFighter        |    45.406 |
+|   control         |     1.278 |
+|     comp_clk10Hz  |     0.179 |
+|     comp_clk27Hz  |     0.165 |
+|     comp_clk50Hz  |     0.161 |
+|   display         |    44.038 |
+|     comp_clk20Hz  |     0.171 |
+|     comp_clk50MHz |     0.144 |
 +-------------------+-----------+
 
 
