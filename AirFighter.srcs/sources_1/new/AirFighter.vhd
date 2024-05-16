@@ -53,6 +53,8 @@ architecture airfighter_arch of AirFighter is
     signal sig_p2b_y: integer := 0;
     signal sig_m1_x: integer := 0;
     signal sig_m1_y: integer := 0;
+    signal sig_m2_x: integer := 0;
+    signal sig_m2_y: integer := 0;
     signal sig_p1_score: integer := 0;
     signal sig_p2_score: integer := 0;
     
@@ -70,7 +72,7 @@ architecture airfighter_arch of AirFighter is
         clk, btnL, btnR, btnU, btnD: in std_logic;
         p1_x, p1_y, p2_x, p2_y: out integer;
         p1b_x, p1b_y, p2b_x, p2b_y: out integer;
-        m1_x, m1_y: out integer;
+        m1_x, m1_y, m2_x, m2_y: out integer;
         p1_score, p2_score: out integer
     );
     end component;
@@ -82,7 +84,7 @@ architecture airfighter_arch of AirFighter is
         red, green, blue: out std_logic_vector(3 downto 0);
         p1_x, p1_y, p2_x, p2_y: in integer;
         p1b_x, p1b_y, p2b_x, p2b_y: in integer;
-        m1_x, m1_y: in integer;
+        m1_x, m1_y, m2_x, m2_y: in integer;
         p1_score, p2_score: in integer
     );
     end component;
@@ -97,7 +99,7 @@ begin
         clk, btnL, btnR, btnU, btnD,
         sig_p1_x, sig_p1_y, sig_p2_x, sig_p2_y,
         sig_p1b_x, sig_p1b_y, sig_p2b_x, sig_p2b_y,
-        sig_m1_x, sig_m1_y,
+        sig_m1_x, sig_m1_y, sig_m2_x, sig_m2_y,
         sig_p1_score, sig_p2_score
     );
     -- Task: BTN Controller
@@ -107,7 +109,7 @@ begin
         red, green, blue,
         sig_p1_x, sig_p1_y, sig_p2_x, sig_p2_y,
         sig_p1b_x, sig_p1b_y, sig_p2b_x, sig_p2b_y,
-        sig_m1_x, sig_m1_y,
+        sig_m1_x, sig_m1_y, sig_m2_x, sig_m2_y,
         sig_p1_score, sig_p2_score
     );
    
