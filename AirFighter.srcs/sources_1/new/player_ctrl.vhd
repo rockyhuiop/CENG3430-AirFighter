@@ -35,7 +35,7 @@ use work.state_pkg.all;
 entity player_ctrl is
     Port (
         state: in t_state;
-        clk, btnL, btnR, btnU, btnD: in std_logic;
+        clk, btnL, btnR, btnU, btnD, btn1, btn3: in std_logic;
         p1_x, p1_y, p2_x, p2_y: out integer;
         p1b_x, p1b_y, p2b_x, p2b_y: out integer;
         m1_x, m1_y, m2_x, m2_y: out integer;
@@ -155,7 +155,7 @@ begin
     
     
 -- Task: BTN Controller
-    btn_proc: process(btnL, btnR, btnU, btnD)
+    btn_proc: process(btnL, btnR, btnU, btnD, clk50Hz)
     begin
         if (rising_edge(clk50Hz)) then
             case state is
@@ -165,39 +165,42 @@ begin
                     p_SPEED <= 8;
                 when others =>
                     p_SPEED <= 0;
-                    sig_p1_y <= 300;
-                    sig_p2_y <= 300;
             end case; 
         end if;
                
-        if(rising_edge(clk50Hz) and (state = RUN or state = RUSH)) then
-            if(btnU = '1') then
-                if(sig_p1_y - p_SPEED >= TOP) then
-                    sig_p1_y <= (sig_p1_y - p_SPEED);
-                else
-                    sig_p1_y <= TOP;
+        if(rising_edge(clk50Hz)) then
+            if (state = RUN or state = RUSH) then
+                if(btn3 = '1') then
+                    if(sig_p1_y - p_SPEED >= TOP) then
+                        sig_p1_y <= (sig_p1_y - p_SPEED);
+                    else
+                        sig_p1_y <= TOP;
+                    end if;
                 end if;
-            end if;
-            if(btnD = '1') then
-                if(sig_p1_y + p_SPEED + p_length/2 < bottom) then
-                    sig_p1_y <= (sig_p1_y + p_SPEED);
-                else
-                    sig_p1_y <= (bottom - p_length/2 - p_SPEED);
+                if(btn1 = '1') then
+                    if(sig_p1_y + p_SPEED + p_length/2 < bottom) then
+                        sig_p1_y <= (sig_p1_y + p_SPEED);
+                    else
+                        sig_p1_y <= (bottom - p_length/2 - p_SPEED);
+                    end if;
                 end if;
-            end if;
-            if(btnL = '1') then
-                if(sig_p2_y - p_SPEED >= TOP) then
-                    sig_p2_y <= (sig_p2_y - p_SPEED);
-                else
-                    sig_p2_y <= TOP;
+                if(btnU = '1') then
+                    if(sig_p2_y - p_SPEED >= TOP) then
+                        sig_p2_y <= (sig_p2_y - p_SPEED);
+                    else
+                        sig_p2_y <= TOP;
+                    end if;
                 end if;
-            end if;
-            if(btnR = '1') then
-                if(sig_p2_y + p_SPEED + p_length/2 < bottom) then
-                    sig_p2_y <= (sig_p2_y + p_SPEED);
-                else
-                    sig_p2_y <= (bottom - p_length/2 - p_SPEED);
+                if(btnD = '1') then
+                    if(sig_p2_y + p_SPEED + p_length/2 < bottom) then
+                        sig_p2_y <= (sig_p2_y + p_SPEED);
+                    else
+                        sig_p2_y <= (bottom - p_length/2 - p_SPEED);
+                    end if;
                 end if;
+            else
+                sig_p1_y <= 300;
+                sig_p2_y <= 300;
             end if;
         end if;
     end process btn_proc;
@@ -214,7 +217,15 @@ begin
 --                rand_num <= 0;
 --            end if;
 --        end if;
+        
+        
         if (rising_edge(clk50Hz)) then
+            if sig_p1_score >= 99 then
+                sig_p1_score <= 0;
+            end if;
+            if sig_p2_score >= 99 then
+                sig_p2_score <= 0;
+            end if;
             case state is
                 when RUN =>
                     b_SPEED <= 12;
@@ -222,168 +233,160 @@ begin
                     b_SPEED <= 24;
                 when others =>
                     b_SPEED <= 0;
-                    sig_m1_x <= 0;
-                    sig_m2_x <= 1024;
-                    sig_p1b_x <= 0;
-                    sig_p2b_x <= 1024;
+            end case;
+            if (state = RUN or state = RUSH) then
+            
+                if sig_p1b_x = sig_p1_x + 14 then
+                    sig_p1b_y <= sig_p1_y;
+                end if;
+                if sig_p2b_x = sig_p2_x - 14 then
+                    sig_p2b_y <= sig_p2_y;
+                end if;
+                
+                -- Update player 1's bullet position
+                if sig_p1b_x + b_SPEED <= right  then
+                    sig_p1b_x <= sig_p1b_x + b_SPEED;
+                else
+                    sig_p1b_x <= sig_p1_x + 14; -- Reset the bullet position when it hits the end
+                end if;
+        
+                -- Update player 2's bullet position
+                if sig_p2b_x - b_SPEED >= left then
+                    sig_p2b_x <= sig_p2b_x - b_SPEED;
+                else
+                    sig_p2b_x <= sig_p2_x - 14; -- Reset the bullet position when it hits the start
+                end if;
+                
+                -- Update monster 1's position
+                if  sig_m1_x - m_WIDTH/2 < RIGHT then
+                    if m1_rand mod 2 = 0 then
+                        -- cos(x/2)^3 - cos x + rand
+                        m1_cos1_in <= to_unsigned(((sig_m1_x * 256) / 1024), m1_cos1_in'length);
+                        m1_cos_in <= to_unsigned((((sig_m1_x * 256) / 2) / 1024), m1_cos_in'length) ;
+                        sig_m1_y <= ((to_integer(m1_cos_out) - to_integer(m1_cos1_out)) * 300 / 65536) + 300 - m1_rand;
+                    else
+                        m1_cos1_in <= to_unsigned(((sig_m1_x * 256) / 1024), m1_cos1_in'length);
+                        m1_cos_in <= to_unsigned((((sig_m1_x * 256) / 2) / 1024), m1_cos_in'length) ;
+                        sig_m1_y <= 300-((to_integer(m1_cos_out) - to_integer(m1_cos1_out)) * 300 / 65536) + m1_rand;
+                    end if;
+                    sig_m1_x <= sig_m1_x + m_speed;
+                    
+                else
+                    m1_rand <= to_integer(unsigned(rand_num)) mod 300;
+                    sig_m1_x <= 0 - m_WIDTH/2;
+                end if;
+                
+                -- Update monster 2's position
+                if  sig_m2_x + m_WIDTH/2 > LEFT then
+                    if m2_rand mod 2 = 0 then
+                        -- cos(x/2)^3 - cos x + rand
+                        m2_cos1_in <= to_unsigned((((sig_m2_x) * 256) / 1024), m2_cos1_in'length);
+                        m2_cos_in <= to_unsigned((((((sig_m2_x) * 256) / 2) / 1024) + 128) mod 256, m2_cos_in'length) ;
+                        sig_m2_y <= ((to_integer(m2_cos_out) - to_integer(m2_cos1_out)) * 300 / 65536) + 300 - m2_rand;
+                    else
+                        m2_cos1_in <= to_unsigned((((sig_m2_x) * 256) / 1024), m2_cos1_in'length);
+                        m2_cos_in <= to_unsigned((((((sig_m2_x) * 256) / 2) / 1024) + 128) mod 256, m2_cos_in'length) ;
+                        sig_m2_y <= 300-((to_integer(m2_cos_out) - to_integer(m2_cos1_out)) * 300 / 65536) + m2_rand;
+                    end if;
+                    sig_m2_x <= sig_m2_x - m_speed;
+                    
+                else
+                    m2_rand <= to_integer(unsigned(rand_num2)) mod 300;
+                    sig_m2_x <= 1024 + m_WIDTH/2;
+                end if;
+                
+                -- Check hit
+                if p2_eff_count < 1 then
+                    -- if hit enter show eff
+                    if (sig_p1b_x >= p2_baseline and sig_p1b_x <= sig_p2_x) and (sig_p1b_y >= sig_p2_y - p_length/2 and sig_p1b_y <= sig_p2_y + p_length/2) then
+                        sig_p1b_x <= sig_p1_x + 14;
+                        p2_eff_count <= p2_eff_count + 1;
+                        sig_p1_score <= sig_p1_score + 2;
+                    end if;
+                else
+                    -- eff process
+                    if p2_eff_count mod 2 = 0 then
+                        sig_p2_x <= sig_p2_x - 10;
+                    else
+                        sig_p2_x <= sig_p2_x + 10;
+                    end if;
+                    p2_eff_count <= p2_eff_count + 1;
+                    if p2_eff_count >= 10 then
+                        sig_p2_x <= 924;
+                        p2_eff_count <= 0;
+                    end if;
+                end if;
+                
+                if p1_eff_count < 1 then
+                    if sig_p2b_x <= p1_baseline and sig_p2b_x >= sig_p1_x and (sig_p2b_y >= sig_p1_y - p_length/2 and sig_p2b_y <= sig_p1_y + p_length/2) then
+                        sig_p2b_x <= sig_p2_x - 14;
+                        p1_eff_count <= p1_eff_count + 1;
+                        sig_p2_score <= sig_p2_score + 2; 
+                    end if;  
+                else
+                    if p1_eff_count mod 2 = 0 then
+                        sig_p1_x <= sig_p1_x + 10;
+                    else
+                        sig_p1_x <= sig_p1_x - 10;
+                    end if;
+                    p1_eff_count <= p1_eff_count + 1;
+                    if p1_eff_count >= 10 then
+                        sig_p1_x <= 100;
+                        p1_eff_count <= 0;
+                    end if;
+                end if;
+                -- monster 1
+                if m1_eff_count < 1 then
+                    if (sig_p2b_x <= sig_m1_x + m_WIDTH/2 and sig_p2b_x >= sig_m1_x)  
+                        and (sig_p2b_y >= sig_m1_y - m_length/2 and sig_p2b_y <= sig_m1_y + m_length/2) then
+                        sig_p2b_x <= sig_p2_x - 14;
+                        m1_eff_count <= m1_eff_count + 1;
+                        sig_p2_score <= sig_p2_score + 1; 
+                    end if;
+                else
+                    if m1_eff_count mod 2 = 0 then
+                        sig_m1_x <= sig_m1_x - 10;
+                    else
+                        sig_m1_x <= sig_m1_x + 10;
+                    end if;
+                    m1_eff_count <= m1_eff_count + 1;
+                    if m1_eff_count >= 10 then
+                        sig_m1_x <= 0;
+                        m1_rand <= to_integer(unsigned(rand_num)) mod 300;
+                        m1_eff_count <= 0;
+                    end if;
+                end if;
+                -- monster 2
+                if m2_eff_count < 1 then
+                    if (sig_p1b_x >= sig_m2_x - m_WIDTH/2 and sig_p1b_x <= sig_m2_x) 
+                        and (sig_p1b_y >= sig_m2_y - m_length/2 and sig_p1b_y <= sig_m2_y + m_length/2) then
+                        sig_p1b_x <= sig_p1_x + 14;
+                        m2_eff_count <= m2_eff_count + 1;
+                        sig_p1_score <= sig_p1_score + 1; 
+                    end if;
+                else
+                    if m2_eff_count mod 2 = 0 then
+                        sig_m2_x <= sig_m2_x - 10;
+                    else
+                        sig_m2_x <= sig_m2_x + 10;
+                    end if;
+                    m2_eff_count <= m2_eff_count + 1;
+                    if m2_eff_count >= 10 then
+                        sig_m2_x <= RIGHT;
+                        m2_rand <= to_integer(unsigned(rand_num2)) mod 300;
+                        m2_eff_count <= 0;
+                    end if;
+                end if;
+            else
+                sig_m1_x <= 0;
+                sig_m2_x <= 1024;
+                sig_p1b_x <= 0;
+                sig_p2b_x <= 1024;
+                if state = idle then
                     sig_p1_score <= 0;
                     sig_p2_score <= 0;
-                    
-            end case;
-        end if;
-        
-        
-        if (rising_edge(clk50Hz) and (state = RUN or state = RUSH)) then
-            if sig_p1_score >= 99 then
-                sig_p1_score <= 0;
-            end if;
-            if sig_p2_score >= 99 then
-                sig_p2_score <= 0;
-            end if;
-            
-            if sig_p1b_x = sig_p1_x + 14 then
-                sig_p1b_y <= sig_p1_y;
-            end if;
-            if sig_p2b_x = sig_p2_x - 14 then
-                sig_p2b_y <= sig_p2_y;
-            end if;
-            
-            -- Update player 1's bullet position
-            if sig_p1b_x + b_SPEED <= right  then
-                sig_p1b_x <= sig_p1b_x + b_SPEED;
-            else
-                sig_p1b_x <= sig_p1_x + 14; -- Reset the bullet position when it hits the end
-            end if;
-    
-            -- Update player 2's bullet position
-            if sig_p2b_x - b_SPEED >= left then
-                sig_p2b_x <= sig_p2b_x - b_SPEED;
-            else
-                sig_p2b_x <= sig_p2_x - 14; -- Reset the bullet position when it hits the start
-            end if;
-            
-            -- Update monster 1's position
-            if  sig_m1_x - m_WIDTH/2 < RIGHT then
-                if m1_rand mod 2 = 0 then
-                    -- cos(x/2)^3 - cos x + rand
-                    m1_cos1_in <= to_unsigned(((sig_m1_x * 256) / 1024), m1_cos1_in'length);
-                    m1_cos_in <= to_unsigned((((sig_m1_x * 256) / 2) / 1024), m1_cos_in'length) ;
-                    sig_m1_y <= ((to_integer(m1_cos_out) - to_integer(m1_cos1_out)) * 300 / 65536) + 300 - m1_rand;
-                else
-                    m1_cos1_in <= to_unsigned(((sig_m1_x * 256) / 1024), m1_cos1_in'length);
-                    m1_cos_in <= to_unsigned((((sig_m1_x * 256) / 2) / 1024), m1_cos_in'length) ;
-                    sig_m1_y <= 300-((to_integer(m1_cos_out) - to_integer(m1_cos1_out)) * 300 / 65536) + m1_rand;
-                end if;
-                sig_m1_x <= sig_m1_x + m_speed;
-                
-            else
-                m1_rand <= to_integer(unsigned(rand_num)) mod 300;
-                sig_m1_x <= 0 - m_WIDTH/2;
-            end if;
-            
-            -- Update monster 2's position
-            if  sig_m2_x + m_WIDTH/2 > LEFT then
-                if m2_rand mod 2 = 0 then
-                    -- cos(x/2)^3 - cos x + rand
-                    m2_cos1_in <= to_unsigned((((sig_m2_x) * 256) / 1024), m2_cos1_in'length);
-                    m2_cos_in <= to_unsigned((((((sig_m2_x) * 256) / 2) / 1024) + 128) mod 256, m2_cos_in'length) ;
-                    sig_m2_y <= ((to_integer(m2_cos_out) - to_integer(m2_cos1_out)) * 300 / 65536) + 300 - m2_rand;
-                else
-                    m2_cos1_in <= to_unsigned((((sig_m2_x) * 256) / 1024), m2_cos1_in'length);
-                    m2_cos_in <= to_unsigned((((((sig_m2_x) * 256) / 2) / 1024) + 128) mod 256, m2_cos_in'length) ;
-                    sig_m2_y <= 300-((to_integer(m2_cos_out) - to_integer(m2_cos1_out)) * 300 / 65536) + m2_rand;
-                end if;
-                sig_m2_x <= sig_m2_x - m_speed;
-                
-            else
-                m2_rand <= to_integer(unsigned(rand_num2)) mod 300;
-                sig_m2_x <= 1024 + m_WIDTH/2;
-            end if;
-            
-            -- Check hit
-            if p2_eff_count < 1 then
-                -- if hit enter show eff
-                if (sig_p1b_x >= p2_baseline and sig_p1b_x <= sig_p2_x) and (sig_p1b_y >= sig_p2_y - p_length/2 and sig_p1b_y <= sig_p2_y + p_length/2) then
-                    sig_p1b_x <= sig_p1_x + 14;
-                    p2_eff_count <= p2_eff_count + 1;
-                    sig_p1_score <= sig_p1_score + 2;
-                end if;
-            else
-                -- eff process
-                if p2_eff_count mod 2 = 0 then
-                    sig_p2_x <= sig_p2_x - 10;
-                else
-                    sig_p2_x <= sig_p2_x + 10;
-                end if;
-                p2_eff_count <= p2_eff_count + 1;
-                if p2_eff_count >= 10 then
-                    sig_p2_x <= 924;
-                    p2_eff_count <= 0;
                 end if;
             end if;
-            
-            if p1_eff_count < 1 then
-                if sig_p2b_x <= p1_baseline and sig_p2b_x >= sig_p1_x and (sig_p2b_y >= sig_p1_y - p_length/2 and sig_p2b_y <= sig_p1_y + p_length/2) then
-                    sig_p2b_x <= sig_p2_x - 14;
-                    p1_eff_count <= p1_eff_count + 1;
-                    sig_p2_score <= sig_p2_score + 2; 
-                end if;  
-            else
-                if p1_eff_count mod 2 = 0 then
-                    sig_p1_x <= sig_p1_x + 10;
-                else
-                    sig_p1_x <= sig_p1_x - 10;
-                end if;
-                p1_eff_count <= p1_eff_count + 1;
-                if p1_eff_count >= 10 then
-                    sig_p1_x <= 100;
-                    p1_eff_count <= 0;
-                end if;
-            end if;
-            -- monster 1
-            if m1_eff_count < 1 then
-                if (sig_p2b_x <= sig_m1_x + m_WIDTH/2 and sig_p2b_x >= sig_m1_x)  
-                    and (sig_p2b_y >= sig_m1_y - m_length/2 and sig_p2b_y <= sig_m1_y + m_length/2) then
-                    sig_p2b_x <= sig_p2_x - 14;
-                    m1_eff_count <= m1_eff_count + 1;
-                    sig_p2_score <= sig_p2_score + 1; 
-                end if;
-            else
-                if m1_eff_count mod 2 = 0 then
-                    sig_m1_x <= sig_m1_x - 10;
-                else
-                    sig_m1_x <= sig_m1_x + 10;
-                end if;
-                m1_eff_count <= m1_eff_count + 1;
-                if m1_eff_count >= 10 then
-                    sig_m1_x <= 0;
-                    m1_rand <= to_integer(unsigned(rand_num)) mod 300;
-                    m1_eff_count <= 0;
-                end if;
-            end if;
-            -- monster 2
-            if m2_eff_count < 1 then
-                if (sig_p1b_x >= sig_m2_x - m_WIDTH/2 and sig_p1b_x <= sig_m2_x) 
-                    and (sig_p1b_y >= sig_m2_y - m_length/2 and sig_p1b_y <= sig_m2_y + m_length/2) then
-                    sig_p1b_x <= sig_p1_x + 14;
-                    m2_eff_count <= m2_eff_count + 1;
-                    sig_p1_score <= sig_p1_score + 1; 
-                end if;
-            else
-                if m2_eff_count mod 2 = 0 then
-                    sig_m2_x <= sig_m2_x - 10;
-                else
-                    sig_m2_x <= sig_m2_x + 10;
-                end if;
-                m2_eff_count <= m2_eff_count + 1;
-                if m2_eff_count >= 10 then
-                    sig_m2_x <= RIGHT;
-                    m2_rand <= to_integer(unsigned(rand_num2)) mod 300;
-                    m2_eff_count <= 0;
-                end if;
-            end if;
-            
-            
         end if;
     end process bullet_proc;
     

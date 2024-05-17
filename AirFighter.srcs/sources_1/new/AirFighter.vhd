@@ -39,7 +39,7 @@ use work.state_pkg.all;
 
 entity AirFighter is
     Port ( 
-        clk, reset, btnL, btnR, btnU, btnD: in std_logic;
+        clk, reset, btnL, btnR, btnU, btnD, btn1, btn3: in std_logic;
         sel: buffer std_logic := '0';
         ssd: out std_logic_vector (6 downto 0);
         hsync, vsync: out std_logic;
@@ -91,7 +91,7 @@ architecture airfighter_arch of AirFighter is
     component player_ctrl is
     port(
         state: in t_state;
-        clk, btnL, btnR, btnU, btnD: in std_logic;
+        clk, btnL, btnR, btnU, btnD, btn1, btn3: in std_logic;
         p1_x, p1_y, p2_x, p2_y: out integer;
         p1b_x, p1b_y, p2b_x, p2b_y: out integer;
         m1_x, m1_y, m2_x, m2_y: out integer;
@@ -138,7 +138,7 @@ begin
                 countdown <= countdown - 1;
                 data_in(7 downto 4) <= std_logic_vector(TO_UNSIGNED(countdown/10, 4));
                 data_in(3 downto 0) <= std_logic_vector(TO_UNSIGNED(countdown mod 10, 4));
-                if (sig_p1_score >= 100 or sig_p2_score >= 100) then
+                if (sig_p1_score >= 99 or sig_p2_score >= 99) then
                     state <= DONE;
                 end if;
                 if (countdown <= 0) then
@@ -167,7 +167,7 @@ begin
         --state <= IDLE;
     
     control: player_ctrl port map (
-        state, clk, btnL, btnR, btnU, btnD,
+        state, clk, btnL, btnR, btnU, btnD, btn1, btn3,
         sig_p1_x, sig_p1_y, sig_p2_x, sig_p2_y,
         sig_p1b_x, sig_p1b_y, sig_p2b_x, sig_p2b_y,
         sig_m1_x, sig_m1_y, sig_m2_x, sig_m2_y,

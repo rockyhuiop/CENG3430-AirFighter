@@ -17,6 +17,8 @@ set_property PACKAGE_PIN R16  [get_ports btnD];
 set_property PACKAGE_PIN N15  [get_ports btnL];  
 set_property PACKAGE_PIN R18  [get_ports btnR];  
 set_property PACKAGE_PIN P16  [get_ports reset];
+set_property PACKAGE_PIN AB6 [get_ports btn1];  # "JC1_N"
+set_property PACKAGE_PIN AA4 [get_ports btn3];  # "JC2_N"
 
 set_property PACKAGE_PIN Y11 [get_ports {ssd[6]}];
 set_property PACKAGE_PIN AA11 [get_ports {ssd[5]}];
@@ -44,4 +46,6 @@ set_property IOSTANDARD LVCMOS25 [get_ports btnU];
 set_property IOSTANDARD LVCMOS25 [get_ports btnD];
 set_property IOSTANDARD LVCMOS25 [get_ports btnL];
 set_property IOSTANDARD LVCMOS25 [get_ports btnR];
+set_property IOSTANDARD LVCMOS33 [get_ports btn1];
+set_property IOSTANDARD LVCMOS33 [get_ports btn3];
 set_property IOSTANDARD LVCMOS25 [get_ports reset];

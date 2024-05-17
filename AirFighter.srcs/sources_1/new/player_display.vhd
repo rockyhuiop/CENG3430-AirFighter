@@ -118,10 +118,15 @@ architecture Behavioral of player_display is
     constant P2_LMSG_HTL: integer := H_END - P_LMSG_WIDTH;
     constant P2_LMSG_VTL: integer := V_START;
     
-    constant DMSG_WIDTH: integer := 476;
-    constant DMSG_LENGTH: integer := 448;
+    constant DMSG_WIDTH: integer := 616;
+    constant DMSG_LENGTH: integer := 476;
     constant DMSG_HTL: integer := (H_START + H_END - DMSG_WIDTH) / 2; 
     constant DMSG_VTL: integer := (V_START + V_END - DMSG_LENGTH) / 2;  
+    
+    constant AFLOGO_WIDTH: integer := 536;
+    constant AFLOGO_LENGTH: integer := 362;
+    constant AFLOGO_HTL: integer := (H_START + H_END - AFLOGO_WIDTH) / 2; 
+    constant AFLOGO_VTL: integer := (V_START + V_END - AFLOGO_LENGTH) / 2; 
     
     -- Signals for the bullet
     signal p1_bullet_x: integer := H_START + p1b_x - BULLET_LENGTH/2;
@@ -212,8 +217,28 @@ begin
         
         if((hcount >= H_START and hcount < H_END) and
            (vcount >= V_START and vcount < V_END)) then
+            if state = IDLE then
+                if ((hcount >= AFLOGO_HTL and hcount < AFLOGO_HTL + AFLOGO_WIDTH) and
+                    (vcount >= AFLOGO_VTL and vcount < AFLOGO_HTL + AFLOGO_LENGTH)) then
+                    if (AFLOGO(vcount-AFLOGO_VTL, hcount-AFLOGO_HTL)(23 downto 20) = "1111" and -- Extracting 4 MSBs for each color
+                        AFLOGO(vcount-AFLOGO_VTL, hcount-AFLOGO_HTL)(15 downto 12) = "1111" and
+                        AFLOGO(vcount-AFLOGO_VTL, hcount-AFLOGO_HTL)(7 downto 4) = "1111") then
+                        sig_red   <= street((vcount-V_START)/4, ((hcount - H_START)/4 + bkgdindex) mod 220)(23 downto 20); -- Extracting 4 MSBs for each color
+                        sig_green <= street((vcount-V_START)/4, ((hcount - H_START)/4 + bkgdindex) mod 220)(15 downto 12);
+                        sig_blue  <= street((vcount-V_START)/4, ((hcount - H_START)/4 + bkgdindex) mod 220)(7 downto 4);
+                    
+                    else
+                        sig_red   <= AFLOGO((vcount-AFLOGO_VTL)/2, (hcount-AFLOGO_HTL)/2)(23 downto 20); -- Extracting 4 MSBs for each color
+                        sig_green <= AFLOGO((vcount-AFLOGO_VTL)/2, (hcount-AFLOGO_HTL)/2)(15 downto 12);
+                        sig_blue  <= AFLOGO((vcount-AFLOGO_VTL)/2, (hcount-AFLOGO_HTL)/2)(7 downto 4);
+                    end if;
+                end if;
+           
+           
+           
+           
            -- p1 score space 2nd digit
-            if((hcount >= s1_H_START and hcount < s1_H_START + 48) and
+            elsif((hcount >= s1_H_START and hcount < s1_H_START + 48) and
                (vcount >= s1_V_START and vcount < s1_V_START + 48)) then
                 if p1_score / 10 = 0 then
                     sig_red   <= pix0(vcount-(s1_V_START), hcount-(s1_H_START))(23 downto 20); -- Extracting 4 MSBs for each color
@@ -392,42 +417,41 @@ begin
                     sig_blue  <= pix9(vcount-(s2_V_START), hcount-(s2_H_START+48))(7 downto 4);
                 end if;
                 
-                if state = DONE then
-                    if p1_score > p2_score then
-                        if((hcount >= p1_WINMSG_HTL and hcount < p1_WINMSG_HTL + p_WMSG_WIDTH) and 
-                            (vcount >= p1_WINMSG_VTL and vcount < p1_WINMSG_VTL + p_WMSG_LENGTH)) then
-                            sig_red   <= win((vcount-p1_WINMSG_VTL)/7, (hcount-p1_WINMSG_HTL)/7)(23 downto 20); -- Extracting 4 MSBs for each color
-                            sig_green <= win((vcount-p1_WINMSG_VTL)/7, (hcount-p1_WINMSG_HTL)/7)(15 downto 12);
-                            sig_blue  <= win((vcount-p1_WINMSG_VTL)/7, (hcount-p1_WINMSG_HTL)/7)(7 downto 4);
-                        elsif ((hcount >= p2_LMSG_HTL and hcount < p2_LMSG_HTL + p_LMSG_WIDTH) and 
-                            (vcount >= p2_LMSG_VTL and vcount < p2_LMSG_VTL + p_LMSG_LENGTH)) then
-                            sig_red <= "0001";
-                            sig_green <= "0001";
-                            sig_blue <= "0001";
-                        end if;
-                    elsif p1_score < p2_score then
-                        if((hcount >= p1_LMSG_HTL and hcount < p1_LMSG_HTL + p_LMSG_WIDTH) and 
-                            (vcount >= p1_LMSG_VTL and vcount < p1_LMSG_VTL + p_LMSG_LENGTH)) then
-                            sig_red <= "0001";
-                            sig_green <= "0001";
-                            sig_blue <= "0001";
-                        elsif ((hcount >= p2_WINMSG_HTL and hcount < p2_WINMSG_HTL + p_WMSG_WIDTH) and 
-                            (vcount >= p2_WINMSG_VTL and vcount < p2_WINMSG_VTL + p_WMSG_LENGTH)) then
-                            sig_red   <= win((vcount-p2_WINMSG_VTL)/7, (hcount-p2_WINMSG_HTL)/7)(23 downto 20); -- Extracting 4 MSBs for each color
-                            sig_green <= win((vcount-p2_WINMSG_VTL)/7, (hcount-p2_WINMSG_HTL)/7)(15 downto 12);
-                            sig_blue  <= win((vcount-p2_WINMSG_VTL)/7, (hcount-p2_WINMSG_HTL)/7)(7 downto 4);
-                        end if;
+            elsif state = DONE then
+                if p1_score > p2_score then
+                    if((hcount >= p1_WINMSG_HTL and hcount < p1_WINMSG_HTL + p_WMSG_WIDTH) and 
+                        (vcount >= p1_WINMSG_VTL and vcount < p1_WINMSG_VTL + p_WMSG_LENGTH)) then
+                        sig_red   <= win((vcount-p1_WINMSG_VTL)/7, (hcount-p1_WINMSG_HTL)/7)(23 downto 20); -- Extracting 4 MSBs for each color
+                        sig_green <= win((vcount-p1_WINMSG_VTL)/7, (hcount-p1_WINMSG_HTL)/7)(15 downto 12);
+                        sig_blue  <= win((vcount-p1_WINMSG_VTL)/7, (hcount-p1_WINMSG_HTL)/7)(7 downto 4);
+                    elsif ((hcount >= p2_LMSG_HTL and hcount < p2_LMSG_HTL + p_LMSG_WIDTH) and 
+                        (vcount >= p2_LMSG_VTL and vcount < p2_LMSG_VTL + p_LMSG_LENGTH)) then
+                        sig_red <= "0001";
+                        sig_green <= "0001";
+                        sig_blue <= "0001";
+                    end if;
+                elsif p1_score < p2_score then
+                    if((hcount >= p1_LMSG_HTL and hcount < p1_LMSG_HTL + p_LMSG_WIDTH) and 
+                        (vcount >= p1_LMSG_VTL and vcount < p1_LMSG_VTL + p_LMSG_LENGTH)) then
+                        sig_red <= "0001";
+                        sig_green <= "0001";
+                        sig_blue <= "0001";
+                    elsif ((hcount >= p2_WINMSG_HTL and hcount < p2_WINMSG_HTL + p_WMSG_WIDTH) and 
+                        (vcount >= p2_WINMSG_VTL and vcount < p2_WINMSG_VTL + p_WMSG_LENGTH)) then
+                        sig_red   <= win((vcount-p2_WINMSG_VTL)/7, (hcount-p2_WINMSG_HTL)/7)(23 downto 20); -- Extracting 4 MSBs for each color
+                        sig_green <= win((vcount-p2_WINMSG_VTL)/7, (hcount-p2_WINMSG_HTL)/7)(15 downto 12);
+                        sig_blue  <= win((vcount-p2_WINMSG_VTL)/7, (hcount-p2_WINMSG_HTL)/7)(7 downto 4);
+                    end if;
+                else
+                    if((hcount >= DMSG_HTL and hcount < DMSG_HTL + DMSG_WIDTH) and 
+                        (vcount >= DMSG_VTL and vcount < DMSG_VTL + DMSG_LENGTH)) then
+                        sig_red   <= over((vcount-DMSG_VTL)/7, (hcount-DMSG_HTL)/7)(23 downto 20); -- Extracting 4 MSBs for each color
+                        sig_green <= over((vcount-DMSG_VTL)/7, (hcount-DMSG_HTL)/7)(15 downto 12);
+                        sig_blue  <= over((vcount-DMSG_VTL)/7, (hcount-DMSG_HTL)/7)(7 downto 4);
                     else
-                        if((hcount >= DMSG_HTL and hcount < DMSG_HTL + DMSG_WIDTH) and 
-                            (vcount >= DMSG_VTL and vcount < DMSG_VTL + DMSG_LENGTH)) then
-                            sig_red   <= over((vcount-DMSG_VTL)/7, (hcount-DMSG_HTL)/7)(23 downto 20); -- Extracting 4 MSBs for each color
-                            sig_green <= over((vcount-DMSG_VTL)/7, (hcount-DMSG_HTL)/7)(15 downto 12);
-                            sig_blue  <= over((vcount-DMSG_VTL)/7, (hcount-DMSG_HTL)/7)(7 downto 4);
-                        else
-                            sig_red <= "1111";
-                            sig_green <= "1111";
-                            sig_blue <= "1111";
-                        end if;
+                        sig_red <= "1111";
+                        sig_green <= "1111";
+                        sig_blue <= "1111";
                     end if;
                 end if;
                 
