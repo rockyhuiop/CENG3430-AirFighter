@@ -109,11 +109,11 @@ architecture Behavioral of player_display is
     constant P_WMSG_LENGTH: integer := 84;
     constant P_LMSG_WIDTH: integer := 376;
     constant P_LMSG_LENGTH: integer := 600;
-    constant P1_WINMSG_HTL: integer := H_START + 228;
+    constant P1_WINMSG_HTL: integer := (H_START + H_END - P_LMSG_WIDTH - P_WMSG_WIDTH) / 2;
     constant P1_WINMSG_VTL: integer := V_START + 150;
-    constant P1_LMSG_HTL: integer := H_START + P_LMSG_WIDTH;
+    constant P1_LMSG_HTL: integer := H_START;
     constant P1_LMSG_VTL: integer := V_START;
-    constant P2_WINMSG_HTL: integer := H_END - 228;
+    constant P2_WINMSG_HTL: integer := (H_END + H_END - P_WMSG_WIDTH) / 2;
     constant P2_WINMSG_VTL: integer := V_START + 150;
     constant P2_LMSG_HTL: integer := H_END - P_LMSG_WIDTH;
     constant P2_LMSG_VTL: integer := V_START;
