@@ -113,7 +113,7 @@ architecture Behavioral of player_display is
     constant P1_WINMSG_VTL: integer := V_START + 150;
     constant P1_LMSG_HTL: integer := H_START;
     constant P1_LMSG_VTL: integer := V_START;
-    constant P2_WINMSG_HTL: integer := (H_END + H_END - P_WMSG_WIDTH) / 2;
+    constant P2_WINMSG_HTL: integer := (H_START + P_LMSG_WIDTH + H_END - P_WMSG_WIDTH) / 2;
     constant P2_WINMSG_VTL: integer := V_START + 150;
     constant P2_LMSG_HTL: integer := H_END - P_LMSG_WIDTH;
     constant P2_LMSG_VTL: integer := V_START;
@@ -468,9 +468,9 @@ begin
                         sig_blue  <= win((vcount-p2_WINMSG_VTL)/7, (hcount-p2_WINMSG_HTL)/7)(7 downto 4);
                     elsif((hcount >= p2_H_TOP_LEFT and hcount < p2_H_TOP_LEFT + WIDTH) and
                             (vcount >= p2_V_TOP_LEFT and vcount < p2_V_TOP_LEFT + LENGTH)) then
-                        if (Image(vcount-(p2_V_TOP_LEFT + LENGTH), hcount-(p2_H_TOP_LEFT + WIDTH))(23 downto 20) = "0000" and
-                           Image(vcount-(p2_V_TOP_LEFT + LENGTH), hcount-(p2_H_TOP_LEFT + WIDTH))(15 downto 12) = "0000" and
-                           Image(vcount-(p2_V_TOP_LEFT + LENGTH), hcount-(p2_H_TOP_LEFT + WIDTH))(7 downto 4) = "0000") then
+                        if (p2Image(vcount-(p2_V_TOP_LEFT + LENGTH), hcount-(p2_H_TOP_LEFT + WIDTH))(23 downto 20) = "0000" and
+                           p2Image(vcount-(p2_V_TOP_LEFT + LENGTH), hcount-(p2_H_TOP_LEFT + WIDTH))(15 downto 12) = "0000" and
+                           p2Image(vcount-(p2_V_TOP_LEFT + LENGTH), hcount-(p2_H_TOP_LEFT + WIDTH))(7 downto 4) = "0000") then
                             
                             sig_red   <= street((vcount-V_START)/4, ((hcount - H_START)/4 + bkgdindex) mod 220)(23 downto 20); -- Extracting 4 MSBs for each color
                             sig_green <= street((vcount-V_START)/4, ((hcount - H_START)/4 + bkgdindex) mod 220)(15 downto 12);
