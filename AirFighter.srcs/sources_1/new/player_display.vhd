@@ -209,7 +209,7 @@ begin
     begin
         if(rising_edge(clk20Hz))then
             if state = RUSH then
-                bkgdindex <= ((2 * bkgdindex + 3) / 2) mod 220;
+                bkgdindex <= (bkgdindex + 2) mod 220;
             else
                 bkgdindex <= (bkgdindex + 1) mod 220;
             end if;
@@ -219,10 +219,10 @@ begin
            (vcount >= V_START and vcount < V_END)) then
             if state = IDLE then
                 if ((hcount >= AFLOGO_HTL and hcount < AFLOGO_HTL + AFLOGO_WIDTH) and
-                    (vcount >= AFLOGO_VTL and vcount < AFLOGO_HTL + AFLOGO_LENGTH)) then
-                    if (AFLOGO(vcount-AFLOGO_VTL, hcount-AFLOGO_HTL)(23 downto 20) = "1111" and -- Extracting 4 MSBs for each color
-                        AFLOGO(vcount-AFLOGO_VTL, hcount-AFLOGO_HTL)(15 downto 12) = "1111" and
-                        AFLOGO(vcount-AFLOGO_VTL, hcount-AFLOGO_HTL)(7 downto 4) = "1111") then
+                    (vcount >= AFLOGO_VTL and vcount < AFLOGO_VTL + AFLOGO_LENGTH)) then
+                    if (AFLOGO((vcount-AFLOGO_VTL)/2, (hcount-AFLOGO_HTL)/2)(23 downto 20) = "1111" and -- Extracting 4 MSBs for each color
+                        AFLOGO((vcount-AFLOGO_VTL)/2, (hcount-AFLOGO_HTL)/2)(15 downto 12) = "1111" and
+                        AFLOGO((vcount-AFLOGO_VTL)/2, (hcount-AFLOGO_HTL)/2)(7 downto 4) = "1111") then
                         sig_red   <= street((vcount-V_START)/4, ((hcount - H_START)/4 + bkgdindex) mod 220)(23 downto 20); -- Extracting 4 MSBs for each color
                         sig_green <= street((vcount-V_START)/4, ((hcount - H_START)/4 + bkgdindex) mod 220)(15 downto 12);
                         sig_blue  <= street((vcount-V_START)/4, ((hcount - H_START)/4 + bkgdindex) mod 220)(7 downto 4);
@@ -232,6 +232,10 @@ begin
                         sig_green <= AFLOGO((vcount-AFLOGO_VTL)/2, (hcount-AFLOGO_HTL)/2)(15 downto 12);
                         sig_blue  <= AFLOGO((vcount-AFLOGO_VTL)/2, (hcount-AFLOGO_HTL)/2)(7 downto 4);
                     end if;
+                else
+                    sig_red   <= street((vcount-V_START)/4, ((hcount - H_START)/4 + bkgdindex) mod 220)(23 downto 20); -- Extracting 4 MSBs for each color
+                    sig_green <= street((vcount-V_START)/4, ((hcount - H_START)/4 + bkgdindex) mod 220)(15 downto 12);
+                    sig_blue  <= street((vcount-V_START)/4, ((hcount - H_START)/4 + bkgdindex) mod 220)(7 downto 4);
                 end if;
            
            
@@ -418,6 +422,7 @@ begin
                 end if;
                 
             elsif state = DONE then
+            -- Finish
                 if p1_score > p2_score then
                     if((hcount >= p1_WINMSG_HTL and hcount < p1_WINMSG_HTL + p_WMSG_WIDTH) and 
                         (vcount >= p1_WINMSG_VTL and vcount < p1_WINMSG_VTL + p_WMSG_LENGTH)) then
@@ -442,7 +447,7 @@ begin
                         sig_green <= win((vcount-p2_WINMSG_VTL)/7, (hcount-p2_WINMSG_HTL)/7)(15 downto 12);
                         sig_blue  <= win((vcount-p2_WINMSG_VTL)/7, (hcount-p2_WINMSG_HTL)/7)(7 downto 4);
                     end if;
-                else
+                elsif p1_score = p2_score then
                     if((hcount >= DMSG_HTL and hcount < DMSG_HTL + DMSG_WIDTH) and 
                         (vcount >= DMSG_VTL and vcount < DMSG_VTL + DMSG_LENGTH)) then
                         sig_red   <= over((vcount-DMSG_VTL)/7, (hcount-DMSG_HTL)/7)(23 downto 20); -- Extracting 4 MSBs for each color
@@ -453,8 +458,142 @@ begin
                         sig_green <= "1111";
                         sig_blue <= "1111";
                     end if;
-                end if;
                 
+                 -- Display Player 1
+                elsif((hcount >= p1_H_TOP_LEFT and hcount < p1_H_TOP_LEFT + WIDTH) and
+                   (vcount >= p1_V_TOP_LEFT and vcount < p1_V_TOP_LEFT + LENGTH)) then
+                    if (Image(vcount-(p1_V_TOP_LEFT + LENGTH), hcount-(p1_H_TOP_LEFT + WIDTH))(23 downto 20) = "0000" and
+                       Image(vcount-(p1_V_TOP_LEFT + LENGTH), hcount-(p1_H_TOP_LEFT + WIDTH))(15 downto 12) = "0000" and
+                       Image(vcount-(p1_V_TOP_LEFT + LENGTH), hcount-(p1_H_TOP_LEFT + WIDTH))(7 downto 4) = "0000") then
+                        if ((hcount >= sig_m1_x and hcount < sig_m1_x + m_WIDTH) and
+                            (vcount >= sig_m1_y and vcount < sig_m1_y + m_LENGTH)) and
+                           (sig_m1_x >= p1_H_TOP_LEFT and sig_m1_x < p1_H_TOP_LEFT + WIDTH and
+                           sig_m1_y >= p1_V_TOP_LEFT and sig_m1_y < p1_V_TOP_LEFT + LENGTH) then
+                            if (p1drone(vcount-sig_m1_y, hcount-(sig_m1_x))(23 downto 20) /= "1111" and
+                               p1drone(vcount-sig_m1_y, hcount-(sig_m1_x))(15 downto 12) /= "1111" and
+                               p1drone(vcount-sig_m1_y, hcount-(sig_m1_x))(7 downto 4) /= "1111") then
+                                sig_red   <= p1drone(vcount-sig_m1_y, hcount-(sig_m1_x))(23 downto 20); -- Extracting 4 MSBs for each color
+                                sig_green <= p1drone(vcount-sig_m1_y, hcount-(sig_m1_x))(15 downto 12);
+                                sig_blue  <= p1drone(vcount-sig_m1_y, hcount-(sig_m1_x))(7 downto 4);
+                            else
+                                sig_red   <= street((vcount-V_START)/4, ((hcount - H_START)/4 + bkgdindex) mod 220)(23 downto 20); -- Extracting 4 MSBs for each color
+                                sig_green <= street((vcount-V_START)/4, ((hcount - H_START)/4 + bkgdindex) mod 220)(15 downto 12);
+                                sig_blue  <= street((vcount-V_START)/4, ((hcount - H_START)/4 + bkgdindex) mod 220)(7 downto 4);
+                            end if;
+                        else
+                            sig_red   <= street((vcount-V_START)/4, ((hcount - H_START)/4 + bkgdindex) mod 220)(23 downto 20); -- Extracting 4 MSBs for each color
+                            sig_green <= street((vcount-V_START)/4, ((hcount - H_START)/4 + bkgdindex) mod 220)(15 downto 12);
+                            sig_blue  <= street((vcount-V_START)/4, ((hcount - H_START)/4 + bkgdindex) mod 220)(7 downto 4);
+                        end if;
+                    else
+                        sig_red   <= Image(vcount-(p1_V_TOP_LEFT + LENGTH), hcount-(p1_H_TOP_LEFT + WIDTH))(23 downto 20); -- Extracting 4 MSBs for each color
+                        sig_green <= Image(vcount-(p1_V_TOP_LEFT + LENGTH), hcount-(p1_H_TOP_LEFT + WIDTH))(15 downto 12);
+                        sig_blue  <= Image(vcount-(p1_V_TOP_LEFT + LENGTH), hcount-(p1_H_TOP_LEFT + WIDTH))(7 downto 4);
+                    end if;
+                -- Display p2
+                elsif((hcount >= p2_H_TOP_LEFT and hcount < p2_H_TOP_LEFT + WIDTH) and
+                     (vcount >= p2_V_TOP_LEFT and vcount < p2_V_TOP_LEFT + LENGTH)) then
+                     if (p2Image(vcount-(p2_V_TOP_LEFT + LENGTH), hcount-(p2_H_TOP_LEFT + WIDTH))(23 downto 20) = "0000" and
+                       p2Image(vcount-(p2_V_TOP_LEFT + LENGTH), hcount-(p2_H_TOP_LEFT + WIDTH))(15 downto 12) = "0000" and
+                       p2Image(vcount-(p2_V_TOP_LEFT + LENGTH), hcount-(p2_H_TOP_LEFT + WIDTH))(7 downto 4) = "0000") then
+                        if ((hcount >= sig_m1_x and hcount < sig_m1_x + m_WIDTH) and
+                            (vcount >= sig_m1_y and vcount < sig_m1_y + m_LENGTH)) and
+                           (sig_m1_x >= p2_H_TOP_LEFT and sig_m1_x < p2_H_TOP_LEFT + WIDTH and
+                           sig_m1_y >= p2_V_TOP_LEFT and sig_m1_y < p2_V_TOP_LEFT + LENGTH) then
+                            if (p1drone(vcount-sig_m1_y, hcount-(sig_m1_x))(23 downto 20) /= "1111" and
+                               p1drone(vcount-sig_m1_y, hcount-(sig_m1_x))(15 downto 12) /= "1111" and
+                               p1drone(vcount-sig_m1_y, hcount-(sig_m1_x))(7 downto 4) /= "1111") then
+                                sig_red   <= p1drone(vcount-sig_m1_y, hcount-(sig_m1_x))(23 downto 20); -- Extracting 4 MSBs for each color
+                                sig_green <= p1drone(vcount-sig_m1_y, hcount-(sig_m1_x))(15 downto 12);
+                                sig_blue  <= p1drone(vcount-sig_m1_y, hcount-(sig_m1_x))(7 downto 4);
+                            else
+                                sig_red   <= street((vcount-V_START)/4, ((hcount - H_START)/4 + bkgdindex) mod 220)(23 downto 20); -- Extracting 4 MSBs for each color
+                                sig_green <= street((vcount-V_START)/4, ((hcount - H_START)/4 + bkgdindex) mod 220)(15 downto 12);
+                                sig_blue  <= street((vcount-V_START)/4, ((hcount - H_START)/4 + bkgdindex) mod 220)(7 downto 4);
+                            end if;
+                        else
+                            sig_red   <= street((vcount-V_START)/4, ((hcount - H_START)/4 + bkgdindex) mod 220)(23 downto 20); -- Extracting 4 MSBs for each color
+                            sig_green <= street((vcount-V_START)/4, ((hcount - H_START)/4 + bkgdindex) mod 220)(15 downto 12);
+                            sig_blue  <= street((vcount-V_START)/4, ((hcount - H_START)/4 + bkgdindex) mod 220)(7 downto 4);
+                        end if;
+                    else
+                        sig_red   <= p2Image(vcount-(p2_V_TOP_LEFT + LENGTH), hcount-(p2_H_TOP_LEFT + WIDTH))(23 downto 20); -- Extracting 4 MSBs for each color
+                        sig_green <= p2Image(vcount-(p2_V_TOP_LEFT + LENGTH), hcount-(p2_H_TOP_LEFT + WIDTH))(15 downto 12);
+                        sig_blue  <= p2Image(vcount-(p2_V_TOP_LEFT + LENGTH), hcount-(p2_H_TOP_LEFT + WIDTH))(7 downto 4);
+                    end if;
+                -- Add the bullet display here
+                elsif((hcount >= p1_bullet_x and hcount < p1_bullet_x + BULLET_LENGTH) and
+                     (vcount >= p1_bullet_y and vcount < p1_bullet_y + BULLET_WIDTH)) then
+                    sig_red   <= "1111";
+                    sig_green <= "1111";
+                    sig_blue  <= "0000";
+                elsif((hcount >= p2_bullet_x and hcount < p2_bullet_x + BULLET_LENGTH) and
+                     (vcount >= p2_bullet_y and vcount < p2_bullet_y + BULLET_WIDTH)) then
+                    sig_red   <= "0000";
+                    sig_green <= "1111";
+                    sig_blue  <= "1111";
+                -- monster 1 display
+                elsif((hcount >= sig_m1_x and hcount < sig_m1_x + m_WIDTH) and
+                     (vcount >= sig_m1_y and vcount < sig_m1_y + m_LENGTH)) then
+                    if (p1drone(vcount-sig_m1_y, hcount-(sig_m1_x))(23 downto 20) = "1111" and
+                       p1drone(vcount-sig_m1_y, hcount-(sig_m1_x))(15 downto 12) = "1111" and
+                       p1drone(vcount-sig_m1_y, hcount-(sig_m1_x))(7 downto 4) = "1111") then
+                        sig_red   <= street((vcount-V_START)/4, ((hcount - H_START)/4 + bkgdindex) mod 220)(23 downto 20); -- Extracting 4 MSBs for each color
+                        sig_green <= street((vcount-V_START)/4, ((hcount - H_START)/4 + bkgdindex) mod 220)(15 downto 12);
+                        sig_blue  <= street((vcount-V_START)/4, ((hcount - H_START)/4 + bkgdindex) mod 220)(7 downto 4);
+                    else
+                        sig_red   <= p1drone((vcount-sig_m1_y), (hcount-(sig_m1_x)))(23 downto 20); -- Extracting 4 MSBs for each color
+                        sig_green <= p1drone((vcount-sig_m1_y), (hcount-(sig_m1_x)))(15 downto 12);
+                        sig_blue  <= p1drone((vcount-sig_m1_y), (hcount-(sig_m1_x)))(7 downto 4);
+                    end if;
+                -- monster 2 display
+                elsif((hcount >= sig_m2_x and hcount < sig_m2_x + m_WIDTH) and
+                     (vcount >= sig_m2_y and vcount < sig_m2_y + m_LENGTH)) then
+                    if (p2drone(vcount-sig_m2_y, hcount-(sig_m2_x))(23 downto 20) = "1111" and
+                       p2drone(vcount-sig_m2_y, hcount-(sig_m2_x))(15 downto 12) = "1111" and
+                       p2drone(vcount-sig_m2_y, hcount-(sig_m2_x))(7 downto 4) = "1111") then
+                        if((hcount >= p1_H_TOP_LEFT and hcount < p1_H_TOP_LEFT + WIDTH) and
+                           (vcount >= p1_V_TOP_LEFT and vcount < p1_V_TOP_LEFT + LENGTH)) then
+                            if (Image(vcount-(p1_V_TOP_LEFT + LENGTH), hcount-(p1_H_TOP_LEFT + WIDTH))(23 downto 20) = "0000" and
+                               Image(vcount-(p1_V_TOP_LEFT + LENGTH), hcount-(p1_H_TOP_LEFT + WIDTH))(15 downto 12) = "0000" and
+                               Image(vcount-(p1_V_TOP_LEFT + LENGTH), hcount-(p1_H_TOP_LEFT + WIDTH))(7 downto 4) = "0000") then
+                                sig_red   <= p1drone((vcount-sig_m1_y), (hcount-(sig_m1_x)))(23 downto 20); -- Extracting 4 MSBs for each color
+                                sig_green <= p1drone((vcount-sig_m1_y), (hcount-(sig_m1_x)))(15 downto 12);
+                                sig_blue  <= p1drone((vcount-sig_m1_y), (hcount-(sig_m1_x)))(7 downto 4);
+                            else
+                                sig_red   <= Image(vcount-(p1_V_TOP_LEFT + LENGTH), hcount-(p1_H_TOP_LEFT + WIDTH))(23 downto 20); -- Extracting 4 MSBs for each color
+                                sig_green <= Image(vcount-(p1_V_TOP_LEFT + LENGTH), hcount-(p1_H_TOP_LEFT + WIDTH))(15 downto 12);
+                                sig_blue  <= Image(vcount-(p1_V_TOP_LEFT + LENGTH), hcount-(p1_H_TOP_LEFT + WIDTH))(7 downto 4);
+                            end if;
+                        elsif((hcount >= p2_H_TOP_LEFT and hcount < p2_H_TOP_LEFT + WIDTH) and
+                             (vcount >= p2_V_TOP_LEFT and vcount < p2_V_TOP_LEFT + LENGTH)) then
+                            if (p2Image(vcount-(p2_V_TOP_LEFT + LENGTH), hcount-(p2_H_TOP_LEFT + WIDTH))(23 downto 20) = "0000" and
+                               p2Image(vcount-(p2_V_TOP_LEFT + LENGTH), hcount-(p2_H_TOP_LEFT + WIDTH))(15 downto 12) = "0000" and
+                               p2Image(vcount-(p2_V_TOP_LEFT + LENGTH), hcount-(p2_H_TOP_LEFT + WIDTH))(7 downto 4) = "0000") then
+                                sig_red   <= p1drone((vcount-sig_m1_y), (hcount-(sig_m1_x)))(23 downto 20); -- Extracting 4 MSBs for each color
+                                sig_green <= p1drone((vcount-sig_m1_y), (hcount-(sig_m1_x)))(15 downto 12);
+                                sig_blue  <= p1drone((vcount-sig_m1_y), (hcount-(sig_m1_x)))(7 downto 4);
+                            else
+                                sig_red   <= p2Image(vcount-(p2_V_TOP_LEFT + LENGTH), hcount-(p2_H_TOP_LEFT + WIDTH))(23 downto 20); -- Extracting 4 MSBs for each color
+                                sig_green <= p2Image(vcount-(p2_V_TOP_LEFT + LENGTH), hcount-(p2_H_TOP_LEFT + WIDTH))(15 downto 12);
+                                sig_blue  <= p2Image(vcount-(p2_V_TOP_LEFT + LENGTH), hcount-(p2_H_TOP_LEFT + WIDTH))(7 downto 4);
+                            end if;
+                        else
+                            sig_red   <= street((vcount-V_START)/4, ((hcount - H_START)/4 + bkgdindex) mod 220)(23 downto 20); -- Extracting 4 MSBs for each color
+                            sig_green <= street((vcount-V_START)/4, ((hcount - H_START)/4 + bkgdindex) mod 220)(15 downto 12);
+                            sig_blue  <= street((vcount-V_START)/4, ((hcount - H_START)/4 + bkgdindex) mod 220)(7 downto 4);
+                        end if;
+                    else
+                        sig_red   <= p2drone((vcount-sig_m2_y), (hcount-(sig_m2_x)))(23 downto 20); -- Extracting 4 MSBs for each color
+                        sig_green <= p2drone((vcount-sig_m2_y), (hcount-(sig_m2_x)))(15 downto 12);
+                        sig_blue  <= p2drone((vcount-sig_m2_y), (hcount-(sig_m2_x)))(7 downto 4);
+                    end if;
+                -- background
+                else
+                    sig_red   <= street((vcount-V_START)/4, ((hcount - H_START)/4 + bkgdindex) mod 220)(23 downto 20); -- Extracting 4 MSBs for each color
+                    sig_green <= street((vcount-V_START)/4, ((hcount - H_START)/4 + bkgdindex) mod 220)(15 downto 12);
+                    sig_blue  <= street((vcount-V_START)/4, ((hcount - H_START)/4 + bkgdindex) mod 220)(7 downto 4);
+                end if;
             
             else
                 
