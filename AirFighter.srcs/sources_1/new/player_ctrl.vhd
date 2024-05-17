@@ -261,13 +261,13 @@ begin
                 if  sig_m1_x - m_WIDTH/2 < RIGHT then
                     if m1_rand mod 2 = 0 then
                         -- cos(x/2)^3 - cos x + rand
-                        m1_cos1_in <= to_unsigned(((sig_m1_x * 256) / 1024), m1_cos1_in'length);
-                        m1_cos_in <= to_unsigned((((sig_m1_x * 256) / 2) / 1024), m1_cos_in'length) ;
-                        sig_m1_y <= ((to_integer(m1_cos_out) - to_integer(m1_cos1_out)) * 300 / 65536) + 300 - m1_rand;
+                        m1_cos1_in <= to_unsigned(((sig_m1_x * 255) / 1024), m1_cos1_in'length);
+                        m1_cos_in <= to_unsigned((((sig_m1_x * 255) / 2) / 1024), m1_cos_in'length) ;
+                        sig_m1_y <= ((to_integer(m1_cos_out) - to_integer(m1_cos1_out)) * 300 / 65535) + 300 - m1_rand;
                     else
-                        m1_cos1_in <= to_unsigned(((sig_m1_x * 256) / 1024), m1_cos1_in'length);
-                        m1_cos_in <= to_unsigned((((sig_m1_x * 256) / 2) / 1024), m1_cos_in'length) ;
-                        sig_m1_y <= 300-((to_integer(m1_cos_out) - to_integer(m1_cos1_out)) * 300 / 65536) + m1_rand;
+                        m1_cos1_in <= to_unsigned(((sig_m1_x * 255) / 1024), m1_cos1_in'length);
+                        m1_cos_in <= to_unsigned((((sig_m1_x * 255) / 2) / 1024), m1_cos_in'length) ;
+                        sig_m1_y <= 300-((to_integer(m1_cos_out) - to_integer(m1_cos1_out)) * 300 / 65535) + m1_rand;
                     end if;
                     sig_m1_x <= sig_m1_x + m_speed;
                     
@@ -280,13 +280,13 @@ begin
                 if  sig_m2_x + m_WIDTH/2 > LEFT then
                     if m2_rand mod 2 = 0 then
                         -- cos(x/2)^3 - cos x + rand
-                        m2_cos1_in <= to_unsigned((((sig_m2_x) * 256) / 1024), m2_cos1_in'length);
-                        m2_cos_in <= to_unsigned((((((sig_m2_x) * 256) / 2) / 1024) + 128) mod 256, m2_cos_in'length) ;
-                        sig_m2_y <= ((to_integer(m2_cos_out) - to_integer(m2_cos1_out)) * 300 / 65536) + 300 - m2_rand;
+                        m2_cos1_in <= to_unsigned((((sig_m2_x) * 255) / 1023), m2_cos1_in'length);
+                        m2_cos_in <= to_unsigned((((((sig_m2_x) * 255) / 2) / 1024) + 128) mod 255, m2_cos_in'length) ;
+                        sig_m2_y <= ((to_integer(m2_cos_out) - to_integer(m2_cos1_out)) * 300 / 65535) + 300 - m2_rand;
                     else
-                        m2_cos1_in <= to_unsigned((((sig_m2_x) * 256) / 1024), m2_cos1_in'length);
-                        m2_cos_in <= to_unsigned((((((sig_m2_x) * 256) / 2) / 1024) + 128) mod 256, m2_cos_in'length) ;
-                        sig_m2_y <= 300-((to_integer(m2_cos_out) - to_integer(m2_cos1_out)) * 300 / 65536) + m2_rand;
+                        m2_cos1_in <= to_unsigned((((sig_m2_x) * 255) / 1023), m2_cos1_in'length);
+                        m2_cos_in <= to_unsigned((((((sig_m2_x) * 255) / 2) / 1024) + 128) mod 255, m2_cos_in'length) ;
+                        sig_m2_y <= 300-((to_integer(m2_cos_out) - to_integer(m2_cos1_out)) * 300 / 65535) + m2_rand;
                     end if;
                     sig_m2_x <= sig_m2_x - m_speed;
                     
