@@ -19,6 +19,7 @@ AirFighter.cache/
 #Source files:
 #########
 #Do NOT ignore VHDL, Verilog, block diagrams or EDIF files.
+!*.vhdl
 !*.vhd
 !*.v
 !*.bd
