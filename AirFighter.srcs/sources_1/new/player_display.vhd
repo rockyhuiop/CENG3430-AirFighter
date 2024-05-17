@@ -24,6 +24,8 @@ use IEEE.STD_LOGIC_1164.ALL;
 use work.image_data_pkg.all;
 use work.pixelNum_pkg.all;
 use work.bkgd.all;  -- Add this line to use the image_data_pkg
+use work.endgame_pkg.all;
+use work.state_pkg.all;
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
 --use IEEE.NUMERIC_STD.ALL;
@@ -35,6 +37,7 @@ use work.bkgd.all;  -- Add this line to use the image_data_pkg
 
 entity player_display is
     Port ( 
+        state: in t_state;
         clk: in std_logic;
         hsync, vsync: out std_logic;
         red, green, blue: out std_logic_vector(3 downto 0);
@@ -100,6 +103,26 @@ architecture Behavioral of player_display is
     constant S2_H_START: integer := H_START + 924 - 48;
     constant S2_V_START: integer := V_START + 20;
     
+    
+    
+    constant P_WMSG_WIDTH: integer := 420;
+    constant P_WMSG_LENGTH: integer := 84;
+    constant P_LMSG_WIDTH: integer := 376;
+    constant P_LMSG_LENGTH: integer := 600;
+    constant P1_WINMSG_HTL: integer := H_START + 228;
+    constant P1_WINMSG_VTL: integer := V_START + 150;
+    constant P1_LMSG_HTL: integer := H_START + P_LMSG_WIDTH;
+    constant P1_LMSG_VTL: integer := V_START;
+    constant P2_WINMSG_HTL: integer := H_END - 228;
+    constant P2_WINMSG_VTL: integer := V_START + 150;
+    constant P2_LMSG_HTL: integer := H_END - P_LMSG_WIDTH;
+    constant P2_LMSG_VTL: integer := V_START;
+    
+    constant DMSG_WIDTH: integer := 476;
+    constant DMSG_LENGTH: integer := 448;
+    constant DMSG_HTL: integer := (H_START + H_END - DMSG_WIDTH) / 2; 
+    constant DMSG_VTL: integer := (V_START + V_END - DMSG_LENGTH) / 2;  
+    
     -- Signals for the bullet
     signal p1_bullet_x: integer := H_START + p1b_x - BULLET_LENGTH/2;
     signal p2_bullet_x: integer := H_START + p2b_x - BULLET_LENGTH/2;
@@ -126,6 +149,8 @@ begin
     comp_clk50MHz: clock_divider generic map(N => 1) port map(clk, clk50MHz);
     comp_clk10Hz: clock_divider generic map(N => 5000000) port map(clk, clk10Hz);
     comp_clk20Hz: clock_divider generic map(N => 2500000) port map(clk, clk20Hz);
+    
+    
         
     -- 3. horizontal counter
     hcount_proc: process(clk50MHz)
@@ -178,12 +203,15 @@ begin
     data_output_proc: process(hcount, vcount, clk20Hz)
     begin
         if(rising_edge(clk20Hz))then
-            bkgdindex <= (bkgdindex + 1) mod 220;
+            if state = RUSH then
+                bkgdindex <= ((2 * bkgdindex + 3) / 2) mod 220;
+            else
+                bkgdindex <= (bkgdindex + 1) mod 220;
+            end if;
         end if;
         
         if((hcount >= H_START and hcount < H_END) and
            (vcount >= V_START and vcount < V_END)) then
-           
            -- p1 score space 2nd digit
             if((hcount >= s1_H_START and hcount < s1_H_START + 48) and
                (vcount >= s1_V_START and vcount < s1_V_START + 48)) then
@@ -363,7 +391,49 @@ begin
                     sig_green <= pix9(vcount-(s2_V_START), hcount-(s2_H_START+48))(15 downto 12);
                     sig_blue  <= pix9(vcount-(s2_V_START), hcount-(s2_H_START+48))(7 downto 4);
                 end if;
+                
+                if state = DONE then
+                    if p1_score > p2_score then
+                        if((hcount >= p1_WINMSG_HTL and hcount < p1_WINMSG_HTL + p_WMSG_WIDTH) and 
+                            (vcount >= p1_WINMSG_VTL and vcount < p1_WINMSG_VTL + p_WMSG_LENGTH)) then
+                            sig_red   <= win((vcount-p1_WINMSG_VTL)/7, (hcount-p1_WINMSG_HTL)/7)(23 downto 20); -- Extracting 4 MSBs for each color
+                            sig_green <= win((vcount-p1_WINMSG_VTL)/7, (hcount-p1_WINMSG_HTL)/7)(15 downto 12);
+                            sig_blue  <= win((vcount-p1_WINMSG_VTL)/7, (hcount-p1_WINMSG_HTL)/7)(7 downto 4);
+                        elsif ((hcount >= p2_LMSG_HTL and hcount < p2_LMSG_HTL + p_LMSG_WIDTH) and 
+                            (vcount >= p2_LMSG_VTL and vcount < p2_LMSG_VTL + p_LMSG_LENGTH)) then
+                            sig_red <= "0001";
+                            sig_green <= "0001";
+                            sig_blue <= "0001";
+                        end if;
+                    elsif p1_score < p2_score then
+                        if((hcount >= p1_LMSG_HTL and hcount < p1_LMSG_HTL + p_LMSG_WIDTH) and 
+                            (vcount >= p1_LMSG_VTL and vcount < p1_LMSG_VTL + p_LMSG_LENGTH)) then
+                            sig_red <= "0001";
+                            sig_green <= "0001";
+                            sig_blue <= "0001";
+                        elsif ((hcount >= p2_WINMSG_HTL and hcount < p2_WINMSG_HTL + p_WMSG_WIDTH) and 
+                            (vcount >= p2_WINMSG_VTL and vcount < p2_WINMSG_VTL + p_WMSG_LENGTH)) then
+                            sig_red   <= win((vcount-p2_WINMSG_VTL)/7, (hcount-p2_WINMSG_HTL)/7)(23 downto 20); -- Extracting 4 MSBs for each color
+                            sig_green <= win((vcount-p2_WINMSG_VTL)/7, (hcount-p2_WINMSG_HTL)/7)(15 downto 12);
+                            sig_blue  <= win((vcount-p2_WINMSG_VTL)/7, (hcount-p2_WINMSG_HTL)/7)(7 downto 4);
+                        end if;
+                    else
+                        if((hcount >= DMSG_HTL and hcount < DMSG_HTL + DMSG_WIDTH) and 
+                            (vcount >= DMSG_VTL and vcount < DMSG_VTL + DMSG_LENGTH)) then
+                            sig_red   <= over((vcount-DMSG_VTL)/7, (hcount-DMSG_HTL)/7)(23 downto 20); -- Extracting 4 MSBs for each color
+                            sig_green <= over((vcount-DMSG_VTL)/7, (hcount-DMSG_HTL)/7)(15 downto 12);
+                            sig_blue  <= over((vcount-DMSG_VTL)/7, (hcount-DMSG_HTL)/7)(7 downto 4);
+                        else
+                            sig_red <= "1111";
+                            sig_green <= "1111";
+                            sig_blue <= "1111";
+                        end if;
+                    end if;
+                end if;
+                
+            
             else
+                
                 -- Display Player 1
                 if((hcount >= p1_H_TOP_LEFT and hcount < p1_H_TOP_LEFT + WIDTH) and
                    (vcount >= p1_V_TOP_LEFT and vcount < p1_V_TOP_LEFT + LENGTH)) then

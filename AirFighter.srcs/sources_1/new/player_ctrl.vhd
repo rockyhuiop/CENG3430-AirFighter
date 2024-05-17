@@ -22,6 +22,7 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
+use work.state_pkg.all;
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
 --use IEEE.NUMERIC_STD.ALL;
@@ -33,6 +34,7 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity player_ctrl is
     Port (
+        state: in t_state;
         clk, btnL, btnR, btnU, btnD: in std_logic;
         p1_x, p1_y, p2_x, p2_y: out integer;
         p1b_x, p1b_y, p2b_x, p2b_y: out integer;
@@ -126,13 +128,14 @@ architecture Behavioral of player_ctrl is
     constant RIGHT : integer := 1024;
     constant p_LENGTH : integer := 128;
     constant p_WIDTH : integer := 128;
-    constant p_SPEED: integer := 4;
-    constant b_SPEED: integer := 12; -- 50 pixels per second
+    signal p_SPEED: integer := 4;
+    signal b_SPEED: integer := 12; -- 50 pixels per second
     constant b_LENGTH: integer := 28;
     constant b_WIDTH: integer := 6;
     constant m_SPEED: integer := 5;
     constant m_LENGTH: integer := 76;
     constant m_WIDTH: integer := 52;
+    
     
     
 begin
@@ -147,10 +150,27 @@ begin
     comp_rand_gen: rand_gen port map(clk27Hz, rand_num);
     comp_rand_gen2: rand_gen port map(clk10Hz, rand_num2);
     
+    
+    
+    
+    
 -- Task: BTN Controller
     btn_proc: process(btnL, btnR, btnU, btnD)
     begin
-        if(rising_edge(clk50Hz)) then
+        if (rising_edge(clk50Hz)) then
+            case state is
+                when RUN =>
+                    p_SPEED <= 4;
+                when RUSH =>
+                    p_SPEED <= 8;
+                when others =>
+                    p_SPEED <= 0;
+                    sig_p1_y <= 300;
+                    sig_p2_y <= 300;
+            end case; 
+        end if;
+               
+        if(rising_edge(clk50Hz) and (state = RUN or state = RUSH)) then
             if(btnU = '1') then
                 if(sig_p1_y - p_SPEED >= TOP) then
                     sig_p1_y <= (sig_p1_y - p_SPEED);
@@ -182,6 +202,9 @@ begin
         end if;
     end process btn_proc;
     
+    
+    
+    
 
     bullet_proc: process(clk50Hz) 
     begin
@@ -191,7 +214,26 @@ begin
 --                rand_num <= 0;
 --            end if;
 --        end if;
-        if rising_edge(clk50Hz) then
+        if (rising_edge(clk50Hz)) then
+            case state is
+                when RUN =>
+                    b_SPEED <= 12;
+                when RUSH =>
+                    b_SPEED <= 24;
+                when others =>
+                    b_SPEED <= 0;
+                    sig_m1_x <= 0;
+                    sig_m2_x <= 1024;
+                    sig_p1b_x <= 0;
+                    sig_p2b_x <= 1024;
+                    sig_p1_score <= 0;
+                    sig_p2_score <= 0;
+                    
+            end case;
+        end if;
+        
+        
+        if (rising_edge(clk50Hz) and (state = RUN or state = RUSH)) then
             if sig_p1_score >= 99 then
                 sig_p1_score <= 0;
             end if;
@@ -224,13 +266,13 @@ begin
             if  sig_m1_x - m_WIDTH/2 < RIGHT then
                 if m1_rand mod 2 = 0 then
                     -- cos(x/2)^3 - cos x + rand
-                    m1_cos1_in <= to_unsigned(((sig_m1_x * 255) / 1024), m1_cos1_in'length);
-                    m1_cos_in <= to_unsigned((((sig_m1_x * 255) / 2) / 1024), m1_cos_in'length) ;
-                    sig_m1_y <= ((to_integer(m1_cos_out) - to_integer(m1_cos1_out)) * 300 / 65535) + 300 - m1_rand;
+                    m1_cos1_in <= to_unsigned(((sig_m1_x * 256) / 1024), m1_cos1_in'length);
+                    m1_cos_in <= to_unsigned((((sig_m1_x * 256) / 2) / 1024), m1_cos_in'length) ;
+                    sig_m1_y <= ((to_integer(m1_cos_out) - to_integer(m1_cos1_out)) * 300 / 65536) + 300 - m1_rand;
                 else
-                    m1_cos1_in <= to_unsigned(((sig_m1_x * 255) / 1024), m1_cos1_in'length);
-                    m1_cos_in <= to_unsigned((((sig_m1_x * 255) / 2) / 1024), m1_cos_in'length) ;
-                    sig_m1_y <= 300-((to_integer(m1_cos_out) - to_integer(m1_cos1_out)) * 300 / 65535) + m1_rand;
+                    m1_cos1_in <= to_unsigned(((sig_m1_x * 256) / 1024), m1_cos1_in'length);
+                    m1_cos_in <= to_unsigned((((sig_m1_x * 256) / 2) / 1024), m1_cos_in'length) ;
+                    sig_m1_y <= 300-((to_integer(m1_cos_out) - to_integer(m1_cos1_out)) * 300 / 65536) + m1_rand;
                 end if;
                 sig_m1_x <= sig_m1_x + m_speed;
                 
@@ -243,13 +285,13 @@ begin
             if  sig_m2_x + m_WIDTH/2 > LEFT then
                 if m2_rand mod 2 = 0 then
                     -- cos(x/2)^3 - cos x + rand
-                    m2_cos1_in <= to_unsigned((((sig_m2_x * 255) - 255) / 1024), m2_cos1_in'length);
-                    m2_cos_in <= to_unsigned(((((sig_m2_x * 255) - 255) / 2) / 1024), m2_cos_in'length) ;
-                    sig_m2_y <= ((to_integer(m2_cos_out) - to_integer(m2_cos1_out)) * 300 / 65535) + 300 - m2_rand;
+                    m2_cos1_in <= to_unsigned((((sig_m2_x) * 256) / 1024), m2_cos1_in'length);
+                    m2_cos_in <= to_unsigned((((((sig_m2_x) * 256) / 2) / 1024) + 128) mod 256, m2_cos_in'length) ;
+                    sig_m2_y <= ((to_integer(m2_cos_out) - to_integer(m2_cos1_out)) * 300 / 65536) + 300 - m2_rand;
                 else
-                    m2_cos1_in <= to_unsigned((((sig_m2_x * 255) - 255) / 1024), m2_cos1_in'length);
-                    m2_cos_in <= to_unsigned(((((sig_m2_x * 255) - 255) / 2) / 1024), m2_cos_in'length) ;
-                    sig_m2_y <= 300-((to_integer(m2_cos_out) - to_integer(m2_cos1_out)) * 300 / 65535) + m2_rand;
+                    m2_cos1_in <= to_unsigned((((sig_m2_x) * 256) / 1024), m2_cos1_in'length);
+                    m2_cos_in <= to_unsigned((((((sig_m2_x) * 256) / 2) / 1024) + 128) mod 256, m2_cos_in'length) ;
+                    sig_m2_y <= 300-((to_integer(m2_cos_out) - to_integer(m2_cos1_out)) * 300 / 65536) + m2_rand;
                 end if;
                 sig_m2_x <= sig_m2_x - m_speed;
                 

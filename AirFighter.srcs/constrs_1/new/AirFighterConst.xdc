@@ -18,11 +18,27 @@ set_property PACKAGE_PIN N15  [get_ports btnL];
 set_property PACKAGE_PIN R18  [get_ports btnR];  
 set_property PACKAGE_PIN P16  [get_ports reset];
 
+set_property PACKAGE_PIN Y11 [get_ports {ssd[6]}];
+set_property PACKAGE_PIN AA11 [get_ports {ssd[5]}];
+set_property PACKAGE_PIN Y10 [get_ports {ssd[4]}];
+set_property PACKAGE_PIN AA9 [get_ports {ssd[3]}];
+set_property PACKAGE_PIN W12 [get_ports {ssd[2]}];
+set_property PACKAGE_PIN W11 [get_ports {ssd[1]}];
+set_property PACKAGE_PIN V10 [get_ports {ssd[0]}];
+set_property PACKAGE_PIN W8 [get_ports {sel}];
+
+set_property IOSTANDARD LVCMOS33 [get_ports ssd];
+set_property IOSTANDARD LVCMOS33 [get_ports sel];
+
+
+
 # All VGA pins are connected by bank 33, so specified 3.3V together. 
 set_property IOSTANDARD LVCMOS33 [get_ports -of_objects [get_iobanks 33]]; 
 
 set_property PACKAGE_PIN Y9 [get_ports {clk}];  # "clk" 
 set_property IOSTANDARD LVCMOS33 [get_ports -of_objects [get_iobanks 13]];
+
+set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets reset]
 
 set_property IOSTANDARD LVCMOS25 [get_ports btnU];
 set_property IOSTANDARD LVCMOS25 [get_ports btnD];
