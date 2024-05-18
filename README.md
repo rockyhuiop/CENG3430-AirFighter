@@ -5,7 +5,7 @@
 
 ![AF_title](https://github.com/rockyhuiop/CENG3430-AirFighter/assets/54813455/8cca5b69-4e1f-44a0-ba0d-866af343078d)
 
-B.ENG in Computer Engineering @CUHK
+B.ENG in Computer Engineering at The Chinese University of Hong Kong
 
 ### Youtube Demonstration:
 
