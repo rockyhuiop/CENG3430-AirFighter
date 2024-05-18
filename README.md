@@ -1,5 +1,5 @@
 # CENG3430-AirFighter
- 2 Players Airplane Battle Arcadegame on Zynq 
+ 2 Players Airplane Battle Arcade game on Zynq 
  
  using FPGA Zedboard to output VGA signal to display on 1024*600 monitor
 
