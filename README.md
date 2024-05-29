@@ -12,3 +12,5 @@ B.ENG in Computer Engineering at The Chinese University of Hong Kong
 https://www.youtube.com/watch?v=n-W5Sk3SSMw
 
 [![video](https://img.youtube.com/vi/n-W5Sk3SSMw/0.jpg)](https://www.youtube.com/watch?v=n-W5Sk3SSMw)
+
+### Grade: A-
